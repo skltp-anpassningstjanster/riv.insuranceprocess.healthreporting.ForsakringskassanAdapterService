@@ -1,0 +1,103 @@
+<!--
+
+    Copyright (c) 2012, Sjukvardsradgivningen. All rights reserved.
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+    MA 02110-1301  USA
+
+-->
+<mule 
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:spring="http://www.springframework.org/schema/beans"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:vm="http://www.mulesoft.org/schema/mule/vm"
+	xmlns:jdbc="http://www.mulesoft.org/schema/mule/jdbc"
+	xmlns:cxf="http://www.mulesoft.org/schema/mule/cxf"
+	xmlns:jms="http://www.mulesoft.org/schema/mule/jms"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:https="http://www.mulesoft.org/schema/mule/https"
+	xmlns:mule-xml="http://www.mulesoft.org/schema/mule/xml"
+	xmlns:smooks="http://www.muleforge.org/smooks/schema/mule-module-smooks"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:rest="http://www.mulesoft.org/schema/mule/rest"
+	xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.mulesoft.org/schema/mule/core      http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/vm        http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+		http://www.mulesoft.org/schema/mule/jdbc      http://www.mulesoft.org/schema/mule/jdbc/current/mule-jdbc.xsd
+		http://www.mulesoft.org/schema/mule/cxf       http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd
+		http://www.mulesoft.org/schema/mule/jms       http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd
+		http://www.mulesoft.org/schema/mule/http      http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+		http://www.mulesoft.org/schema/mule/https     http://www.mulesoft.org/schema/mule/https/current/mule-https.xsd
+		http://www.mulesoft.org/schema/mule/xml       http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+		http://www.muleforge.org/smooks/schema/mule-module-smooks http://dist.muleforge.org/smooks/schema/mule-module-smooks/1.3/mule-module-smooks.xsd
+		http://www.mulesoft.org/schema/mule/json      http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+		http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+		http://www.mulesoft.org/schema/mule/rest      http://www.mulesoft.org/schema/mule/rest/current/mule-rest.xsd
+		http://www.mulesoft.org/schema/mule/xml       http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+	">
+	
+	<message-properties-transformer name="changeNamespaceRecMedCertQuestion">
+		<add-message-property key="namespace"
+			value="urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateQuestion:1:rivtabp20" />
+	</message-properties-transformer>
+
+	<message-properties-transformer name="newReceiverIdQuestion">
+		<delete-message-property key="receiverid" />
+	</message-properties-transformer>
+
+	<message-properties-transformer name="deleteSoapActionQuestion">
+		<delete-message-property key="soapaction" />
+	</message-properties-transformer>
+
+
+	<flow name="fk-varden-question-service">
+
+		<https:inbound-endpoint address="${inbound.endpoint.eintyg.taemotfraga}"
+			connector-ref="soitoolkit-https-connector" 
+			exchange-pattern="request-response"
+			responseTransformer-refs="logRespOut"
+			transformer-refs="logReqIn fkWhiteListProcessor newReceiverIdQuestion changeNamespaceRecMedCertQuestion">
+		</https:inbound-endpoint>
+
+		<cxf:proxy-service
+			namespace="urn:riv:fk:vardgivare:sjukvard:TaEmotFraga:1:rivtabp20"
+			payload="body" 
+			service="TaEmotFragaResponderService"
+			wsdlLocation="classpath:/schemas/fk/TaEmotFragaInteraction12_1.0_rivtabp20.wsdl" />
+			
+		<custom-transformer doc:name="transform-request" class="se.skl.skltpservices.adapter.fk.recmedcertquestion.FkRequest2VardTransformer"/>
+			
+		<https:outbound-endpoint connector-ref="soitoolkit-https-connector"
+			address="${outbound.endpoint.eintyg.receivemedicalcertificatequestion}"
+			exchange-pattern="request-response" 
+			responseTimeout="${SERVICE_TIMEOUT_MS}"
+			transformer-refs="deleteSoapActionQuestion logReqOut" 
+			responseTransformer-refs="logRespIn">
+			<cxf:jaxws-client port="ReceiveMedicalCertificateQuestionResponderPort"
+				operation="ReceiveMedicalCertificateQuestion"
+				clientClass="se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificatequestion.v1.rivtabp20.ReceiveMedicalCertificateQuestionResponderService"
+				wsdlLocation="classpath:/schemas/vard/interactions/ReceiveMedicalCertificateQuestionInteraction/ReceiveMedicalCertificateQuestionInteraction_1.0_rivtabp20.wsdl" />
+		</https:outbound-endpoint>
+		
+		 <response>
+            <custom-transformer doc:name="transform-response" class="se.skl.skltpservices.adapter.fk.recmedcertquestion.VardResponse2FkTransformer"/>
+        </response>
+
+	</flow>
+</mule>
