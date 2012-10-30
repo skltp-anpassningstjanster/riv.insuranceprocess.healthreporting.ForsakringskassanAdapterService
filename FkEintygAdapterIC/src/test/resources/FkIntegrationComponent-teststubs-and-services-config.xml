@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule 
+	xmlns="http://www.mulesource.org/schema/mule/core/2.2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:spring="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.mulesource.org/schema/mule/core/2.2 http://www.mulesource.org/schema/mule/core/2.2/mule.xsd
+	">
+   
+    <spring:beans>
+    	<!-- classpath* is needed when this component runs inside Tjanstebryggan with
+    	mul 2.2.8. When moving to mule 3.3.1 this is not needed anymore because each
+    	app runs in its own context. -->
+        <spring:import resource="classpath*:teststub-services/*-fk-teststub-service.xml"/>
+    </spring:beans>
+
+</mule>

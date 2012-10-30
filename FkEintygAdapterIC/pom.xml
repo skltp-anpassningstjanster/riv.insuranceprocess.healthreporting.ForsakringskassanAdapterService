@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<!-- * Copyright 2009 Sjukvardsradgivningen * * This library is free software; 
+	you can redistribute it and/or modify * it under the terms of version 2.1 
+	of the GNU Lesser General Public * License as published by the Free Software 
+	Foundation. * * This library is distributed in the hope that it will be useful, 
+	* but WITHOUT ANY WARRANTY; without even the implied warranty of * MERCHANTABILITY 
+	or FITNESS FOR A PARTICULAR PURPOSE. See the * GNU Lesser General Public 
+	License for more details. * * You should have received a copy of the GNU 
+	Lesser General Public * License along with this library; if not, write to 
+	the * Free Software Foundation, Inc., 59 Temple Place, Suite 330, * Boston, 
+	MA 02111-1307 USA -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>se.skl.skltpservices.fk</groupId>
+	<artifactId>FkEintygAdapterIC</artifactId>
+	<name>${project.artifactId}</name>
+	<url>http://maven.apache.org</url>
+
+	<parent>
+		<groupId>se.skl.skltpservices.fk</groupId>
+		<artifactId>ForsakringskassanEintygAdapter</artifactId>
+		<version>1.6.0-RB</version>
+	</parent>
+
+	<dependencies>
+		<!-- schema dependency -->
+
+		<dependency>
+			<groupId>se.riv.fk</groupId>
+			<artifactId>insuranceprocess-healthreporting-schemas</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>se.riv.fk</groupId>
+			<artifactId>fk-vardgivare-sjukvard-schemas</artifactId>
+		</dependency>
+
+		<!-- soi toolkit dependencies -->
+
+		<dependency>
+			<groupId>org.soitoolkit.commons.components</groupId>
+			<artifactId>soitoolkit-commons-mule</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.soitoolkit.commons.components</groupId>
+			<artifactId>soitoolkit-commons-log</artifactId>
+		</dependency>
+
+		<!-- cxf -->
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http-jetty</artifactId>
+		</dependency>
+
+		<!-- spring -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+
+		<!-- mule -->
+
+		<dependency>
+			<groupId>org.mule</groupId>
+			<artifactId>mule-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.modules</groupId>
+			<artifactId>mule-module-spring-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.modules</groupId>
+			<artifactId>mule-module-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.tests</groupId>
+			<artifactId>mule-tests-functional</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.transports</groupId>
+			<artifactId>mule-transport-http</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.transports</groupId>
+			<artifactId>mule-transport-cxf</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>${basedir}/src/main/app</directory>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>${basedir}/src/test/resources</directory>
+			</testResource>
+			<testResource>
+				<directory>${basedir}/src/environment</directory>
+			</testResource>
+		</testResources>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<!-- if no classifier is declared, then a mvn install results in a file 
+						in the local repo: ic2-1.0.0-SNAPSHOT.mule which is a jar-file - only strangely 
+						named and with a bad extension -->
+					<classifier>core</classifier>
+					<excludes>
+						<exclude>log4j.xml</exclude>
+					</excludes>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

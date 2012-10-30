@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+/**
+ * Copyright 2009 Sjukvardsradgivningen
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of version 2.1 of the GNU Lesser General Public
+ * 
+ * License as published by the Free Software Foundation.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the
+ * 
+ * GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330,
+ * 
+ * Boston, MA 02111-1307 USA
+ */
+  -->
+<mule 
+	xmlns="http://www.mulesource.org/schema/mule/core/2.2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:spring="http://www.springframework.org/schema/beans"
+	xmlns:https="http://www.mulesource.org/schema/mule/https/2.2"
+	xmlns:jms="http://www.mulesource.org/schema/mule/jms/2.2"
+	xmlns:management="http://www.mulesource.org/schema/mule/management/2.2"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans          http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.mulesource.org/schema/mule/core/2.2       http://www.mulesource.org/schema/mule/core/2.2/mule.xsd
+		http://www.mulesource.org/schema/mule/https/2.2		 http://www.mulesource.org/schema/mule/https/2.2/mule-https.xsd
+		http://www.mulesource.org/schema/mule/jms/2.2        http://www.mulesource.org/schema/mule/jms/2.2/mule-jms.xsd
+		http://www.mulesource.org/schema/mule/management/2.2 http://www.mulesource.org/schema/mule/management/2.2/mule-management.xsd
+	">
+
+	<spring:bean id="propertyPlaceholder" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<spring:property name="ignoreResourceNotFound" value="true" />
+		<spring:property name="locations">
+			<spring:list>
+				<!-- Only available in development env, e.g. Eclipse -->
+				<spring:value>classpath:FkIntegrationComponent-security.properties</spring:value>
+				<spring:value>classpath:FkIntegrationComponent-security-override.properties</spring:value>
+				
+				<spring:value>classpath:FkIntegrationComponent-config.properties</spring:value>
+				<spring:value>classpath:FkIntegrationComponent-config-override.properties</spring:value>
+			</spring:list>
+		</spring:property>
+	</spring:bean>
+	  
+   	<notifications dynamic="true">
+		<notification event="COMPONENT-MESSAGE"/>
+		<notification event="ENDPOINT-MESSAGE"/>
+		<notification event="CONTEXT"/>
+	</notifications>
+
+    <!-- Https connector -->
+  	<https:connector name="FkIntegrationComponent-https-connector" clientSoTimeout="${FK_HTTPS_CLIENT_TIMEOUT}" >
+		<https:tls-key-store class="${FK_TLS_STORE_PRODUCER_TYPE}"     path="${FK_TLS_STORE_LOCATION}/${FK_TLS_STORE_PRODUCER_FILE}" storePassword="${FK_TLS_STORE_PRODUCER_PASSWORD}" keyPassword="${FK_TLS_STORE_PRODUCER_KEY_PASSWORD}" /> 
+		<https:tls-server    class="${FK_TLS_STORE_TRUSTSTORE_TYPE}" path="${FK_TLS_STORE_LOCATION}/${FK_TLS_STORE_TRUSTSTORE_FILE}" storePassword="${FK_TLS_STORE_TRUSTSTORE_PASSWORD}" requireClientAuthentication="${FK_TLS_REQ_CLIENTAUTH}"/>
+	</https:connector>
+    
+    <configuration>
+		<default-dispatcher-threading-profile maxThreadsActive="${FK_DISPATCH_MAX_THREADS_ACTIVE}" maxThreadsIdle="${FK_DISPATCH_MAX_THREADS_IDLE}" threadTTL="${FK_DISPATCH_MAX_THREADS_TTL}"/>
+		<default-receiver-threading-profile maxThreadsActive="${FK_RECEIVE_MAX_THREADS_ACTIVE}" maxThreadsIdle="${FK_RECEIVE_MAX_THREADS_IDLE}" threadTTL="${FK_RECEIVE_MAX_THREADS_TTL}"/>
+	</configuration>
+  
+    <custom-transformer name="fkWhiteListProcessor" class="se.skl.skltpservices.adapter.common.processor.WhiteListProcessor" >
+        <spring:property name="senderIdPropertyName" value="${FK_CERT_SENDERID}" />
+        <spring:property name="whiteList" value="${FK_WHITE_LIST}" />
+        <spring:property name="certificatesKey" value="${CERTIFICATE_KEY}" />
+   </custom-transformer>
+
+</mule>

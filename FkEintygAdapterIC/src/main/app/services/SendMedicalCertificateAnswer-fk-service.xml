@@ -1,0 +1,69 @@
+
+	<!--
+		* Copyright 2009 Sjukvardsradgivningen * * This library is free
+		software; you can redistribute it and/or modify * it under the terms
+		of version 2.1 of the GNU Lesser General Public * License as published
+		by the Free Software Foundation. * * This library is distributed in
+		the hope that it will be useful, * but WITHOUT ANY WARRANTY; without
+		even the implied warranty of * MERCHANTABILITY or FITNESS FOR A
+		PARTICULAR PURPOSE. See the * GNU Lesser General Public License for
+		more details. * * You should have received a copy of the GNU Lesser
+		General Public * License along with this library; if not, write to the
+		* Free Software Foundation, Inc., 59 Temple Place, Suite 330, *
+		Boston, MA 02111-1307 USA
+	-->
+<mule xmlns="http://www.mulesource.org/schema/mule/core/2.2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:spring="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:cxf="http://www.mulesource.org/schema/mule/cxf/2.2" 
+	xmlns:http="http://www.mulesource.org/schema/mule/http/2.2"
+	xmlns:https="http://www.mulesource.org/schema/mule/https/2.2"
+	xsi:schemaLocation="
+               http://www.springframework.org/schema/beans    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+               http://www.mulesource.org/schema/mule/core/2.2 http://www.mulesource.org/schema/mule/core/2.2/mule.xsd
+               http://www.springframework.org/schema/context   http://www.springframework.org/schema/context/spring-context-2.5.xsd
+               http://www.mulesource.org/schema/mule/http/2.2 http://www.mulesource.org/schema/mule/http/2.2/mule-http.xsd
+               http://www.mulesource.org/schema/mule/https/2.2 http://www.mulesource.org/schema/mule/https/2.2/mule-https.xsd
+               http://www.mulesource.org/schema/mule/cxf/2.2  http://www.mulesource.org/schema/mule/cxf/2.2/mule-cxf.xsd">
+	<!--
+	Name of this file is mandatory and may not be changed. 
+	 -->
+	<custom-transformer name="VardReq2FkAnswer" class="se.skl.skltpservices.adapter.fk.sendmedcertanswer.VardRequest2FkTransformer"/>
+	<custom-transformer name="FkResp2VardAnswer" class="se.skl.skltpservices.adapter.fk.sendmedcertanswer.FkResponse2VardTransformer"/>
+	
+	<message-properties-transformer name="changeNamespaceSendAnswer">
+		<add-message-property key="namespace" value="urn:riv:fk:vardgivare:sjukvard:TaEmotSvar:1:rivtabp20"/>
+	</message-properties-transformer>           
+	
+	<model name="varden-fk-sendmedcertanswer">
+		<service name="varden-fk-sendmedcertanswer-service">
+			<inbound>
+				<cxf:inbound-endpoint 
+					address="${inbound.endpoint.eintyg.sendmedicalcertificateanswer}"
+					wsdlLocation="classpath:/schemas/vard/interactions/SendMedicalCertificateAnswerInteraction/SendMedicalCertificateAnswerInteraction_1.0_rivtabp20.wsdl"
+					serviceName="SendMedicalCertificateAnswerResponderService"
+					namespace="urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateAnswer:1:rivtabp20"
+					proxy="true" 
+					synchronous="true"
+					applyTransformersToProtocol="false"
+					transformer-refs="VardReq2FkAnswer changeNamespaceSendAnswer"
+					responseTransformer-refs="FkResp2VardAnswer"
+				/>							
+			</inbound>
+
+			<outbound>
+                <pass-through-router>
+                        <cxf:outbound-endpoint 
+                        	address="${outbound.endpoint.eintyg.sendmedicalcertificateanswer}" 
+							wsdlLocation="classpath:/schemas/fk/TaEmotSvarInteraction_1.0_rivtabp20.wsdl"
+                        	wsdlPort="TaEmotSvarResponderPort"
+                        	operation="TaEmotSvar" 
+                        	clientClass="se.fk.vardgivare.sjukvard.taemotsvar.v1.rivtabp20.TaEmotSvarResponderService"
+            	        	synchronous="true"
+                        /> 
+                </pass-through-router>
+            </outbound>
+		</service>		
+	</model>
+</mule>

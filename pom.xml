@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<!-- This is the System-level Maven POM. Usage: Define all truly common things 
+	for the system here. For example: versions of third-party dependencies used 
+	throughout the system. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.soitoolkit.commons.poms</groupId>
+		<artifactId>soitoolkit-default-parent</artifactId>
+		<version>0.3.1</version>
+	</parent>
+
+	<groupId>se.skl.skltpservices.fk</groupId>
+	<artifactId>ForsakringskassanEintygAdapter</artifactId>
+	<version>1.6.0-RB</version>
+	<packaging>pom</packaging>
+	<name>${project.artifactId}</name>
+	
+	<scm>
+		<connection>scm:svn:http://skltpservices.googlecode.com/svn/Components/ForsakringskassanEintygAdapter/trunk/</connection>
+		<developerConnection>scm:svn:https://skltpservices.googlecode.com/svn/Components/ForsakringskassanEintygAdapter/trunk/</developerConnection>
+		<url>http://skltpservices.googlecode.com/svn/Components/ForsakringskassanEintygAdapter/trunk/</url>
+	</scm>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<mule.version>2.2.8</mule.version>
+		<cxf.version>2.2.12</cxf.version>
+		<spring.version>2.5.6</spring.version>
+	</properties>
+
+	<modules>
+		<module>Schema</module>
+		<module>FkEintygAdapterIC</module>
+		<module>TaEmotFraga</module>
+		<module>TaEmotLakarintyg</module>
+		<module>TaEmotSvar</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+
+			<!-- schema dependency -->
+
+			<dependency>
+				<groupId>se.riv.fk</groupId>
+				<artifactId>insuranceprocess-healthreporting-schemas</artifactId>
+				<version>1.6.0</version>
+			</dependency>
+
+			<dependency>
+				<groupId>se.riv.fk</groupId>
+				<artifactId>fk-vardgivare-sjukvard-schemas</artifactId>
+				<version>1.6.0</version>
+			</dependency>
+
+			<!-- soi toolkit dependencies -->
+
+			<dependency>
+				<groupId>org.soitoolkit.commons.components</groupId>
+				<artifactId>soitoolkit-commons-mule</artifactId>
+				<version>${soitoolkit.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.soitoolkit.commons.components</groupId>
+				<artifactId>soitoolkit-commons-log</artifactId>
+				<version>${soitoolkit.version}</version>
+			</dependency>
+
+			<!-- Mule dependencies -->
+
+			<dependency>
+				<groupId>org.mule</groupId>
+				<artifactId>mule-core</artifactId>
+				<version>${mule.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mule.modules</groupId>
+				<artifactId>mule-module-spring-config</artifactId>
+				<version>${mule.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mule.modules</groupId>
+				<artifactId>mule-module-client</artifactId>
+				<version>${mule.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mule.tests</groupId>
+				<artifactId>mule-tests-functional</artifactId>
+				<version>${mule.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mule.transports</groupId>
+				<artifactId>mule-transport-http</artifactId>
+				<version>${mule.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mule.transports</groupId>
+				<artifactId>mule-transport-cxf</artifactId>
+				<version>${mule.version}</version>
+			</dependency>
+
+			<!-- cxf -->
+
+			<dependency>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-rt-frontend-jaxws</artifactId>
+				<version>${cxf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-rt-transports-http</artifactId>
+				<version>${cxf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-rt-transports-http-jetty</artifactId>
+				<version>${cxf.version}</version>
+			</dependency>
+
+			<!-- Spring -->
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<!-- log4j -->
+
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>com.sun.jdmk</groupId>
+						<artifactId>jmxtools</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>com.sun.jmx</groupId>
+						<artifactId>jmxri</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>javax.jms</groupId>
+						<artifactId>jms</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.0</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+</project>
