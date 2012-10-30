@@ -1,0 +1,85 @@
+
+	<!--
+		* Copyright 2009 Sjukvardsradgivningen * * This library is free
+		software; you can redistribute it and/or modify * it under the terms
+		of version 2.1 of the GNU Lesser General Public * License as published
+		by the Free Software Foundation. * * This library is distributed in
+		the hope that it will be useful, * but WITHOUT ANY WARRANTY; without
+		even the implied warranty of * MERCHANTABILITY or FITNESS FOR A
+		PARTICULAR PURPOSE. See the * GNU Lesser General Public License for
+		more details. * * You should have received a copy of the GNU Lesser
+		General Public * License along with this library; if not, write to the
+		* Free Software Foundation, Inc., 59 Temple Place, Suite 330, *
+		Boston, MA 02111-1307 USA
+	-->
+<mule xmlns="http://www.mulesource.org/schema/mule/core/2.2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:spring="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:cxf="http://www.mulesource.org/schema/mule/cxf/2.2" 
+	xmlns:http="http://www.mulesource.org/schema/mule/http/2.2"
+	xmlns:https="http://www.mulesource.org/schema/mule/https/2.2"
+	xsi:schemaLocation="
+               http://www.springframework.org/schema/beans    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+               http://www.mulesource.org/schema/mule/core/2.2 http://www.mulesource.org/schema/mule/core/2.2/mule.xsd
+               http://www.springframework.org/schema/context   http://www.springframework.org/schema/context/spring-context-2.5.xsd
+               http://www.mulesource.org/schema/mule/http/2.2 http://www.mulesource.org/schema/mule/http/2.2/mule-http.xsd
+               http://www.mulesource.org/schema/mule/https/2.2 http://www.mulesource.org/schema/mule/https/2.2/mule-https.xsd
+               http://www.mulesource.org/schema/mule/cxf/2.2  http://www.mulesource.org/schema/mule/cxf/2.2/mule-cxf.xsd">
+	<!--
+	Name of this file is mandatory and may not be changed. 
+	 -->
+	<!--	
+	<custom-transformer name="FkReq2VardQuestion" class="se.skl.tp.recmedcertquestion.transformers.FkRequest2VardTransformer">
+		<spring:property name="senderIdPropertyName" value="${VAGVALROUTER_SENDERID}" />
+	</custom-transformer>
+	 -->
+	 
+	<custom-transformer name="FkReq2VardQuestion" class="se.skl.skltpservices.adapter.fk.recmedcertquestion.FkRequest2VardTransformer"/>	
+	<custom-transformer name="VardResp2FkQuestion" class="se.skl.skltpservices.adapter.fk.recmedcertquestion.VardResponse2FkTransformer"/>
+
+	<message-properties-transformer name="changeNamespaceRecMedCertQuestion">
+		<add-message-property key="namespace" value="urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateQuestion:1:rivtabp20"/>
+	</message-properties-transformer>           
+	
+	<message-properties-transformer name="newReceiverIdQuestion">
+		<delete-message-property key="receiverid"/>
+	</message-properties-transformer>           
+
+	<message-properties-transformer name="deleteSoapActionQuestion">
+		<delete-message-property key="soapaction"/>
+	</message-properties-transformer>           
+	
+	<model name="fkvarden-question-model">
+		<service name="fk-varden-question-service">
+			<inbound>
+				<cxf:inbound-endpoint 
+					address="${inbound.endpoint.eintyg.taemotfraga}"
+					wsdlLocation="classpath:/schemas/fk/TaEmotFragaInteraction12_1.0_rivtabp20.wsdl"
+					serviceName="TaEmotFragaResponderService"
+					namespace="urn:riv:fk:vardgivare:sjukvard:TaEmotFraga:1:rivtabp20"
+					proxy="true" 
+					synchronous="true"
+					applyTransformersToProtocol="false"
+					transformer-refs="fkWhiteListProcessor newReceiverIdQuestion FkReq2VardQuestion changeNamespaceRecMedCertQuestion"
+					responseTransformer-refs="VardResp2FkQuestion"
+				/>							
+			</inbound>
+
+			<outbound>
+                <pass-through-router>
+                        <cxf:outbound-endpoint 
+                        	address="${outbound.endpoint.eintyg.receivemedicalcertificatequestion}" 
+							wsdlLocation="classpath:/schemas/vard/interactions/ReceiveMedicalCertificateQuestionInteraction/ReceiveMedicalCertificateQuestionInteraction_1.0_rivtabp20.wsdl"
+                        	wsdlPort="ReceiveMedicalCertificateQuestionResponderPort"
+                        	operation="ReceiveMedicalCertificateQuestion" 
+                        	clientClass="se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificatequestion.v1.rivtabp20.ReceiveMedicalCertificateQuestionResponderService"
+							transformer-refs="deleteSoapActionQuestion"
+            	        	synchronous="true"
+                        /> 
+                </pass-through-router>
+            </outbound>
+		</service>
+		
+	</model>
+</mule>
