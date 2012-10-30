@@ -32,9 +32,7 @@
 	<modules>
 		<module>Schema</module>
 		<module>FkEintygAdapterIC</module>
-		<module>TaEmotFraga</module>
-		<module>TaEmotLakarintyg</module>
-		<module>TaEmotSvar</module>
+		<module>FkEintygAdapterIC-teststub</module>
 	</modules>
 
 	<dependencyManagement>
