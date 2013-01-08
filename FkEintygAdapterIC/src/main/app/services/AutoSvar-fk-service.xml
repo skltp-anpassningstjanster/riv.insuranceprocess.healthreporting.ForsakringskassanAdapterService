@@ -27,15 +27,15 @@
 	<!--
 	Name of this file is mandatory and may not be changed. 
 	 -->
-<!-- 	<cxf:endpoint -->
-<!-- 		name="autosvarEndpoint" -->
-<!-- 		address="https://${tp.host}:${tp.port}/${tp.baseUri}/SendMedicalCertificateAnswer/1/rivtabp20"  -->
-<!-- 		wsdlLocation="classpath:/schemas/vard/interactions/SendMedicalCertificateAnswerInteraction/SendMedicalCertificateAnswerInteraction_1.0_rivtabp20.wsdl" -->
-<!-- 		wsdlPort="SendMedicalCertificateAnswerResponderPort" -->
-<!-- 		operation="SendMedicalCertificateAnswer"  -->
-<!-- 		clientClass="se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificateanswer.v1.rivtabp20.SendMedicalCertificateAnswerResponderService" -->
-<!-- 		synchronous="true" -->
-<!-- 	/> -->
+	<cxf:endpoint
+		name="autosvarEndpoint"
+		address="${outbound.endpoint.eintyg.receivemedicalcertificatequestion.autosvar}" 
+		wsdlLocation="classpath:/schemas/vard/interactions/SendMedicalCertificateAnswerInteraction/SendMedicalCertificateAnswerInteraction_1.0_rivtabp20.wsdl"
+		wsdlPort="SendMedicalCertificateAnswerResponderPort"
+		operation="SendMedicalCertificateAnswer" 
+		clientClass="se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificateanswer.v1.rivtabp20.SendMedicalCertificateAnswerResponderService"
+		synchronous="true"
+	/>
 
  	<model>
  		<service name="ReceiveMedicalCertificateQuestion-service-autosvar">
