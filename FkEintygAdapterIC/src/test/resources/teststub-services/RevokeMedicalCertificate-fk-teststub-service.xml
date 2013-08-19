@@ -1,0 +1,47 @@
+
+	<!--
+		* Copyright 2009 Sjukvardsradgivningen * * This library is free
+		software; you can redistribute it and/or modify * it under the terms
+		of version 2.1 of the GNU Lesser General Public * License as published
+		by the Free Software Foundation. * * This library is distributed in
+		the hope that it will be useful, * but WITHOUT ANY WARRANTY; without
+		even the implied warranty of * MERCHANTABILITY or FITNESS FOR A
+		PARTICULAR PURPOSE. See the * GNU Lesser General Public License for
+		more details. * * You should have received a copy of the GNU Lesser
+		General Public * License along with this library; if not, write to the
+		* Free Software Foundation, Inc., 59 Temple Place, Suite 330, *
+		Boston, MA 02111-1307 USA
+	-->
+<mule xmlns="http://www.mulesource.org/schema/mule/core/2.2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:spring="http://www.springframework.org/schema/beans"
+	xmlns:cxf="http://www.mulesource.org/schema/mule/cxf/2.2" 
+	xmlns:http="http://www.mulesource.org/schema/mule/http/2.2"
+	xmlns:https="http://www.mulesource.org/schema/mule/https/2.2"
+	xsi:schemaLocation="
+               http://www.springframework.org/schema/beans    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+               http://www.mulesource.org/schema/mule/core/2.2 http://www.mulesource.org/schema/mule/core/2.2/mule.xsd
+               http://www.mulesource.org/schema/mule/http/2.2 http://www.mulesource.org/schema/mule/http/2.2/mule-http.xsd
+               http://www.mulesource.org/schema/mule/https/2.2 http://www.mulesource.org/schema/mule/https/2.2/mule-https.xsd
+               http://www.mulesource.org/schema/mule/cxf/2.2  http://www.mulesource.org/schema/mule/cxf/2.2/mule-cxf.xsd">
+
+	<!--
+	Name of this file is mandatory and may not be changed. 
+	 -->
+
+ 	<model>
+ 		<service name="RevokeMedicalCertificate-service-test" >
+			<inbound>
+				<cxf:inbound-endpoint
+					address="${inbound.endpoint.eintyg.revokemedicalcertificate.teststub.test}"
+					wsdlLocation="classpath:/schemas/vard/interactions/RevokeMedicalCertificateInteraction/RevokeMedicalCertificateInteraction_1.0_rivtabp20.wsdl"
+					/>
+			</inbound>
+
+			<component>
+				<singleton-object class="se.skl.skltpservices.adapter.fk.revmedcert.RevMedCertImpl" />
+			</component>
+		</service>
+
+	</model>
+</mule>
