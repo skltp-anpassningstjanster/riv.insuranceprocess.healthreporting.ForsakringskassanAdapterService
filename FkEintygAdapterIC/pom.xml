@@ -30,10 +30,12 @@
 		<dependency>
 			<groupId>se.riv.fk</groupId>
 			<artifactId>insuranceprocess-healthreporting-schemas</artifactId>
-		</dependency>
+            <version>1.6.1</version>
+  		</dependency>
 		<dependency>
 			<groupId>se.riv.fk</groupId>
 			<artifactId>fk-vardgivare-sjukvard-schemas</artifactId>
+            <version>1.6.1</version>
 		</dependency>
 
 		<!-- soi toolkit dependencies -->
