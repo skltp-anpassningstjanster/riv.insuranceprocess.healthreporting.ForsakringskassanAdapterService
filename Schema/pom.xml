@@ -25,7 +25,7 @@
 	<groupId>se.skl.tp</groupId>
 	<artifactId>Schemas</artifactId>
 	<packaging>pom</packaging>
-	<version>1.6.0</version>
+	<version>1.6.1</version>
 	<name>Schemas</name>
 	<url>http://maven.apache.org</url>
 	
