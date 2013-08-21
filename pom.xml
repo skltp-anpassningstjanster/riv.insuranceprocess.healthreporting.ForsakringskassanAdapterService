@@ -93,51 +93,34 @@
 				<plugin>
 					<groupId>com.mycila.maven-license-plugin</groupId>
 					<artifactId>maven-license-plugin</artifactId>
-					<version>1.9.0</version>
+					<version>1.10.b1</version>
 					<configuration>
-						<header>http://skltp.googlecode.com/svn/tp/docs/license-header-template.txt</header>
-						<useDefaultExcludes>true</useDefaultExcludes>
-						<skipExistingHeaders>true</skipExistingHeaders>
-						<strictCheck>true</strictCheck>
 						<properties>
-							<organization>Sjukvardsradgivningen</organization>
-							<year>2012</year>
+							<year>2013</year>
+							<copyright>Center for eHalsa i samverkan (CeHis). 
+							&lt;http://cehis.se/&gt;</copyright>
+							<product>SKLTP</product>
 						</properties>
+						<strictCheck>true</strictCheck>
+						<basedir>${basedir}</basedir>
+						<header>http://skltp.googlecode.com/svn/tp/license/lgpl/header.txt</header>
+						<encoding>UTF-8</encoding>
+						<includes>
+							<include>src/main/**</include>
+							<include>src/test/**</include>
+						</includes>
 						<excludes>
-							<exclude>target/**</exclude>
-							<exclude>**/NOTICES.txt</exclude>
-							<exclude>thirdpartylicenses/**</exclude>
-							<exclude>**/LICENSE.rtf</exclude>
-							<exclude>**/context.xml</exclude>
-							<exclude>**/*.properties</exclude>
-							<exclude>**/*.log</exclude>
+							<exclude>**/*.xsd</exclude>
+							<exclude>**/*.wsdl</exclude>
+							<exclude>**/*.xml</exclude>
 							<exclude>**/*.dtd</exclude>
-							<exclude>**/*.jks</exclude>
-							<exclude>**/*.sql</exclude>
-							<exclude>**/*.mflow</exclude>
-							<exclude>**/COPYING</exclude>
-							<exclude>**/COPYING.LESSER</exclude>
-							<exclude>**/docs/**</exclude>
-							<exclude>**/resources/testfiles/**</exclude>
-							<exclude>**/interactions/**</exclude>
-							<exclude>**/core_components/**</exclude>
-							<exclude>**/fk/*.wsdl</exclude>
-							<exclude>**/fk/*.xsd</exclude>
-							<exclude>**/fk/vardgivare_sjukvard/**</exclude>
-							<exclude>**/ws-addressing-1.0.xsd</exclude>
 						</excludes>
+						<useDefaultExcludes>true</useDefaultExcludes>
+						<mapping>
+							<tag>DYNASCRIPT_STYLE</tag>
+						</mapping>
+						<useDefaultMapping>true</useDefaultMapping>
 					</configuration>
-					<executions>
-						<!-- <execution> <id>format</id> <phase>process-sources</phase> <goals> 
-							<goal>format</goal> </goals> </execution> -->
-						<execution>
-							<id>check</id>
-							<phase>compile</phase>
-							<goals>
-								<goal>check</goal>
-							</goals>
-						</execution>
-					</executions>
 				</plugin>
 
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
@@ -230,7 +213,7 @@
 		<profile>
 			<id>license</id>
 			<activation>
-				<activeByDefault>false</activeByDefault>
+				<activeByDefault>true</activeByDefault>
 			</activation>
 			<build>
 				<plugins>
@@ -238,13 +221,6 @@
 						<groupId>com.mycila.maven-license-plugin</groupId>
 						<artifactId>maven-license-plugin</artifactId>
 						<executions>
-							<execution>
-								<id>format</id>
-								<phase>process-sources</phase>
-								<goals>
-									<goal>format</goal>
-								</goals>
-							</execution>
 							<execution>
 								<id>check</id>
 								<phase>compile</phase>
