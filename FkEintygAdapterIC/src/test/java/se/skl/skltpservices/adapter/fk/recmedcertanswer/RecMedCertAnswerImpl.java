@@ -1,5 +1,8 @@
 /**
- * Copyright (c) 2012, Sjukvardsradgivningen. All rights reserved.
+ * Copyright (c) 2013 Center for eHalsa i samverkan (CeHis).
+ * 							<http://cehis.se/>
+ *
+ * This file is part of SKLTP.
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -13,8 +16,7 @@
  *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
- * MA 02110-1301  USA
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 package se.skl.skltpservices.adapter.fk.recmedcertanswer;
 
@@ -71,7 +73,7 @@ public class RecMedCertAnswerImpl implements ReceiveMedicalCertificateAnswerResp
 		resultOfCall.setResultCode(ResultCodeEnum.ERROR);
 		resultOfCall.setErrorId(ErrorIdEnum.VALIDATION_ERROR);
 		resultOfCall.setErrorText("It went wrong");
-		return null;
+		return resultOfCall;
 	}
 
 	private ResultOfCall createOKResultOfCall() {
