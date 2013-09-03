@@ -77,7 +77,7 @@ public class RevokeCertificate extends Thread {
 	private static RevokeType getRevokeData(QuestionToFkType question) throws Exception {
 		RevokeType meddelande = new RevokeType();
 
-		// Avsändare
+		// Avsandare
 		VardAdresseringsType avsandare = new VardAdresseringsType();		
 		HosPersonalType hosPersonal = new HosPersonalType();
 		EnhetType enhet = new EnhetType();	
@@ -102,10 +102,10 @@ public class RevokeCertificate extends Thread {
 		avsandare.setHosPersonal(hosPersonal);
 		meddelande.setAdressVard(avsandare);
 				
-		// Avsänt tidpunkt - nu
+		// Avsant tidpunkt - nu
 		meddelande.setAvsantTidpunkt(DatatypeFactory.newInstance().newXMLGregorianCalendar(new GregorianCalendar()));
 
-		// Set läkarutlåtande enkel från vården
+		// Set lakarutlatande enkel fran varden
 		meddelande.setVardReferensId("");
 		LakarutlatandeEnkelType lakarutlatandeEnkel = new LakarutlatandeEnkelType();
 		PatientType patient = new PatientType();

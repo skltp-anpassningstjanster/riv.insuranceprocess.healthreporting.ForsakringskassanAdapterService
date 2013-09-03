@@ -73,13 +73,13 @@ public class RevokeTransformTestConsumer {
 	private static QuestionToFkType getQuestion(Amnetyp amne) throws Exception {
 		QuestionToFkType meddelande = new QuestionToFkType();
 		
-		// Avsändare
+		// Avsandare
 		VardAdresseringsType avsandare = new VardAdresseringsType();		
 		HosPersonalType hosPersonal = new HosPersonalType();
 		EnhetType enhet = new EnhetType();	
 		II enhetsId = new II();
 		enhetsId.setRoot("1.2.752.129.2.1.4.1");
-		enhetsId.setExtension("Enköpings lasaretts HSA-ID");
+		enhetsId.setExtension("Enkopings lasaretts HSA-ID");
 		enhet.setEnhetsId(enhetsId);
 		enhet.setTelefonnummer("018-611 45 30");
 		enhet.setPostadress("Akademiska sjukhuset");
@@ -94,7 +94,7 @@ public class RevokeTransformTestConsumer {
 		vardgivare.setVardgivareId(vardgivareId);
 		enhet.setVardgivare(vardgivare);
 		hosPersonal.setEnhet(enhet);
-		hosPersonal.setFullstandigtNamn("Erik Åselius");
+		hosPersonal.setFullstandigtNamn("Erik Aselius");
 		II personalId = new II();
 		personalId.setRoot("1.2.752.129.2.1.4.1");
 		personalId.setExtension("Personal HSA-ID");
@@ -102,15 +102,15 @@ public class RevokeTransformTestConsumer {
 		avsandare.setHosPersonal(hosPersonal);
 		meddelande.setAdressVard(avsandare);
 				
-		// Avsänt tidpunkt - nu
+		// Avsant tidpunkt - nu
 		meddelande.setAvsantTidpunkt(DatatypeFactory.newInstance().newXMLGregorianCalendar(new GregorianCalendar()));
 
-		// Set läkarutlåtande enkel från vården
-		meddelande.setVardReferensId("Referens till fråga från vården");
+		// Set lakarutlatande enkel fran varden
+		meddelande.setVardReferensId("Referens till fraga fran varden");
 		LakarutlatandeEnkelType lakarutlatandeEnkel = new LakarutlatandeEnkelType();
 		PatientType patient = new PatientType();
 		II personId = new II();
-		personId.setRoot("1.2.752.129.2.1.3.1"); // OID för samordningsnummer är 1.2.752.129.2.1.3.3.
+		personId.setRoot("1.2.752.129.2.1.3.1"); // OID for samordningsnummer ar 1.2.752.129.2.1.3.3.
 		personId.setExtension("19430811-7094");
 		patient.setPersonId(personId);
 		patient.setFullstandigtNamn("Lab Testsson"); 
@@ -119,7 +119,7 @@ public class RevokeTransformTestConsumer {
 		lakarutlatandeEnkel.setSigneringsTidpunkt(DatatypeFactory.newInstance().newXMLGregorianCalendar(new GregorianCalendar()));
 		meddelande.setLakarutlatande(lakarutlatandeEnkel);
 	
-		// Set ämne
+		// Set amne
 		meddelande.setAmne(amne);
 		
 		// Set meddelande - fraga

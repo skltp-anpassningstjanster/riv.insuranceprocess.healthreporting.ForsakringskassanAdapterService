@@ -11,7 +11,8 @@
 		http://www.mulesoft.org/schema/mule/cxf     http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd
 		http://www.mulesoft.org/schema/mule/jms     http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd
 	">
-	
+
+<!-- 	
 	<cxf:endpoint
 		name="revokeEndpoint"
 		address="${outbound.endpoint.eintyg.sendmedicalcertificatequestion.revoke}" 
@@ -21,7 +22,8 @@
 		clientClass="se.skl.riv.insuranceprocess.healthreporting.revokemedicalcertificate.v1.rivtabp20.RevokeMedicalCertificateResponderService"
 		synchronous="true"
 	/>
-	
+-->
+
 	<simple-service 
 		name="SendMedicalCertificateQuestion-service-revoke"
         address="${inbound.endpoint.eintyg.sendmedicalcertificatequestion.revoke}" 
