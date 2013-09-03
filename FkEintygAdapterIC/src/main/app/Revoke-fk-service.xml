@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mule 
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:spring="http://www.springframework.org/schema/beans"
+	xmlns:cxf="http://www.mulesoft.org/schema/mule/cxf"
+	xmlns:jms="http://www.mulesoft.org/schema/mule/jms"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.mulesoft.org/schema/mule/core    http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/cxf     http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd
+		http://www.mulesoft.org/schema/mule/jms     http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd
+	">
+	
+	<cxf:endpoint
+		name="revokeEndpoint"
+		address="${outbound.endpoint.eintyg.sendmedicalcertificatequestion.revoke}" 
+		wsdlLocation="classpath:/schemas/vard/interactions/RevokeMedicalCertificateInteraction/RevokeMedicalCertificateInteraction_1.0_rivtabp20.wsdl"
+		wsdlPort="RevokeMedicalCertificateResponderPort"
+		operation="RevokeMedicalCertificate" 
+		clientClass="se.skl.riv.insuranceprocess.healthreporting.revokemedicalcertificate.v1.rivtabp20.RevokeMedicalCertificateResponderService"
+		synchronous="true"
+	/>
+	
+	<simple-service 
+		name="SendMedicalCertificateQuestion-service-revoke"
+        address="${inbound.endpoint.eintyg.sendmedicalcertificatequestion.revoke}" 
+        component-class="se.skl.skltpservices.adapter.fk.sendmedcertquestion.SendMCQRevoke"
+        type="jax-ws" />
+   	     
+</mule>
+
