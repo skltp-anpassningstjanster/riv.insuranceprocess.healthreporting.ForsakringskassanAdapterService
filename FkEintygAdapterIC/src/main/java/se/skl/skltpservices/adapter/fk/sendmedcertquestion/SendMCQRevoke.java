@@ -25,6 +25,9 @@ import javax.jws.WebService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3.wsaddressing10.AttributedURIType;
+import org.mule.api.MuleContext;
+import org.mule.api.annotations.expressions.Lookup;
+import org.mule.module.client.MuleClient;
 
 import se.skl.riv.insuranceprocess.healthreporting.qa.v1.Amnetyp;
 import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificatequestion.v1.rivtabp20.SendMedicalCertificateQuestionResponderInterface;
@@ -47,7 +50,9 @@ import se.skl.riv.insuranceprocess.healthreporting.v2.ResultOfCall;
 		wsdlLocation = "schemas/vard/interactions/SendMedicalCertificateQuestionInteraction/SendMedicalCertificateQuestionInteraction_1.0_rivtabp20.wsdl")
 public class SendMCQRevoke implements SendMedicalCertificateQuestionResponderInterface {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
-
+	@Lookup
+    private MuleContext muleContext;
+	
 	public SendMedicalCertificateQuestionResponseType sendMedicalCertificateQuestion(
 			AttributedURIType logicalAddress,
 			SendMedicalCertificateQuestionType parameters) {
@@ -71,7 +76,7 @@ public class SendMCQRevoke implements SendMedicalCertificateQuestionResponderInt
 				parameters.getQuestion().getAmne().equals(Amnetyp.MAKULERING_AV_LAKARINTYG)) {
 
 				// Send a revokequestion
-				RevokeCertificate revokeCertificate = new RevokeCertificate(parameters.getQuestion());
+				RevokeCertificate revokeCertificate = new RevokeCertificate(parameters.getQuestion(), new MuleClient(muleContext));
 				revokeCertificate.start();
 			}
 			// Return OK!            

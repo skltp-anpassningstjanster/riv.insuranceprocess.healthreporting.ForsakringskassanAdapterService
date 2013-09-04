@@ -44,17 +44,18 @@ import se.skl.riv.insuranceprocess.healthreporting.v2.VardgivareType;
 public class RevokeCertificate extends Thread {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	QuestionToFkType question;
+
+	MuleClient muleClient;
 	
-	public RevokeCertificate(QuestionToFkType question) {
+	public RevokeCertificate(QuestionToFkType question, MuleClient muleClient) {
 		super();
-		this.question = question;		
+		this.question = question;
+		this.muleClient = muleClient;
 	}
 
 	@Override
 	public void run() {				
-		MuleClient client;
 		try {
-			client = new MuleClient(true);
 			
 			AttributedURIType logicalAddressHeader = new AttributedURIType();
 			logicalAddressHeader.setValue("2021005521");	
@@ -66,7 +67,7 @@ public class RevokeCertificate extends Thread {
 			// Create payload to webservice
 			Object[] payloadOut = new Object[] {logicalAddressHeader, request};
 
-			client.send("revokeEndpoint", payloadOut, null);
+			muleClient.send("revokeEndpoint", payloadOut, null);
 			logger.info("Sent RevokeMedicalCertificate for certificate with id = " + question.getLakarutlatande().getLakarutlatandeId() + ".");
 			
 		} catch (Exception e) {
