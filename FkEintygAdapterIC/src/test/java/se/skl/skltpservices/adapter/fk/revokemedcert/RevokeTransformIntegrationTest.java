@@ -48,7 +48,7 @@ public class RevokeTransformIntegrationTest extends AbstractTestCase {
 		RevokeTransformTestConsumer consumer = new RevokeTransformTestConsumer(
 				"http://localhost:11000/tb/eintyg/revoke/SendMedicalCertificateQuestion/1/rivtabp20");
 
-		SendMedicalCertificateQuestionResponseType response = consumer.sendMCQuestion(Amnetyp.MAKULERING_AV_LAKARINTYG);
+		SendMedicalCertificateQuestionResponseType response = consumer.sendMCQuestion(Amnetyp.MAKULERING_AV_LAKARINTYG, "Kalle");
 
 		Thread.currentThread().sleep(1000);
 		
@@ -60,7 +60,7 @@ public class RevokeTransformIntegrationTest extends AbstractTestCase {
 		RevokeTransformTestConsumer consumer = new RevokeTransformTestConsumer(
 				"http://localhost:11000/tb/eintyg/revoke/SendMedicalCertificateQuestion/1/rivtabp20");
 
-		SendMedicalCertificateQuestionResponseType response = consumer.sendMCQuestion(Amnetyp.OVRIGT);
+		SendMedicalCertificateQuestionResponseType response = consumer.sendMCQuestion(Amnetyp.OVRIGT, "Kalle");
 
 		Thread.currentThread().sleep(1000);
 		

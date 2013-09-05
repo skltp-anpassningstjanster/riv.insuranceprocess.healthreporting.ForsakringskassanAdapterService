@@ -54,11 +54,11 @@ public class RevokeTransformTestConsumer {
 		service = new SendMedicalCertificateQuestionResponderService(url).getSendMedicalCertificateQuestionResponderPort();
 	}
 
-	public SendMedicalCertificateQuestionResponseType sendMCQuestion(Amnetyp amne) throws DatatypeConfigurationException {
+	public SendMedicalCertificateQuestionResponseType sendMCQuestion(Amnetyp amne, String patientName) throws DatatypeConfigurationException {
 
 		try {
 			SendMedicalCertificateQuestionType request = new SendMedicalCertificateQuestionType();
-			request.setQuestion(getQuestion(amne));
+			request.setQuestion(getQuestion(amne, patientName));
 	
 			AttributedURIType adressing = new AttributedURIType();
 			adressing.setValue("LOGICALADRESS");
@@ -70,7 +70,7 @@ public class RevokeTransformTestConsumer {
 		}
 	}
 
-	private static QuestionToFkType getQuestion(Amnetyp amne) throws Exception {
+	private static QuestionToFkType getQuestion(Amnetyp amne, String patientName) throws Exception {
 		QuestionToFkType meddelande = new QuestionToFkType();
 		
 		// Avsandare
@@ -113,7 +113,7 @@ public class RevokeTransformTestConsumer {
 		personId.setRoot("1.2.752.129.2.1.3.1"); // OID for samordningsnummer ar 1.2.752.129.2.1.3.3.
 		personId.setExtension("19430811-7094");
 		patient.setPersonId(personId);
-		patient.setFullstandigtNamn("Lab Testsson"); 
+		patient.setFullstandigtNamn(patientName); 
 		lakarutlatandeEnkel.setPatient(patient);
 		lakarutlatandeEnkel.setLakarutlatandeId("xxx");
 		lakarutlatandeEnkel.setSigneringsTidpunkt(DatatypeFactory.newInstance().newXMLGregorianCalendar(new GregorianCalendar()));
