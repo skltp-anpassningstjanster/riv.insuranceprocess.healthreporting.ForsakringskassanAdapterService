@@ -46,7 +46,7 @@ public class RevokeTransformIntegrationTest extends AbstractTestCase {
 	@Test
 	public void testSendMCQMakulering() throws Exception {
 		RevokeTransformTestConsumer consumer = new RevokeTransformTestConsumer(
-				"http://localhost:11000/tb/eintyg/revoke/SendMedicalCertificateQuestion/1/rivtabp20");
+				"https://localhost:12000/tb/eintyg/revoke/SendMedicalCertificateQuestion/1/rivtabp20");
 
 		SendMedicalCertificateQuestionResponseType response = consumer.sendMCQuestion(Amnetyp.MAKULERING_AV_LAKARINTYG, "Kalle");
 
@@ -58,7 +58,7 @@ public class RevokeTransformIntegrationTest extends AbstractTestCase {
 	@Test
 	public void testSendMCQOvrigt() throws Exception {
 		RevokeTransformTestConsumer consumer = new RevokeTransformTestConsumer(
-				"http://localhost:11000/tb/eintyg/revoke/SendMedicalCertificateQuestion/1/rivtabp20");
+				"https://localhost:12000/tb/eintyg/revoke/SendMedicalCertificateQuestion/1/rivtabp20");
 
 		SendMedicalCertificateQuestionResponseType response = consumer.sendMCQuestion(Amnetyp.OVRIGT, "Kalle");
 
