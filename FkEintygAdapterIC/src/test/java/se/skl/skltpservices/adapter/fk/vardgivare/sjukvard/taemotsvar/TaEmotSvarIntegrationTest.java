@@ -44,7 +44,7 @@ public class TaEmotSvarIntegrationTest extends AbstractTestCase {
 
 	@Override
 	protected String getConfigResources() {
-		return "soitoolkit-mule-jms-connector-activemq-embedded.xml,FkIntegrationComponent-common.xml,ReceiveMedicalertificateAnswer-fk-service.xml,teststub-services/ReceiveMedicalertificateAnswer-fk-teststub-service.xml";
+		return "soitoolkit-mule-jms-connector-activemq-embedded.xml,FkIntegrationComponent-config.xml,teststub-services/ReceiveMedicalertificateAnswer-fk-teststub-service.xml";
 	}
 
 	@Test

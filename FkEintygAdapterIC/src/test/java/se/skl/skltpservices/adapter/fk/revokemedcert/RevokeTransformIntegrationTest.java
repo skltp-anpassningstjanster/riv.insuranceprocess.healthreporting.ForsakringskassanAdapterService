@@ -40,7 +40,7 @@ public class RevokeTransformIntegrationTest extends AbstractTestCase {
 
 	@Override
 	protected String getConfigResources() {
-		return "FkIntegrationComponent-common.xml,Revoke-fk-service.xml,teststub-services/RevokeMedicalCertificate-fk-teststub-service.xml";
+		return "FkIntegrationComponent-config.xml,teststub-services/RevokeMedicalCertificate-fk-teststub-service.xml";
 	}
 
 	@Test
