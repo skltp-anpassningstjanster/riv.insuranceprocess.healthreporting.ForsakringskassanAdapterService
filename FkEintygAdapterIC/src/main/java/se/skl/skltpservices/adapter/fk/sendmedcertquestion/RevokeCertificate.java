@@ -44,12 +44,14 @@ import se.skl.riv.insuranceprocess.healthreporting.v2.VardgivareType;
 public class RevokeCertificate extends Thread {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	QuestionToFkType question;
+	String logicalAddress;
 
 	MuleClient muleClient;
 	
-	public RevokeCertificate(QuestionToFkType question, MuleClient muleClient) {
+	public RevokeCertificate(QuestionToFkType question, String logicalAddress, MuleClient muleClient) {
 		super();
 		this.question = question;
+		this.logicalAddress = logicalAddress;
 		this.muleClient = muleClient;
 	}
 
@@ -58,7 +60,7 @@ public class RevokeCertificate extends Thread {
 		try {
 			
 			AttributedURIType logicalAddressHeader = new AttributedURIType();
-			logicalAddressHeader.setValue("2021005521");	
+			logicalAddressHeader.setValue(logicalAddress);	
 			RevokeMedicalCertificateRequestType request = new RevokeMedicalCertificateRequestType();
 
 			// Set revoke information 

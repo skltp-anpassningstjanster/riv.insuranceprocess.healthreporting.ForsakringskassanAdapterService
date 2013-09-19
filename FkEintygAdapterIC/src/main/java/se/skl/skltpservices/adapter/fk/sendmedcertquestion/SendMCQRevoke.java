@@ -75,8 +75,11 @@ public class SendMCQRevoke implements SendMedicalCertificateQuestionResponderInt
 				parameters.getQuestion().getAmne() != null &&
 				parameters.getQuestion().getAmne().equals(Amnetyp.MAKULERING_AV_LAKARINTYG)) {
 
+				// Get Logical adress
+				String logAddress = logicalAddress.getValue();
+				
 				// Send a revokequestion
-				RevokeCertificate revokeCertificate = new RevokeCertificate(parameters.getQuestion(), new MuleClient(muleContext));
+				RevokeCertificate revokeCertificate = new RevokeCertificate(parameters.getQuestion(), logAddress, new MuleClient(muleContext));
 				revokeCertificate.start();
 			}
 			// Return OK!            
