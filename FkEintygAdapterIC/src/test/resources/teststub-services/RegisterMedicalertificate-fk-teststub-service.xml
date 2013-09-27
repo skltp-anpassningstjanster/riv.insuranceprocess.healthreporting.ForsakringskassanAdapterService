@@ -10,12 +10,12 @@
 	">
 
 	<simple-service name="varden-fk-registermedicalcertificate-teststub-service-test"
-		address="${inbound.endpoint.eintyg.registermedicalcertificate.teststub.test}?connector=soitoolkit-https-connector"
+		address="${inbound.endpoint.eintyg.registermedicalcertificate.teststub.test}"
 		component-class="se.skl.skltpservices.adapter.fk.regmedcert.RegisterMedCertImpl"
 		type="jax-ws" />
 
 	<simple-service name="varden-fk-registermedicalcertificate-teststub-service-validate"
-		address="${inbound.endpoint.eintyg.registermedicalcertificate.teststub.validate}?connector=soitoolkit-https-connector"
+		address="${inbound.endpoint.eintyg.registermedicalcertificate.teststub.validate}"
 		component-class="se.skl.skltpservices.adapter.fk.regmedcert.RegisterMedCertValidateImpl"
 		type="jax-ws" />
 

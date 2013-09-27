@@ -14,7 +14,7 @@
 
 	<simple-service 
 		name="fk-varden-receivemedicalcertificatequestion-teststub"
-        address="${inbound.endpoint.eintyg.receivemedicalcertificatequestion.teststub}?connector=soitoolkit-https-connector" 
+        address="${inbound.endpoint.eintyg.receivemedicalcertificatequestion.teststub}" 
         component-class="se.skl.skltpservices.adapter.fk.recmedcertquestion.RecMedCertQuestionImpl"
         type="jax-ws" />
 

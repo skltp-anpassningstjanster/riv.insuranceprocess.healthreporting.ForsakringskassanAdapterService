@@ -14,13 +14,13 @@
 	
 	<simple-service 
 		name="SendMedicalCertificateQuestion-service-test"
-        address="${inbound.endpoint.eintyg.sendmedicalcertificatequestion.teststub.test}?connector=soitoolkit-https-connector" 
+        address="${inbound.endpoint.eintyg.sendmedicalcertificatequestion.teststub.test}" 
         component-class="se.skl.skltpservices.adapter.fk.sendmedcertquestion.SendMedCertQuestionImpl"
         type="jax-ws" />
 
 	<simple-service 
 		name="SendMedicalCertificateQuestion-service-validate"
-        address="${inbound.endpoint.eintyg.sendmedicalcertificatequestion.teststub.validate}?connector=soitoolkit-https-connector" 
+        address="${inbound.endpoint.eintyg.sendmedicalcertificatequestion.teststub.validate}" 
         component-class="se.skl.skltpservices.adapter.fk.sendmedcertquestion.SendMedCertQuestionValidateImpl"
         type="jax-ws" />
 

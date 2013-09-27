@@ -14,7 +14,7 @@
 
 	<simple-service 
 		name="varden-fk-taemotfraga-teststub-service"
-        address="${inbound.endpoint.eintyg.taemotfraga.teststub}?connector=soitoolkit-https-connector" 
+        address="${inbound.endpoint.eintyg.taemotfraga.teststub}" 
         component-class="se.skl.skltpservices.adapter.fk.vardgivare.sjukvard.taemotfraga.TaEmotFragaImpl"
         type="jax-ws" />
 

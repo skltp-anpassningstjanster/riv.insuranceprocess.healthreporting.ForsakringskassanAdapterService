@@ -14,7 +14,7 @@
 
 	<simple-service 
 		name="TaEmotSvar-service-test"
-        address="${inbound.endpoint.eintyg.taemotsvar.teststub}?connector=soitoolkit-https-connector" 
+        address="${inbound.endpoint.eintyg.taemotsvar.teststub}" 
         component-class="se.skl.skltpservices.adapter.fk.vardgivare.sjukvard.taemotsvar.TaEmotSvarImpl"
         type="jax-ws" />
 
