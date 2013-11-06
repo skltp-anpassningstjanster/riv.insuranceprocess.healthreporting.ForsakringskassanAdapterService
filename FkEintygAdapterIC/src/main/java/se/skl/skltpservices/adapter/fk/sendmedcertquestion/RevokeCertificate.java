@@ -109,7 +109,7 @@ public class RevokeCertificate extends Thread {
 		meddelande.setAvsantTidpunkt(DatatypeFactory.newInstance().newXMLGregorianCalendar(new GregorianCalendar()));
 
 		// Set lakarutlatande enkel fran varden
-		meddelande.setVardReferensId("");
+		meddelande.setVardReferensId(question.getVardReferensId());
 		LakarutlatandeEnkelType lakarutlatandeEnkel = new LakarutlatandeEnkelType();
 		PatientType patient = new PatientType();
 		II personId = new II();
