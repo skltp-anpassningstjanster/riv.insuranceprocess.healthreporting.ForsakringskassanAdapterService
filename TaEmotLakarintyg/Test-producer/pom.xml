@@ -29,9 +29,9 @@
 	<url>http://maven.apache.org</url>
 	
 	<parent>
-  		<groupId>se.skl.skltpservices.adapter</groupId>
+  	<groupId>se.skl.skltpservices.adapter</groupId>
 		<artifactId>insuranceprocess-healthreporting-taemotlakarintyg</artifactId>
-  		<version>1.6-RB</version>
+  	<version>1.6-RB-SNAPSHOT</version>
    </parent>
 
 	<properties>
