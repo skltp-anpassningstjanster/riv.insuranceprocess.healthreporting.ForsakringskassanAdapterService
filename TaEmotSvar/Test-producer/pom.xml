@@ -31,7 +31,7 @@
 	<parent>
   		<groupId>se.skl.skltpservices.adapter</groupId>
 		<artifactId>insuranceprocess-healthreporting-taemotsvar</artifactId>
-  		<version>1.6.2</version>
+  		<version>1.6-RB-SNAPSHOT</version>
     </parent>
 
 	<properties>
