@@ -13,14 +13,14 @@
 
 	<groupId>se.skl.skltpservices.fk</groupId>
 	<artifactId>ForsakringskassanEintygAdapter</artifactId>
-	<version>1.6.3</version>
+	<version>1.6.4-RB-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>${project.artifactId}</name>
 	
 	<scm>
-		<connection>scm:svn:https://skltpservices.googlecode.com/svn/AdapterServices/riv.insuranceprocess.healthreporting/ForsakringskassanAdapterService/tags/ForsakringskassanEintygAdapter-1.6.3</connection>
-		<developerConnection>scm:svn:https://skltpservices.googlecode.com/svn/AdapterServices/riv.insuranceprocess.healthreporting/ForsakringskassanAdapterService/tags/ForsakringskassanEintygAdapter-1.6.3</developerConnection>
-		<url>http://skltpservices.googlecode.com/svn/AdapterServices/riv.insuranceprocess.healthreporting/ForsakringskassanAdapterService/tags/ForsakringskassanEintygAdapter-1.6.3</url>
+		<connection>scm:svn:https://skltpservices.googlecode.com/svn/AdapterServices/riv.insuranceprocess.healthreporting/ForsakringskassanAdapterService/branches/mule-2.2.8/</connection>
+		<developerConnection>scm:svn:https://skltpservices.googlecode.com/svn/AdapterServices/riv.insuranceprocess.healthreporting/ForsakringskassanAdapterService/branches/mule-2.2.8/</developerConnection>
+		<url>http://skltpservices.googlecode.com/svn/AdapterServices/riv.insuranceprocess.healthreporting/ForsakringskassanAdapterService/branches/mule-2.2.8/</url>
 	</scm>
 
 	<properties>
@@ -48,13 +48,13 @@
 			<dependency>
 				<groupId>se.riv.fk</groupId>
 				<artifactId>insuranceprocess-healthreporting-schemas</artifactId>
-				<version>1.6.3</version>
+				<version>1.6.4-RB-SNAPSHOT</version>
 			</dependency>
 
 			<dependency>
 				<groupId>se.riv.fk</groupId>
 				<artifactId>fk-vardgivare-sjukvard-schemas</artifactId>
-				<version>1.6.3</version>
+				<version>1.6.4-RB-SNAPSHOT</version>
 			</dependency>
 
 			<!-- soi toolkit dependencies -->
