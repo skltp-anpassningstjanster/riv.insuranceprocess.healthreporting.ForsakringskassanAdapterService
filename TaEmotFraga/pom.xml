@@ -31,7 +31,7 @@
 	<parent>
 		<groupId>se.skl.skltpservices.fk</groupId>
 		<artifactId>ForsakringskassanEintygAdapter</artifactId>
-		<version>1.6.3-RB-SNAPSHOT</version>
+		<version>1.6.3</version>
 	</parent>
 
 	<modules>
