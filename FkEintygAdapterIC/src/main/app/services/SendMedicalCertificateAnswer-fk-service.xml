@@ -47,8 +47,8 @@
 					proxy="true" 
 					synchronous="true"
 					applyTransformersToProtocol="false"
-					transformer-refs="VardReq2FkAnswer changeNamespaceSendAnswer"
-					responseTransformer-refs="FkResp2VardAnswer"
+					transformer-refs="logReqIn VardReq2FkAnswer changeNamespaceSendAnswer"
+					responseTransformer-refs="logRespOut FkResp2VardAnswer"
 				/>							
 			</inbound>
 
@@ -61,6 +61,8 @@
                         	operation="TaEmotSvar" 
                         	clientClass="se.fk.vardgivare.sjukvard.taemotsvar.v1.rivtabp20.TaEmotSvarResponderService"
             	        	synchronous="true"
+            	        	transformer-refs="logReqOut"
+							responseTransformer-refs="logRespIn"
                         /> 
                 </pass-through-router>
             </outbound>

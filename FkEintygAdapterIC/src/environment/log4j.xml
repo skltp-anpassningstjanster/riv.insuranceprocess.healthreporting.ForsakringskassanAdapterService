@@ -12,8 +12,8 @@
 
 	<appender name="ROLLINGFILE" class="org.apache.log4j.RollingFileAppender">
 		<param name="file" value="${app.home}/tb/logs/fkintegrationcomponent.log" />
-		<param name="MaxFileSize" value="1000KB" />
-		<param name="MaxBackupIndex" value="3" />
+		<param name="MaxFileSize" value="50MB" />
+		<param name="MaxBackupIndex" value="10" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%d %-5p %-30C - %m%n" />
 		</layout>
@@ -24,46 +24,53 @@
 
 	<logger
 		name="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<level value="INFO" />
+		<level value="ERROR" />
 	</logger>
 
 	<logger name="org.springframework.core.io.support.PropertiesLoaderSupport">
-		<level value="INFO" />
+		<level value="ERROR" />
 	</logger>
 
 	<logger name="org.springframework.beans.factory.xml.XmlBeanDefinitionReader">
-		<level value="INFO" />
+		<level value="ERROR" />
 	</logger>
 
 	<logger name="org.mule.model.seda">
-		<level value="DEBUG" />
+		<level value="ERROR" />
 	</logger>
 	<logger name="org.mule.MuleServer">
-		<level value="DEBUG" />
+		<level value="INFO" />
 	</logger>
 	<logger name="org.mule.DefaultMuleContext">
-		<level value="DEBUG" />
+		<level value="INFO" />
 	</logger>
 	<logger name="org.mule.component.simple.LogComponent">
-		<level value="DEBUG" />
+		<level value="ERROR" />
 	</logger>
 
 	<logger name="org.soitoolkit.commons">
-		<level value="DEBUG" />
+		<level value="ERROR" />
 	</logger>
 
-	<!-- Message logging -->
+	 <!--     	
+    	For logging events to QUEUE using EventLogger:
+    	
+    	DEBUG puts logevents (with payload) and errorevents on log queue
+    	INFO puts logevents (without payload) and errorevents on log queue
+    	ERROR will only put errorevents on log queue
+    	 
+    -->
 	<logger name="org.soitoolkit.commons.mule.messageLogger">
 		<level value="DEBUG" />
 	</logger>
 
 	<logger name="se.skl.skltpservices">
-		<level value="DEBUG" />
+		<level value="ERROR" />
 	</logger>
 
 	<root>
 		<priority value="WARN" />
-		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="ROLLINGFILE" />
 		<!-- <appender-ref ref="ROLLINGFILE"/> -->
 	</root>
 </log4j:configuration>

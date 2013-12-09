@@ -55,8 +55,8 @@
 					proxy="true" 
 					synchronous="true"
 					applyTransformersToProtocol="false"
-					transformer-refs="fkWhiteListProcessor newReceiverIdAnswer FkReq2VardAnswer changeNamespaceRecMedCertAnswer"
-					responseTransformer-refs="VardResp2FkAnswer"
+					transformer-refs="logReqIn fkWhiteListProcessor newReceiverIdAnswer FkReq2VardAnswer changeNamespaceRecMedCertAnswer"
+					responseTransformer-refs="logRespOut VardResp2FkAnswer"
  				/>							
 			</inbound>
 
@@ -69,7 +69,8 @@
                         	operation="ReceiveMedicalCertificateAnswer" 
                         	clientClass="se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificateanswer.v1.rivtabp20.ReceiveMedicalCertificateAnswerResponderService"
             	        	synchronous="true"
-							transformer-refs="deleteSoapActionAnswer"
+							transformer-refs="deleteSoapActionAnswer logReqOut"
+            	        	responseTransformer-refs="logRespIn"
                         /> 
                 </pass-through-router>
             </outbound>

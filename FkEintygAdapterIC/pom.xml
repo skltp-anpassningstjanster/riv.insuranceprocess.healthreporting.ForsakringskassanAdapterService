@@ -98,6 +98,22 @@
 			<groupId>org.mule.transports</groupId>
 			<artifactId>mule-transport-cxf</artifactId>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.mule.transports</groupId>
+			<artifactId>mule-transport-jms</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.mule.modules</groupId>
+			<artifactId>commonretrypolicies</artifactId>
+		</dependency>
+		
+		<!-- Dependencies for the JMS transport-->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-core</artifactId>
+		</dependency>
 
 	</dependencies>
 

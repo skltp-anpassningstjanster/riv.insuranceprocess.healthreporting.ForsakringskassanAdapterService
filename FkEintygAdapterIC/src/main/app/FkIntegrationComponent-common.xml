@@ -61,6 +61,10 @@
 		<https:tls-key-store class="${FK_TLS_STORE_PRODUCER_TYPE}"     path="${FK_TLS_STORE_LOCATION}/${FK_TLS_STORE_PRODUCER_FILE}" storePassword="${FK_TLS_STORE_PRODUCER_PASSWORD}" keyPassword="${FK_TLS_STORE_PRODUCER_KEY_PASSWORD}" /> 
 		<https:tls-server    class="${FK_TLS_STORE_TRUSTSTORE_TYPE}" path="${FK_TLS_STORE_LOCATION}/${FK_TLS_STORE_TRUSTSTORE_FILE}" storePassword="${FK_TLS_STORE_TRUSTSTORE_PASSWORD}" requireClientAuthentication="${FK_TLS_REQ_CLIENTAUTH}"/>
 	</https:connector>
+	
+	<spring:beans>
+		<spring:import resource="classpath:soitoolkit-mule-jms-connector-activemq-external.xml"/>
+	</spring:beans>
     
     <configuration>
 		<default-dispatcher-threading-profile maxThreadsActive="${FK_DISPATCH_MAX_THREADS_ACTIVE}" maxThreadsIdle="${FK_DISPATCH_MAX_THREADS_IDLE}" threadTTL="${FK_DISPATCH_MAX_THREADS_TTL}"/>
@@ -72,5 +76,58 @@
         <spring:property name="whiteList" value="${FK_WHITE_LIST}" />
         <spring:property name="certificatesKey" value="${CERTIFICATE_KEY}" />
    </custom-transformer>
+   
+    <!-- The common single jaxb-context for this mule-app -->
+    <!-- Don't create additional jaxb-contexts to avoid problems with implicit jaxb transformations that can't resolve what jaxb-context to use! -->
+    <!-- Use ":" as a separator if jaxb-objects from more than one java package will be used by the jaxb-transformers  -->
+    <!-- <mulexml:jaxb-context name="jaxbContext" packageNames="org.soitoolkit.commons.logentry.schema.v1:se.fk.vardgivare.sjukvard.taemotfragaresponder.v1:se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificatequestionresponder.v1:se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificateanswerresponder.v1:se.fk.vardgivare.sjukvard.taemotlakarintygresponder.v1:se.fk.vardgivare.sjukvard.taemotsvarresponder.v1"/>-->
+   
+    <custom-transformer name="objToXml" class="org.soitoolkit.commons.mule.jaxb.JaxbObjectToXmlTransformer">
+		<spring:property name="contextPath"  value="org.soitoolkit.commons.logentry.schema.v1:se.fk.vardgivare.sjukvard.taemotfragaresponder.v1:se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificatequestionresponder.v1:se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificateanswerresponder.v1:se.fk.vardgivare.sjukvard.taemotlakarintygresponder.v1:se.fk.vardgivare.sjukvard.taemotsvarresponder.v1"/>
+	</custom-transformer>
+
+	<custom-transformer name="xmlToObj" class="org.soitoolkit.commons.mule.jaxb.XmlToJaxbObjectTransformer">
+		<spring:property name="contextPath"  value="org.soitoolkit.commons.logentry.schema.v1:se.fk.vardgivare.sjukvard.taemotfragaresponder.v1:se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificatequestionresponder.v1:se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificateanswerresponder.v1:se.fk.vardgivare.sjukvard.taemotlakarintygresponder.v1:se.fk.vardgivare.sjukvard.taemotsvarresponder.v1" />
+	</custom-transformer>
+    
+    <custom-transformer class="org.soitoolkit.commons.mule.core.ObjectToStringTransformer" name="objToStr"/>
+
+	<custom-transformer class="org.soitoolkit.commons.mule.log.correlationid.CreateCorrelationIdTransformer" name="createCorrId"/>
+	<custom-transformer class="org.soitoolkit.commons.mule.log.correlationid.SaveCorrelationIdTransformer" name="saveCorrId"/>
+	<custom-transformer class="org.soitoolkit.commons.mule.log.correlationid.RestoreCorrelationIdTransformer" name="restoreCorrId"/>
+
+    <custom-transformer class="org.soitoolkit.commons.mule.soap.CreateSoapFaultIfExceptionTransformer" name="createSoapFaultIfException"/>
+
+	<custom-transformer class="org.soitoolkit.commons.mule.mime.MimeToStringTransformer" name="mimeToStr"/>
+	
+    <custom-transformer class="org.soitoolkit.commons.mule.log.LogTransformer" name="logMsgIn">
+		<spring:property name="logType" value="msg-in"/>
+        <spring:property name="jaxbObjectToXml"  ref="objToXml"/>
+    </custom-transformer>
+
+    <custom-transformer class="org.soitoolkit.commons.mule.log.LogTransformer" name="logMsgOut">
+		<spring:property name="logType" value="msg-out"/>
+        <spring:property name="jaxbObjectToXml"  ref="objToXml"/>
+    </custom-transformer>
+
+    <custom-transformer class="org.soitoolkit.commons.mule.log.LogTransformer" name="logReqIn">
+		<spring:property name="logType" value="req-in"/>
+        <spring:property name="jaxbObjectToXml"  ref="objToXml"/>
+    </custom-transformer>
+
+    <custom-transformer class="org.soitoolkit.commons.mule.log.LogTransformer" name="logReqOut">
+		<spring:property name="logType" value="req-out"/>
+        <spring:property name="jaxbObjectToXml"  ref="objToXml"/>
+    </custom-transformer>
+
+    <custom-transformer class="org.soitoolkit.commons.mule.log.LogTransformer" name="logRespIn">
+		<spring:property name="logType" value="resp-in"/>
+        <spring:property name="jaxbObjectToXml"  ref="objToXml"/>
+    </custom-transformer>
+
+    <custom-transformer class="org.soitoolkit.commons.mule.log.LogTransformer" name="logRespOut">
+		<spring:property name="logType" value="resp-out"/>
+        <spring:property name="jaxbObjectToXml"  ref="objToXml"/>
+    </custom-transformer>  
 
 </mule>

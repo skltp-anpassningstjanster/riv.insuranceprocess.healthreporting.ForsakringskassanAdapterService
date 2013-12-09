@@ -61,8 +61,8 @@
 					proxy="true" 
 					synchronous="true"
 					applyTransformersToProtocol="false"
-					transformer-refs="fkWhiteListProcessor newReceiverIdQuestion FkReq2VardQuestion changeNamespaceRecMedCertQuestion"
-					responseTransformer-refs="VardResp2FkQuestion"
+					transformer-refs="logReqIn fkWhiteListProcessor newReceiverIdQuestion FkReq2VardQuestion changeNamespaceRecMedCertQuestion"
+					responseTransformer-refs="logRespOut VardResp2FkQuestion"
 				/>							
 			</inbound>
 
@@ -74,8 +74,9 @@
                         	wsdlPort="ReceiveMedicalCertificateQuestionResponderPort"
                         	operation="ReceiveMedicalCertificateQuestion" 
                         	clientClass="se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificatequestion.v1.rivtabp20.ReceiveMedicalCertificateQuestionResponderService"
-							transformer-refs="deleteSoapActionQuestion"
+							transformer-refs="logReqOut deleteSoapActionQuestion"
             	        	synchronous="true"
+            	        	responseTransformer-refs="logRespIn"
                         /> 
                 </pass-through-router>
             </outbound>

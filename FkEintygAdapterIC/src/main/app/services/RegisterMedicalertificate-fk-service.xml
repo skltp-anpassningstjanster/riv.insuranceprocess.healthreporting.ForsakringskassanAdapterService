@@ -49,8 +49,8 @@
 					proxy="true" 
 					synchronous="true"
 					applyTransformersToProtocol="false"
-					transformer-refs="vard2fk changeNamespaceRegisterCertificate"
-					responseTransformer-refs="fk2vard"
+					transformer-refs="logReqIn vard2fk changeNamespaceRegisterCertificate"
+					responseTransformer-refs="logRespOut fk2vard"
 				/>							
 			</inbound>
 
@@ -63,6 +63,8 @@
                         	operation="TaEmotLakarintyg" 
                         	clientClass="se.fk.vardgivare.sjukvard.taemotlakarintyg.v1.rivtabp20.TaEmotLakarintygResponderService"
             	        	synchronous="true"
+            	        	transformer-refs="logReqOut"
+            	        	responseTransformer-refs="logRespIn"
                         /> 
                 </pass-through-router>
             </outbound>
@@ -78,8 +80,8 @@
 					proxy="true" 
 					synchronous="true"
 					applyTransformersToProtocol="false"
-					transformer-refs="vard2fk changeNamespaceRegisterCertificate"
-					responseTransformer-refs="fk2vard"
+					transformer-refs="logReqIn vard2fk changeNamespaceRegisterCertificate"
+					responseTransformer-refs="logRespOut fk2vard"
 				/>							
 			</inbound>
 
@@ -92,6 +94,8 @@
                         	operation="TaEmotLakarintyg" 
                         	clientClass="se.fk.vardgivare.sjukvard.taemotlakarintyg.v1.rivtabp20.TaEmotLakarintygResponderService"
             	        	synchronous="true"
+            	        	transformer-refs="logReqOut"
+            	        	responseTransformer-refs="logRespIn"
                         /> 
                 </pass-through-router>
             </outbound>
@@ -107,8 +111,8 @@
 					proxy="true" 
 					synchronous="true"
 					applyTransformersToProtocol="false"
-					transformer-refs="vard2fk changeNamespaceRegisterCertificate"
-					responseTransformer-refs="fk2vard"
+					transformer-refs="logReqIn vard2fk changeNamespaceRegisterCertificate"
+					responseTransformer-refs="logRespOut fk2vard"
 				/>							
 			</inbound>
 			
@@ -121,6 +125,8 @@
                         	operation="TaEmotLakarintyg" 
                         	clientClass="se.fk.vardgivare.sjukvard.taemotlakarintyg.v1.rivtabp20.TaEmotLakarintygResponderService"
             	        	synchronous="true"
+            	        	transformer-refs="logReqOut"
+            	        	responseTransformer-refs="logRespIn"
                         /> 
                 </pass-through-router>
             </outbound>

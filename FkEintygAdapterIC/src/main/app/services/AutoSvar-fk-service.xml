@@ -44,7 +44,9 @@
 					address="${inbound.endpoint.eintyg.receivemedicalcertificatequestion.autosvar}"
 					wsdlLocation="classpath:/schemas/vard/interactions/ReceiveMedicalCertificateQuestionInteraction/ReceiveMedicalCertificateQuestionInteraction_1.0_rivtabp20.wsdl"
 					serviceName="ReceiveMedicalCertificateQuestionResponderService"
-					namespace="urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateQuestion:1:rivtabp20"/>
+					namespace="urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateQuestion:1:rivtabp20"
+					transformer-refs="logReqIn"
+					responseTransformer-refs="logRespOut"/>
 					
 			</inbound>
 

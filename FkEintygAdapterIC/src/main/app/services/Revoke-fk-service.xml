@@ -35,6 +35,8 @@
 		operation="RevokeMedicalCertificate" 
 		clientClass="se.skl.riv.insuranceprocess.healthreporting.revokemedicalcertificate.v1.rivtabp20.RevokeMedicalCertificateResponderService"
 		synchronous="true"
+		transformer-refs="logReqIn"
+		responseTransformer-refs="logRespOut"
 	/>
 
  	<model>
@@ -44,7 +46,9 @@
 					address="${inbound.endpoint.eintyg.sendmedicalcertificatequestion.revoke}"
 					wsdlLocation="classpath:/schemas/vard/interactions/SendMedicalCertificateQuestionInteraction/SendMedicalCertificateQuestionInteraction_1.0_rivtabp20.wsdl"
 					serviceName="SendMedicalCertificateQuestionResponderService"
-					namespace="urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateQuestion:1:rivtabp20"/>
+					namespace="urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateQuestion:1:rivtabp20"
+					transformer-refs="logReqIn"
+					responseTransformer-refs="logRespOut"/>
 					
 			</inbound>
 

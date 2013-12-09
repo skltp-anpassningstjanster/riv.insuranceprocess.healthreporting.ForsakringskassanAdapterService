@@ -31,6 +31,8 @@
 	">
 
     <spring:beans>
+    
+    	 
 	    <!-- Connectors and endpoints that that are specific for different config-files (local unit-test, integration-test or production environments) -->
     	<!-- TODO: Add import of connector specific configuration files here as required -->
         <spring:import resource="classpath:FkIntegrationComponent-common.xml"/>
