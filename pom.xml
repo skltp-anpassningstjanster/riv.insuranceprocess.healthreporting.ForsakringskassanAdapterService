@@ -18,9 +18,9 @@
 	<name>${project.artifactId}</name>
 	
 	<scm>
-		<connection>scm:svn:https://skltpservices.googlecode.com/svn/AdapterServices/riv.insuranceprocess.healthreporting/ForsakringskassanAdapterService/trunk/</connection>
-		<developerConnection>scm:svn:https://skltpservices.googlecode.com/svn/AdapterServices/riv.insuranceprocess.healthreporting/ForsakringskassanAdapterService/trunk/</developerConnection>
-		<url>http://skltpservices.googlecode.com/svn/AdapterServices/riv.insuranceprocess.healthreporting/ForsakringskassanAdapterService/trunk/</url>
+		<connection>scm:svn:https://skltpservices.googlecode.com/svn/AdapterServices/riv.insuranceprocess.healthreporting/ForsakringskassanAdapterService/branches/mule-2.2.8/</connection>
+		<developerConnection>scm:svn:https://skltpservices.googlecode.com/svn/AdapterServices/riv.insuranceprocess.healthreporting/ForsakringskassanAdapterService/branches/mule-2.2.8/</developerConnection>
+		<url>http://skltpservices.googlecode.com/svn/AdapterServices/riv.insuranceprocess.healthreporting/ForsakringskassanAdapterService/branches/mule-2.2.8/</url>
 	</scm>
 
 	<properties>
