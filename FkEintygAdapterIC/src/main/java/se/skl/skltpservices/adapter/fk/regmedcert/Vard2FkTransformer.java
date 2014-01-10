@@ -108,6 +108,8 @@ import se.skl.riv.insuranceprocess.healthreporting.v2.VardgivareType;
 
 public class Vard2FkTransformer extends AbstractMessageTransformer {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
+	private static final String PERSON_NUMBER_REGEX = "[0-9]{8}[-+]?[0-9]{4}";
+	private static final String PERSON_NUMBER_WITHOUT_DASH_REGEX = "[0-9]{12}";
 
 	private static final JaxbUtil jaxbUtil = new JaxbUtil(RegisterMedicalCertificateType.class);
 
@@ -692,7 +694,18 @@ public class Vard2FkTransformer extends AbstractMessageTransformer {
 				validationErrors
 						.add("Wrong o.i.d. for Patient Id! Should be 1.2.752.129.2.1.3.1 or 1.2.752.129.2.1.3.3");
 			}
+
+        	//Correct personnummer without dashes
 			String inPersonnummer = inPatient.getPersonId().getExtension();
+			
+        	if (inPersonnummer.length() == 12 && Pattern.matches(PERSON_NUMBER_WITHOUT_DASH_REGEX, inPersonnummer)) {
+            	inPatient.getPersonId().setExtension(inPersonnummer.substring(0,8) + "-" + inPersonnummer.substring(8));
+        	}
+
+        	// Check format of patient id (has to be a valid personnummer)
+            if (inPersonnummer == null || !Pattern.matches(PERSON_NUMBER_REGEX, inPersonnummer)) {
+                validationErrors.add("Wrong format for person-id! Valid format is YYYYMMDD-XXXX or YYYYMMDD+XXXX.");
+            }
 
 			// Check format of patient id - personnummer valid format is
 			// 19121212-1212 or 19121212+1212
