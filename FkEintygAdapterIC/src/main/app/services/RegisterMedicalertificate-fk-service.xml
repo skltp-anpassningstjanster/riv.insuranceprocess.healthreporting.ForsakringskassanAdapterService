@@ -42,13 +42,24 @@
 	
 	
 	<flow name="varden-fk-registermedicalcertificate-service">
+	
+		<composite-source>
 
-		<https:inbound-endpoint address="${inbound.endpoint.eintyg.registermedicalcertificate}"
-			connector-ref="soitoolkit-https-connector" 
-			exchange-pattern="request-response"
-			responseTransformer-refs="logRespOut"
-			transformer-refs="logReqIn changeNamespaceRegisterCertificate">
-		</https:inbound-endpoint>
+			<https:inbound-endpoint address="${inbound.endpoint.https.eintyg.registermedicalcertificate}"
+				connector-ref="soitoolkit-https-connector" 
+				exchange-pattern="request-response"
+				responseTransformer-refs="logRespOut"
+				transformer-refs="logReqIn changeNamespaceRegisterCertificate">
+			</https:inbound-endpoint>
+			
+			<http:inbound-endpoint
+        	    address="${inbound.endpoint.http.eintyg.registermedicalcertificate}"
+            	exchange-pattern="request-response" 
+            	responseTransformer-refs="logRespOut"
+				transformer-refs="logReqIn changeNamespaceRegisterCertificate">
+        	</http:inbound-endpoint>
+		
+		</composite-source>
 
 		<cxf:proxy-service
 			namespace="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificate:3:rivtabp20"

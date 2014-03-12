@@ -79,7 +79,7 @@
     <!-- The common single jaxb-context for this mule-app -->
     <!-- Don't create additional jaxb-contexts to avoid problems with implicit jaxb transformations that can't resolve what jaxb-context to use! -->
     <!-- Use ":" as a separator if jaxb-objects from more than one java package will be used by the jaxb-transformers  -->
-    <mulexml:jaxb-context name="jaxbContext" packageNames="org.soitoolkit.commons.logentry.schema.v1:se.fk.vardgivare.sjukvard.taemotfragaresponder.v1:se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificatequestionresponder.v1:se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificateanswerresponder.v1:se.fk.vardgivare.sjukvard.taemotlakarintygresponder.v1:se.fk.vardgivare.sjukvard.taemotsvarresponder.v1"/>
+    <mulexml:jaxb-context name="jaxbContext" packageNames="org.soitoolkit.commons.logentry.schema.v1:se.fk.vardgivare.sjukvard.taemotfragaresponder.v1:se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificatequestionresponder.v1:se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificateanswerresponder.v1:se.fk.vardgivare.sjukvard.taemotlakarintygresponder.v1:se.fk.vardgivare.sjukvard.taemotsvarresponder.v1:se.skl.riv.insuranceprocess.healthreporting.revokemedicalcertificateresponder.v1"/>
 	
 	<custom-transformer class="org.soitoolkit.commons.mule.core.ObjectToStringTransformer" name="objToStr"/>
 

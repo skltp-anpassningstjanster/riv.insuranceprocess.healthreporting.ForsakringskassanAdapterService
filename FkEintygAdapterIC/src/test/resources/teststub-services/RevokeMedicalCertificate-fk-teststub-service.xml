@@ -7,16 +7,38 @@
 		http://www.mulesoft.org/schema/mule/core    http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 		http://www.mulesoft.org/schema/mule/cxf     http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd
 		http://www.mulesoft.org/schema/mule/jms     http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd
-	">
+	">		
+		
+	<flow name="varden-fk-revokemedicalcertificate-teststub-service-test" >
 
-	<simple-service name="varden-fk-revokemedicalcertificate-teststub-service-test"
-		address="${inbound.endpoint.eintyg.revokemedicalcertificate.teststub.test}"
-		component-class="se.skl.skltpservices.adapter.fk.revokemedcert.RevokeMedCertImpl"
-		type="jax-ws" />
+        <inbound-endpoint address="${inbound.endpoint.eintyg.revokemedicalcertificate.teststub.test}"  
+            connector-ref="soitoolkit-http-connector"/>
 
-	<simple-service name="varden-fk-revokemedicalcertificate-teststub-service-validate"
-		address="${inbound.endpoint.eintyg.revokemedicalcertificate.teststub.validate}"
-		component-class="se.skl.skltpservices.adapter.fk.revokemedcert.RevokeMedCertValidateImpl"
-		type="jax-ws" />
+		<custom-transformer class="se.skl.skltpservices.adapter.fk.producer.FkAdapterTestProducerLogger"/>
+
+	    <cxf:jaxws-service
+            serviceClass="se.skl.skltpservices.adapter.fk.revokemedcert.RevokeMedCertImpl"
+					wsdlLocation="classpath:/schemas/vard/interactions/RevokeMedicalCertificateInteraction/RevokeMedicalCertificateInteraction_1.0_rivtabp20.wsdl" />
+
+        <component>
+            <singleton-object class="se.skl.skltpservices.adapter.fk.revokemedcert.RevokeMedCertImpl"  />
+        </component>
+    </flow>
+    
+    <flow name="varden-fk-revokemedicalcertificate-teststub-service-validate" >
+
+        <inbound-endpoint address="${inbound.endpoint.eintyg.revokemedicalcertificate.teststub.validate}"  
+            connector-ref="soitoolkit-http-connector"/>
+
+		<custom-transformer class="se.skl.skltpservices.adapter.fk.producer.FkAdapterTestProducerLogger"/>
+
+	    <cxf:jaxws-service
+            serviceClass="se.skl.skltpservices.adapter.fk.revokemedcert.RevokeMedCertValidateImpl"
+					wsdlLocation="classpath:/schemas/vard/interactions/RevokeMedicalCertificateInteraction/RevokeMedicalCertificateInteraction_1.0_rivtabp20.wsdl" />
+
+        <component>
+            <singleton-object class="se.skl.skltpservices.adapter.fk.revokemedcert.RevokeMedCertValidateImpl"  />
+        </component>
+    </flow>
 
 </mule>

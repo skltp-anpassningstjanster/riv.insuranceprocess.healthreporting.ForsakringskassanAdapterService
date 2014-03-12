@@ -17,23 +17,47 @@
 		http://www.mulesoft.org/schema/mule/https   http://www.mulesoft.org/schema/mule/https/current/mule-https.xsd
 	">
 	
-	<https:endpoint
+	<http:endpoint
 		name="revokeEndpoint"
         address="${outbound.endpoint.eintyg.sendmedicalcertificatequestion.revoke}"
-        exchange-pattern="request-response" >
+        exchange-pattern="request-response" 
+        transformer-refs="logReqOut" 
+		responseTransformer-refs="logRespIn">
         <cxf:jaxws-client
 	       port="RevokeMedicalCertificateResponderPort"
 	       operation="RevokeMedicalCertificate"
 	       clientClass="se.skl.riv.insuranceprocess.healthreporting.revokemedicalcertificate.v1.rivtabp20.RevokeMedicalCertificateResponderService"
 	       wsdlLocation="classpath:/schemas/vard/interactions/RevokeMedicalCertificateInteraction/RevokeMedicalCertificateInteraction_1.0_rivtabp20.wsdl"
         />
-	</https:endpoint>
+        
+        <!-- 
+ 			Propagate x-vp-sender-id as an outbound property, value is the hsa id of FK adapter to be used when invoking VP.
+ 			Propagate x-vp-instance-id as an outbound property, value is set as an id of the invoked VP.
+ 			
+ 			These two headers are dependent on each other in a way that when using x-vp-sender-id against VP, VP will check for a valid x-vp-instance-id.
+ 		-->
+ 		<set-property propertyName="x-vp-sender-id" value="${FKADAPTER_HSA_ID}" doc:name="propagate x-vp-sender-id when invoking VP" />
+ 		<set-property propertyName="x-vp-instance-id" value="${VP_INSTANCE_ID}" doc:name="propagate x-vp-instance-id when invoking VP" />
+        
+	</http:endpoint>
 
+	<!-- To support both https and http at the same time for SendMedicalCertificateQuestion-service-revoke-->
 	<simple-service 
-		name="SendMedicalCertificateQuestion-service-revoke"
-        address="${inbound.endpoint.eintyg.sendmedicalcertificatequestion.revoke}" 
+		name="SendMedicalCertificateQuestion-service-revoke-https"
+        address="${inbound.endpoint.https.eintyg.sendmedicalcertificatequestion.revoke}" 
         component-class="se.skl.skltpservices.adapter.fk.sendmedcertquestion.SendMCQRevoke"
-        type="jax-ws" />
+        type="jax-ws" 
+        transformer-refs="logReqIn" 
+		responseTransformer-refs="logRespOut"/>
+		
+	<!-- To support both https and http at the same time for SendMedicalCertificateQuestion-service-revoke-->
+	<simple-service 
+		name="SendMedicalCertificateQuestion-service-revoke-http"
+        address="${inbound.endpoint.http.eintyg.sendmedicalcertificatequestion.revoke}" 
+        component-class="se.skl.skltpservices.adapter.fk.sendmedcertquestion.SendMCQRevoke"
+        type="jax-ws" 
+        transformer-refs="logReqIn" 
+		responseTransformer-refs="logRespOut"/>
    	     
 </mule>
 

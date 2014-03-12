@@ -20,15 +20,20 @@
  */
 package se.skl.skltpservices.adapter.fk.vardgivare.sjukvard.taemotsvar;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.soitoolkit.commons.mule.test.junit4.AbstractTestCase;
+import org.soitoolkit.commons.mule.util.RecursiveResourceBundle;
 
 import se.fk.vardgivare.sjukvard.taemotsvarresponder.v1.TaEmotSvarResponseType;
+import se.skl.skltpservices.adapter.fk.producer.FkAdapterTestProducerLogger;
 
 public class TaEmotSvarIntegrationTest extends AbstractTestCase {
+	
+	private static final RecursiveResourceBundle rb = new RecursiveResourceBundle("FkIntegrationComponent-config");
 
 	public TaEmotSvarIntegrationTest() {
 		// Only start up Mule once to make the tests run faster...
@@ -50,12 +55,16 @@ public class TaEmotSvarIntegrationTest extends AbstractTestCase {
 	@Test
 	public void testTaEmotSvar() throws Exception {
 
-		TaEmotSvarTestConsumer consumer = new TaEmotSvarTestConsumer(
+		TaEmotSvarTestConsumer fkAsConsumer = new TaEmotSvarTestConsumer(
 				"https://localhost:12000/tb/fk/ifv/TaEmotSvar/1/rivtabp20");
 
-		TaEmotSvarResponseType response = consumer.taEmotSvar();
+		TaEmotSvarResponseType response = fkAsConsumer.taEmotSvar();
 
 		assertNotNull(response);
+		
+		//Verify http headers are propagated frpm FKAdapter to producer (VP)
+		assertEquals(rb.getString("FKADAPTER_HSA_ID"), FkAdapterTestProducerLogger.getLatestSenderId());
+		assertEquals(rb.getString("VP_INSTANCE_ID"), FkAdapterTestProducerLogger.getLatestVpInstanceId());
 
 	}
 

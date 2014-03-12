@@ -11,11 +11,21 @@
 		http://www.mulesoft.org/schema/mule/cxf     http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd
 		http://www.mulesoft.org/schema/mule/jms     http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd
 	">
+    
+    <flow name="fk-varden-receivemedicalcertificateanswer-teststub" >
 
-	<simple-service 
-		name="fk-varden-receivemedicalcertificateanswer-teststub"
-        address="${inbound.endpoint.eintyg.receivemedicalcertificateanswer.teststub}" 
-        component-class="se.skl.skltpservices.adapter.fk.recmedcertanswer.RecMedCertAnswerImpl"
-        type="jax-ws" />
+        <inbound-endpoint address="${inbound.endpoint.eintyg.receivemedicalcertificateanswer.teststub}"  
+            connector-ref="soitoolkit-http-connector"/>
+
+		<custom-transformer class="se.skl.skltpservices.adapter.fk.producer.FkAdapterTestProducerLogger"/>
+
+	    <cxf:jaxws-service
+            serviceClass="se.skl.skltpservices.adapter.fk.recmedcertanswer.RecMedCertAnswerImpl"
+					wsdlLocation="classpath:/schemas/vard/interactions/ReceiveMedicalCertificateAnswerInteraction/ReceiveMedicalCertificateAnswerInteraction_1.0_rivtabp20.wsdl" />
+
+        <component>
+            <singleton-object class="se.skl.skltpservices.adapter.fk.recmedcertanswer.RecMedCertAnswerImpl"  />
+        </component>
+    </flow>
 
 </mule>

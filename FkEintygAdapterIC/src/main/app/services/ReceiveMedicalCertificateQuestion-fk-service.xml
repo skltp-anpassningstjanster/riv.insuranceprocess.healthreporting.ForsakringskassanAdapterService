@@ -48,14 +48,14 @@
 
 
 	<flow name="fk-varden-question-service">
-
+	
 		<https:inbound-endpoint address="${inbound.endpoint.eintyg.taemotfraga}"
 			connector-ref="soitoolkit-https-connector" 
 			exchange-pattern="request-response"
 			responseTransformer-refs="logRespOut"
 			transformer-refs="logReqIn fkWhiteListProcessor newReceiverIdQuestion changeNamespaceRecMedCertQuestion">
 		</https:inbound-endpoint>
-
+	
 		<cxf:proxy-service
 			namespace="urn:riv:fk:vardgivare:sjukvard:TaEmotFraga:1:rivtabp20"
 			payload="body" 
@@ -63,8 +63,17 @@
 			wsdlLocation="classpath:/schemas/fk/TaEmotFragaInteraction12_1.0_rivtabp20.wsdl" />
 			
 		<custom-transformer doc:name="transform-request" class="se.skl.skltpservices.adapter.fk.recmedcertquestion.FkRequest2VardTransformer"/>
+		
+		<!-- 
+ 			Propagate x-vp-sender-id as an outbound property, value is the hsa id of FK adapter to be used when invoking VP.
+ 			Propagate x-vp-instance-id as an outbound property, value is set as an id of the invoked VP.
+ 			
+ 			These two headers are dependent on each other in a way that when using x-vp-sender-id against VP, VP will check for a valid x-vp-instance-id.
+ 		-->
+ 		<set-property propertyName="x-vp-sender-id" value="${FKADAPTER_HSA_ID}" doc:name="propagate x-vp-sender-id when invoking VP" />
+ 		<set-property propertyName="x-vp-instance-id" value="${VP_INSTANCE_ID}" doc:name="propagate x-vp-instance-id when invoking VP" />
 			
-		<https:outbound-endpoint connector-ref="soitoolkit-https-connector"
+		<http:outbound-endpoint connector-ref="soitoolkit-http-connector"
 			address="${outbound.endpoint.eintyg.receivemedicalcertificatequestion}"
 			exchange-pattern="request-response" 
 			responseTimeout="${SERVICE_TIMEOUT_MS}"
@@ -74,7 +83,7 @@
 				operation="ReceiveMedicalCertificateQuestion"
 				clientClass="se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificatequestion.v1.rivtabp20.ReceiveMedicalCertificateQuestionResponderService"
 				wsdlLocation="classpath:/schemas/vard/interactions/ReceiveMedicalCertificateQuestionInteraction/ReceiveMedicalCertificateQuestionInteraction_1.0_rivtabp20.wsdl" />
-		</https:outbound-endpoint>
+		</http:outbound-endpoint>
 		
 		 <response>
             <custom-transformer doc:name="transform-response" class="se.skl.skltpservices.adapter.fk.recmedcertquestion.VardResponse2FkTransformer"/>

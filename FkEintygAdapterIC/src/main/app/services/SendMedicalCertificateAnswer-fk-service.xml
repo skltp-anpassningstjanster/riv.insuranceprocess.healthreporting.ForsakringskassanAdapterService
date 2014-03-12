@@ -41,14 +41,22 @@
 	</message-properties-transformer>           
 	
 	<flow name="varden-fk-sendmedcertanswer-service">
-
-		<https:inbound-endpoint address="${inbound.endpoint.eintyg.sendmedicalcertificateanswer}"
-			connector-ref="soitoolkit-https-connector" 
-			exchange-pattern="request-response"
-			responseTransformer-refs="logRespOut"
-			transformer-refs="logReqIn changeNamespaceSendAnswer">
-		</https:inbound-endpoint>
-
+		<composite-source>
+			<https:inbound-endpoint address="${inbound.endpoint.https.eintyg.sendmedicalcertificateanswer}"
+				connector-ref="soitoolkit-https-connector" 
+				exchange-pattern="request-response"
+				responseTransformer-refs="logRespOut"
+				transformer-refs="logReqIn changeNamespaceSendAnswer">
+			</https:inbound-endpoint>
+			
+			<http:inbound-endpoint
+        	    address="${inbound.endpoint.http.eintyg.sendmedicalcertificateanswer}"
+            	exchange-pattern="request-response" 
+            	responseTransformer-refs="logRespOut"
+				transformer-refs="logReqIn changeNamespaceSendAnswer">
+        	</http:inbound-endpoint>
+			
+		</composite-source>
 		<cxf:proxy-service
 			namespace="urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateAnswer:1:rivtabp20"
 			payload="body" 

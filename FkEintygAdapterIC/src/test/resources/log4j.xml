@@ -37,7 +37,7 @@
 	</appender>
     
     <appender name="ROLLINGFILE" class="org.apache.log4j.RollingFileAppender">
-        <param  name="file" value="${mule.home}/logs/mule-app-anp-fk.log"/>
+        <param  name="file" value="${mule.home}/logs/mule-app-FkEintygAdapter.log"/>
         <param name="MaxBackupIndex" value="3" />
         <param name="MaxFileSize" value="1MB" />
         
@@ -90,28 +90,45 @@
 
     <!-- Message logging using the old Mule <logger/> - element -->
     <logger name="org.mule.api.processor.LoggerMessageProcessor">
-        <level value="INFO" />
+        <level value="ERROR" />
     </logger>
 
     <!-- Message logging using the old Mule <log-component/> - element -->
     <logger name="org.mule.component.simple.LogComponent">
-        <level value="INFO" />
+        <level value="ERROR" />
     </logger>
 
     <logger name="org.soitoolkit.commons">
-		<level value="INFO" />
+		<level value="ERROR" />
 	</logger>
     
+ 	<!--     	
+    	For logging events to QUEUE using EventLogger:
+    	
+    	DEBUG puts logevents (with payload) and errorevents on log queue
+    	INFO puts logevents (without payload) and errorevents on log queue
+    	ERROR will only put errorevents on log queue
+    -->
 	<logger name="org.soitoolkit.commons.mule.messageLogger">
-		<level value="DEBUG" />
+		<level value="INFO" />
 	</logger>
 	
 	 <logger name="se.skl.skltpservices.adapter.fk">
         <level value="INFO"/>
     </logger>
+    
+    <!-- Level DEBUG: Log http headers transfered during a request/response -->
+    <logger name="httpclient.wire.header">
+        <level value="FATAL"/>
+    </logger>
+
+	 <!-- Level DEBUG: Log the http content transfered during a request/response -->
+    <logger name="httpclient.wire.content">
+        <level value="FATAL"/>
+    </logger>
 
     <root>
-       <priority value="INFO" />
+       <priority value="WARN" />
 
         <appender-ref ref="CONSOLE"/>
 		<!--

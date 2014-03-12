@@ -32,6 +32,9 @@ public class FkIntegrationComponentMuleServer {
 	private static final RecursiveResourceBundle rb = new RecursiveResourceBundle("FkIntegrationComponent-config");
 
 	public static final String MULE_SERVER_ID = "FkIntegrationComponent";
+	
+	public static final String X_VP_SENDER_ID = "x-vp-sender-id";
+	public static final String X_VP_INSTANCE_ID = "x-vp-instance-id";
 
 	public static void main(String[] args) throws Exception {
 
