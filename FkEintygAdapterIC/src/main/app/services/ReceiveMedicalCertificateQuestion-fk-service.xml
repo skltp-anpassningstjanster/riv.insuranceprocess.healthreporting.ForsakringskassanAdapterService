@@ -52,8 +52,8 @@
 		<https:inbound-endpoint address="${inbound.endpoint.eintyg.taemotfraga}"
 			connector-ref="soitoolkit-https-connector" 
 			exchange-pattern="request-response"
-			responseTransformer-refs="logRespOut"
-			transformer-refs="logReqIn fkWhiteListProcessor newReceiverIdQuestion changeNamespaceRecMedCertQuestion">
+			responseTransformer-refs="objToStr logRespOut"
+			transformer-refs="objToStr logReqIn fkWhiteListProcessor newReceiverIdQuestion changeNamespaceRecMedCertQuestion">
 		</https:inbound-endpoint>
 	
 		<cxf:proxy-service
@@ -77,7 +77,7 @@
 			address="${outbound.endpoint.eintyg.receivemedicalcertificatequestion}"
 			exchange-pattern="request-response" 
 			responseTimeout="${SERVICE_TIMEOUT_MS}"
-			transformer-refs="deleteSoapActionQuestion logReqOut" 
+			transformer-refs="deleteSoapActionQuestion objToStr logReqOut" 
 			responseTransformer-refs="logRespIn">
 			<cxf:jaxws-client port="ReceiveMedicalCertificateQuestionResponderPort"
 				operation="ReceiveMedicalCertificateQuestion"

@@ -21,8 +21,8 @@
 		name="revokeEndpoint"
         address="${outbound.endpoint.eintyg.sendmedicalcertificatequestion.revoke}"
         exchange-pattern="request-response" 
-        transformer-refs="logReqOut" 
-		responseTransformer-refs="logRespIn">
+        transformer-refs="objToStr logReqOut" 
+		responseTransformer-refs="objToStr logRespIn">
         <cxf:jaxws-client
 	       port="RevokeMedicalCertificateResponderPort"
 	       operation="RevokeMedicalCertificate"
@@ -47,8 +47,8 @@
         address="${inbound.endpoint.https.eintyg.sendmedicalcertificatequestion.revoke}" 
         component-class="se.skl.skltpservices.adapter.fk.sendmedcertquestion.SendMCQRevoke"
         type="jax-ws" 
-        transformer-refs="logReqIn" 
-		responseTransformer-refs="logRespOut"/>
+        transformer-refs="objToStr logReqIn" 
+		responseTransformer-refs="objToStr logRespOut"/>
 		
 	<!-- To support both https and http at the same time for SendMedicalCertificateQuestion-service-revoke-->
 	<simple-service 
@@ -56,8 +56,8 @@
         address="${inbound.endpoint.http.eintyg.sendmedicalcertificatequestion.revoke}" 
         component-class="se.skl.skltpservices.adapter.fk.sendmedcertquestion.SendMCQRevoke"
         type="jax-ws" 
-        transformer-refs="logReqIn" 
-		responseTransformer-refs="logRespOut"/>
+        transformer-refs="objToStr logReqIn" 
+		responseTransformer-refs="objToStr logRespOut"/>
    	     
 </mule>
 

@@ -47,15 +47,15 @@
 			<https:inbound-endpoint address="${inbound.endpoint.https.eintyg.sendmedicalcertificatequestion}"
 				connector-ref="soitoolkit-https-connector" 
 				exchange-pattern="request-response"
-				responseTransformer-refs="logRespOut"
-				transformer-refs="logReqIn changeNamespaceSendQuestion">
+				responseTransformer-refs="objToStr logRespOut"
+				transformer-refs="objToStr logReqIn changeNamespaceSendQuestion">
 			</https:inbound-endpoint>
 			
 			<http:inbound-endpoint
         	    address="${inbound.endpoint.http.eintyg.sendmedicalcertificatequestion}"
             	exchange-pattern="request-response" 
-            	responseTransformer-refs="logRespOut"
-				transformer-refs="logReqIn changeNamespaceSendQuestion">
+            	responseTransformer-refs="objToStr logRespOut"
+				transformer-refs="objToStr logReqIn changeNamespaceSendQuestion">
         	</http:inbound-endpoint>
 
 		</composite-source>
@@ -71,7 +71,7 @@
 			address="${outbound.endpoint.eintyg.sendmedicalcertificatequestion}"
 			exchange-pattern="request-response" 
 			responseTimeout="${SERVICE_TIMEOUT_MS}"
-			transformer-refs="logReqOut" 
+			transformer-refs="objToStr logReqOut" 
 			responseTransformer-refs="logRespIn">
 			<cxf:jaxws-client port="TaEmotFragaResponderPort"
 				operation="TaEmotFraga"

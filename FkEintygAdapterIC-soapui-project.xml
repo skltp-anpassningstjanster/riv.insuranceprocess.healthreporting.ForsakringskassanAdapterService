@@ -1238,7 +1238,7 @@
     </xs:sequence>
     <xs:anyAttribute namespace="##other" processContents="lax"/>
   </xs:complexType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:11000/tb/eintyg/revoke/SendMedicalCertificateQuestion/1/rivtabp20</con:endpoint><con:endpoint>https://localhost:12000/tb/eintyg/revoke/SendMedicalCertificateQuestion/1/rivtabp20</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateQuestionResponder:1" name="SendMedicalCertificateQuestion" bindingOperationName="SendMedicalCertificateQuestion" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="revoke-request-makulering-ok"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:11000/tb/eintyg/revoke/SendMedicalCertificateQuestion/1/rivtabp20</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:11000/tb/eintyg/revoke/SendMedicalCertificateQuestion/1/rivtabp20</con:endpoint><con:endpoint>https://localhost:12000/tb/eintyg/fk/SendMedCertQuestion/1/rivtabp20</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateQuestionResponder:1" name="SendMedicalCertificateQuestion" bindingOperationName="SendMedicalCertificateQuestion" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="revoke-request-makulering-ok"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:11000/tb/eintyg/revoke/SendMedicalCertificateQuestion/1/rivtabp20</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
    <soap:Header>
       <ns4:To xmlns:ns4="http://www.w3.org/2005/08/addressing" xmlns:ns3="urn:riv:insuranceprocess:healthreporting:2" xmlns:ns2="urn:riv:insuranceprocess:healthreporting:medcertqa:1" xmlns="urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateQuestionResponder:1">2021005521</ns4:To>
    </soap:Header>
@@ -1281,7 +1281,50 @@
          </Question>
       </SendMedicalCertificateQuestion>
    </soap:Body>
-</soap:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateQuestionResponder:1"/><con:wsrmConfig version="1.2"/></con:call><con:call name="revoke-request-ovrigt-ok"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://localhost:12000/tb/eintyg/revoke/SendMedicalCertificateQuestion/1/rivtabp20</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+</soap:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateQuestionResponder:1"/><con:wsrmConfig version="1.2"/></con:call><con:call name="revoke-request-ovrigt-ok"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://localhost:12000/tb/eintyg/fk/SendMedCertQuestion/1/rivtabp20</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Header>
+      <ns4:To xmlns:ns4="http://www.w3.org/2005/08/addressing" xmlns:ns3="urn:riv:insuranceprocess:healthreporting:2" xmlns:ns2="urn:riv:insuranceprocess:healthreporting:medcertqa:1" xmlns="urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateQuestionResponder:1">2021005521</ns4:To>
+   </soap:Header>
+   <soap:Body>
+      <SendMedicalCertificateQuestion xmlns="urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateQuestionResponder:1" xmlns:ns2="urn:riv:insuranceprocess:healthreporting:medcertqa:1" xmlns:ns3="urn:riv:insuranceprocess:healthreporting:2" xmlns:ns4="http://www.w3.org/2005/08/addressing">
+         <Question>
+            <vardReferens-id>123456789012344</vardReferens-id>
+            <amne>Ovrigt</amne>
+            <fraga>
+               <ns2:meddelandeText>Hej! Kan vi se imorgon vid ÅÄÖ åäö?</ns2:meddelandeText>
+               <ns2:signeringsTidpunkt>2011-03-26T12:42:41.527+01:00</ns2:signeringsTidpunkt>
+            </fraga>
+            <avsantTidpunkt>2011-05-30T16:56:41.525+01:00</avsantTidpunkt>
+            <adressVard>
+               <ns2:hosPersonal>
+                  <ns3:personal-id extension="Personal HSA-ID" root="1.2.752.129.2.1.4.1"/>
+                  <ns3:fullstandigtNamn>Erik Öselius</ns3:fullstandigtNamn>
+                  <ns3:enhet>
+                     <ns3:enhets-id extension="VardenhetY" root="1.2.752.129.2.1.4.1"/>
+                     <ns3:enhetsnamn>Kir mott UAS/KIR</ns3:enhetsnamn>
+                     <ns3:postadress>Akademiska sjukhuset</ns3:postadress>
+                     <ns3:postnummer>751 85</ns3:postnummer>
+                     <ns3:postort>Uppsala</ns3:postort>
+                     <ns3:telefonnummer>018-611 45 30</ns3:telefonnummer>
+                     <ns3:vardgivare>
+                        <ns3:vardgivare-id extension="VardgivareId" root="1.2.752.129.2.1.4.1"/>
+                        <ns3:vardgivarnamn>Landstinget i Uppsala</ns3:vardgivarnamn>
+                     </ns3:vardgivare>
+                  </ns3:enhet>
+               </ns2:hosPersonal>
+            </adressVard>
+            <lakarutlatande>
+               <ns2:lakarutlatande-id>65aafe58-de99-48d3-bc24-42bf7973ff0f</ns2:lakarutlatande-id>
+               <ns2:signeringsTidpunkt>2011-01-24T00:00:00.000+01:00</ns2:signeringsTidpunkt>
+               <ns2:patient>
+                  <ns3:person-id extension="19790402-2998" root="1.2.752.129.2.1.3.1"/>
+                  <ns3:fullstandigtNamn>Test Testorsson</ns3:fullstandigtNamn>
+               </ns2:patient>
+            </lakarutlatande>
+         </Question>
+      </SendMedicalCertificateQuestion>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateQuestionResponder:1"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Normal request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://localhost:12000/tb/eintyg/fk/SendMedCertQuestion/1/rivtabp20</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
    <soap:Header>
       <ns4:To xmlns:ns4="http://www.w3.org/2005/08/addressing" xmlns:ns3="urn:riv:insuranceprocess:healthreporting:2" xmlns:ns2="urn:riv:insuranceprocess:healthreporting:medcertqa:1" xmlns="urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateQuestionResponder:1">2021005521</ns4:To>
    </soap:Header>

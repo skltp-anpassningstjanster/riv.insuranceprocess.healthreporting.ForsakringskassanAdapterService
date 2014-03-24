@@ -110,7 +110,7 @@
     	ERROR will only put errorevents on log queue
     -->
 	<logger name="org.soitoolkit.commons.mule.messageLogger">
-		<level value="INFO" />
+		<level value="DEBUG" />
 	</logger>
 	
 	 <logger name="se.skl.skltpservices.adapter.fk">
