@@ -84,12 +84,15 @@
    <!--     	
     	For logging events to QUEUE using EventLogger:
     	
+    	DEBUG is set as default to make sure payload is logged for
+    	statistics purposes.
+    	
     	DEBUG puts logevents (with payload) and errorevents on log queue
     	INFO puts logevents (without payload) and errorevents on log queue
     	ERROR will only put errorevents on log queue
     -->
   <logger name="org.soitoolkit.commons.mule.messageLogger">
-    <level value="ERROR" />
+    <level value="DEBUG" />
   </logger>
   
     <logger name="se.skl.skltpservices.adapter.fk">
