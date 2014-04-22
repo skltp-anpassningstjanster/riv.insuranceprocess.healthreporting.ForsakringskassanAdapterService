@@ -137,12 +137,5 @@
 		<spring:property name="certificatesKey" value="${CERTIFICATE_KEY}" />
 	</custom-transformer>
 	
-	<!-- Transformer check if ip adress provided is on the ip adress white list -->
-	<custom-transformer name="checkSenderIpTransformer" class="se.skl.skltpservices.adapter.common.processor.CheckSenderIpTransformer" doc:name="Check Sender ip adress is on IP ADRESS white listexist">
-        <spring:property name="whiteList" value="${IP_WHITE_LIST}" />
-        <spring:property name="senderIpAdressHttpHeader" value="${SENDER_IP_ADRESS_HTTP_HEADER}"/>
-        <spring:property name="enableIpAdressControl" value="${ENABLE_IP_ADRESS_CONTROL}"/>
-  	</custom-transformer>
-	
 
 </mule>

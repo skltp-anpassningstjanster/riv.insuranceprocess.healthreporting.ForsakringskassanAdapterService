@@ -58,7 +58,7 @@
 			<http:inbound-endpoint address="${inbound.endpoint.http.eintyg.taemotfraga}"
 				exchange-pattern="request-response"
 				responseTransformer-refs="objToStr logRespOut"
-				transformer-refs="objToStr logReqIn checkSenderIpTransformer newReceiverIdQuestion changeNamespaceRecMedCertQuestion">
+				transformer-refs="objToStr logReqIn newReceiverIdQuestion changeNamespaceRecMedCertQuestion">
 			</http:inbound-endpoint>
 		 </composite-source>
 		 

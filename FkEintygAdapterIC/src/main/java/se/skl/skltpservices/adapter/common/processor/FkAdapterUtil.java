@@ -22,9 +22,7 @@ package se.skl.skltpservices.adapter.common.processor;
 
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
-import org.mule.api.MuleMessage;
 import org.mule.api.config.MuleProperties;
-import org.mule.api.transport.PropertyScope;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -79,19 +77,6 @@ public class FkAdapterUtil {
 	}
 
 	/**
-	 * Extract ipadress from incoming mule message
-	 * @param message The messsage
-	 * @return The ip adress from the incoming message
-	 */
-	public static String extractIpAddress(final MuleMessage message) {
-		String remoteAddress = message.getProperty(REMOTE_ADDR, PropertyScope.INBOUND);
-		remoteAddress = remoteAddress.trim();
-		
-		final String s = remoteAddress.split(":")[0];
-		return s.substring(1, s.length());
-	}
-
-	/**
 	 * Check if the entry provided by the caller is on accepted list of entries in whitelist. False
 	 * is always returned in case no whitelist exist or provided call entry is empty.
 	 * 
@@ -113,8 +98,8 @@ public class FkAdapterUtil {
 			return false;
 		}
 		
-		for (String ipAddress : whiteList.split(",")) {
-			if(callerEntry.startsWith(ipAddress.trim())){
+		for (String whiteListEntry : whiteList.split(",")) {
+			if(callerEntry.equals(whiteListEntry.trim())){
 				log.debug("Caller matches entry in white list, ok");
 				return true;
 			}
