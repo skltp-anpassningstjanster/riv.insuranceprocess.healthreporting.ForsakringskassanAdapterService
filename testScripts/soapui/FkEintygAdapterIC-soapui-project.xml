@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project activeEnvironment="Default" name="FkEintygAdapterIC" resourceRoot="" soapui-version="4.6.4" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="RevokeMedicalCertificateResponderBinding" type="wsdl" bindingName="{urn:riv:insuranceprocess:healthreporting:RevokeMedicalCertificate:1:rivtabp20}RevokeMedicalCertificateResponderBinding" soapVersion="1_1" anonymous="optional" definition="https://192.168.19.10:12001/teststub/eintyg/testproducer/RevokeMedicalCertificate/1/rivtabp20/test?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://192.168.19.10:12001/teststub/eintyg/testproducer/RevokeMedicalCertificate/1/rivtabp20/test?wsdl"><con:part><con:url>https://192.168.19.10:12001/teststub/eintyg/testproducer/RevokeMedicalCertificate/1/rivtabp20/test?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="RevokeMedicalCertificateInteraction" targetNamespace="urn:riv:insuranceprocess:healthreporting:RevokeMedicalCertificate:1:rivtabp20" xmlns:itr="urn:riv:itintegration:registry:1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tjsr="urn:riv:insuranceprocess:healthreporting:RevokeMedicalCertificateResponder:1" xmlns:tns="urn:riv:insuranceprocess:healthreporting:RevokeMedicalCertificate:1:rivtabp20" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<con:soapui-project activeEnvironment="Default" name="FkEintygAdapterIC" resourceRoot="" soapui-version="4.5.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="RevokeMedicalCertificateResponderBinding" type="wsdl" bindingName="{urn:riv:insuranceprocess:healthreporting:RevokeMedicalCertificate:1:rivtabp20}RevokeMedicalCertificateResponderBinding" soapVersion="1_1" anonymous="optional" definition="https://192.168.19.10:12001/teststub/eintyg/testproducer/RevokeMedicalCertificate/1/rivtabp20/test?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://192.168.19.10:12001/teststub/eintyg/testproducer/RevokeMedicalCertificate/1/rivtabp20/test?wsdl"><con:part><con:url>https://192.168.19.10:12001/teststub/eintyg/testproducer/RevokeMedicalCertificate/1/rivtabp20/test?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="RevokeMedicalCertificateInteraction" targetNamespace="urn:riv:insuranceprocess:healthreporting:RevokeMedicalCertificate:1:rivtabp20" xmlns:itr="urn:riv:itintegration:registry:1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tjsr="urn:riv:insuranceprocess:healthreporting:RevokeMedicalCertificateResponder:1" xmlns:tns="urn:riv:insuranceprocess:healthreporting:RevokeMedicalCertificate:1:rivtabp20" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <xs:schema targetNamespace="urn:riv:insuranceprocess:healthreporting:RevokeMedicalCertificate:1:rivtabp20">
       <xs:import namespace="urn:riv:insuranceprocess:healthreporting:RevokeMedicalCertificateResponder:1" schemaLocation="https://192.168.19.10:12001/teststub/eintyg/testproducer/RevokeMedicalCertificate/1/rivtabp20/test?xsd=RevokeMedicalCertificateResponder_1.0.xsd"/>
@@ -1367,7 +1367,7 @@
          </Question>
       </SendMedicalCertificateQuestion>
    </soap:Body>
-</soap:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateQuestionResponder:1"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://localhost:11000" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://localhost:11000</con:endpoint></con:endpoints><con:resource name="Rivtabp20" path="/tb/fk/Ping/1/rivtabp20"><con:settings/><con:parameters/><con:method name="Rivtabp20" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>text/plain</con:mediaType><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:11000</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="RegisterMedicalCertificateResponderBinding" type="wsdl" bindingName="{urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificate:3:rivtabp20}RegisterMedicalCertificateResponderBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:11000/tb/eintyg/fk/RegisterMedicalCertificate/3/rivtabp20?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:11000/tb/eintyg/fk/RegisterMedicalCertificate/3/rivtabp20?wsdl"><con:part><con:url>http://localhost:11000/tb/eintyg/fk/RegisterMedicalCertificate/3/rivtabp20?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="RegisterMedicalCertificateInteraction" targetNamespace="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificate:3:rivtabp20" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tjs="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificateResponder:3" xmlns:tns="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificate:3:rivtabp20" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+</soap:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateQuestionResponder:1"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://localhost:11000" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://localhost:11000</con:endpoint></con:endpoints><con:resource name="Rivtabp20" path="/tb/fk/Ping/1/rivtabp20"><con:settings/><con:parameters/><con:method name="Rivtabp20" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>text/plain</con:mediaType><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:11000</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="RegisterMedicalCertificateResponderBinding" type="wsdl" bindingName="{urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificate:3:rivtabp20}RegisterMedicalCertificateResponderBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:11000/tb/eintyg/fk/RegisterMedicalCertificate/3/rivtabp20?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:11000/tb/eintyg/fk/RegisterMedicalCertificate/3/rivtabp20?wsdl"><con:part><con:url>http://localhost:11000/tb/eintyg/fk/RegisterMedicalCertificate/3/rivtabp20?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="RegisterMedicalCertificateInteraction" targetNamespace="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificate:3:rivtabp20" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tjs="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificateResponder:3" xmlns:tns="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificate:3:rivtabp20" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <xs:schema>
       <xs:import namespace="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificateResponder:3" schemaLocation="http://localhost:11000/tb/eintyg/fk/RegisterMedicalCertificate/3/rivtabp20?xsd=RegisterMedicalCertificateResponder_3.0.xsd"/>
@@ -2238,7 +2238,7 @@
     </xs:sequence>
     <xs:anyAttribute namespace="##other" processContents="lax"/>
   </xs:complexType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:11000/tb/eintyg/fk/RegisterMedicalCertificate/3/rivtabp20</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificateResponder:1" name="RegisterMedicalCertificate" bindingOperationName="RegisterMedicalCertificate" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Maximal request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:11000/tb/eintyg/fk/RegisterMedicalCertificate/3/rivtabp20</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:11000/tb/eintyg/fk/RegisterMedicalCertificate/3/rivtabp20</con:endpoint><con:endpoint>http://localhost:11000/tb/eintyg/fk/RegisterMedicalCertificate/3/rivtabp20/validate</con:endpoint><con:endpoint>http://localhost:11000/tb/eintyg/fk/RegisterMedicalCertificate/3/rivtabp20/test</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificateResponder:1" name="RegisterMedicalCertificate" bindingOperationName="RegisterMedicalCertificate" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Maximal request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:11000/tb/eintyg/fk/RegisterMedicalCertificate/3/rivtabp20</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
    <soap:Header>
       <ns4:To xmlns:ns4="http://www.w3.org/2005/08/addressing" xmlns:ns3="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificateResponder:3" xmlns:ns2="urn:riv:insuranceprocess:healthreporting:2" xmlns="urn:riv:insuranceprocess:healthreporting:mu7263:3">Validate</ns4:To>
    </soap:Header>
@@ -2517,6 +2517,488 @@
                   </arbetsformagaNedsattning>
                   <sysselsattning>
                      <typAvSysselsattning>Nuvarande_arbete</typAvSysselsattning>
+                  </sysselsattning>
+               </arbetsformaga>
+            </funktionstillstand>
+         </ns3:lakarutlatande>
+      </ns3:RegisterMedicalCertificate>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificateResponder:1"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Maximal request - validation error"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:11000/tb/eintyg/fk/RegisterMedicalCertificate/3/rivtabp20</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Header>
+      <ns4:To xmlns:ns4="http://www.w3.org/2005/08/addressing" xmlns:ns3="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificateResponder:3" xmlns:ns2="urn:riv:insuranceprocess:healthreporting:2" xmlns="urn:riv:insuranceprocess:healthreporting:mu7263:3">Försäkringskassan</ns4:To>
+   </soap:Header>
+   <soap:Body>
+      <ns3:RegisterMedicalCertificate xmlns="urn:riv:insuranceprocess:healthreporting:mu7263:3" xmlns:ns2="urn:riv:insuranceprocess:healthreporting:2" xmlns:ns3="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificateResponder:3" xmlns:ns4="http://www.w3.org/2005/08/addressing">
+         <ns3:lakarutlatande>
+            <lakarutlatande-id></lakarutlatande-id>
+            <typAvUtlatande>Läkarintyg enligt 3 kap, 8 § lagen (1962:381) om allmän försäkring</typAvUtlatande>
+            <kommentar>Prognosen för patienten är god. Han kommer att kunna återgå till sitt arbete efter genomförd behandling.</kommentar>
+            <signeringsdatum>2011-08-29T09:30:21</signeringsdatum>
+            <skickatDatum>2011-08-29T09:42:32</skickatDatum>
+            <patient>
+               <ns2:person-id extension="19790402-2998" root="1.2.752.129.2.1.3.1"/>
+               <ns2:fullstandigtNamn>Test Testorsson</ns2:fullstandigtNamn>
+            </patient>
+            <skapadAvHosPersonal>
+               <ns2:personal-id extension="Personal HSA-ID" root="1.2.752.129.2.1.4.1"/>
+               <ns2:fullstandigtNamn>Ewa Sundholm</ns2:fullstandigtNamn>
+               <ns2:enhet>
+                  <ns2:enhets-id extension="VardenhetY" root="1.2.752.129.2.1.4.1"/>
+                  <ns2:arbetsplatskod extension="123456789011" root="1.2.752.29.4.71"/>
+                  <ns2:enhetsnamn>Kir mott som ligger till vänster</ns2:enhetsnamn>
+                  <ns2:postadress>Lasarettsvägen lite längre adress 13</ns2:postadress>
+                  <ns2:postnummer>85150</ns2:postnummer>
+                  <ns2:postort>Sundsvall</ns2:postort>
+                  <ns2:telefonnummer>012-34567899 031-98765432 012-3847654378</ns2:telefonnummer>
+                  <ns2:vardgivare>
+                     <ns2:vardgivare-id extension="VardgivarId" root="1.2.752.129.2.1.4.1"/>
+                     <ns2:vardgivarnamn>Landstinget Göteborg</ns2:vardgivarnamn>
+                  </ns2:vardgivare>
+               </ns2:enhet>
+            </skapadAvHosPersonal>
+            <vardkontakt>
+               <vardkontakttyp>Min_undersokning_av_patienten</vardkontakttyp>
+               <vardkontaktstid>2011-01-24+01:00</vardkontaktstid>
+            </vardkontakt>
+            <vardkontakt>
+               <vardkontakttyp>Min_telefonkontakt_med_patienten</vardkontakttyp>
+               <vardkontaktstid>2011-01-27+01:00</vardkontaktstid>
+            </vardkontakt>
+            <aktivitet>
+               <aktivitetskod>Patienten_behover_fa_kontakt_med_foretagshalsovarden</aktivitetskod>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Planerad_eller_pagaende_annan_atgard</aktivitetskod>
+               <beskrivning>Avslappningsövningar och balansövningar, t ex promenad i ojämn terräng.</beskrivning>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Gar_ej_att_bedomma_om_arbetslivsinriktad_rehabilitering_ar_aktuell</aktivitetskod>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Forandrat_ressatt_till_arbetsplatsen_ar_ej_aktuellt</aktivitetskod>
+            </aktivitet>
+            <bedomtTillstand>
+               <beskrivning>Patienten upplever svår yrsel vid häftiga rörelser och är allmänt påverkad av sjukdomen.</beskrivning>
+            </bedomtTillstand>
+            <medicinsktTillstand>
+               <beskrivning>Sjukdomar i örat och mastoidutskottet</beskrivning>
+               <tillstandskod codeSystemName="ICD-10" code="H81"/>
+            </medicinsktTillstand>
+            <funktionstillstand>
+               <beskrivning>Ospecifierad rubbning i balansapparatens funktion. Svårighet att utföra handlingar som kräver bra balans och kropsskontroll.</beskrivning>
+               <typAvFunktionstillstand>Kroppsfunktion</typAvFunktionstillstand>
+            </funktionstillstand>
+            <funktionstillstand>
+               <beskrivning>Patienten arbetar trapetsartist på Cirkus Cirkör, sjukdomen försvårar utövandet av yrket</beskrivning>
+               <typAvFunktionstillstand>Aktivitet</typAvFunktionstillstand>
+               <arbetsformaga>
+                  <motivering>Patienten kan inte utöva sitt yrke förrän en förbättring sker med avseende på yrseln. Det är förenat med livsfara att utföra trapetskonster och samtidigt lida av yrsel. Patientens besvär kommer dock att först minska för att därefter helt upphöra efter genomförd behandling.</motivering>
+                  <prognosangivelse>Aterstallas_helt</prognosangivelse>
+                  <arbetsuppgift>
+                     <typAvArbetsuppgift>Cirkusartist</typAvArbetsuppgift>
+                  </arbetsuppgift>
+                  <arbetsformagaNedsattning>
+                     <varaktighetFrom>2011-02-21+01:00</varaktighetFrom>
+                     <varaktighetTom>2011-03-31+02:00</varaktighetTom>
+                     <nedsattningsgrad>Nedsatt_med_1/2</nedsattningsgrad>
+                  </arbetsformagaNedsattning>
+                  <arbetsformagaNedsattning>
+                     <varaktighetFrom>2011-01-24+01:00</varaktighetFrom>
+                     <varaktighetTom>2011-02-20+01:00</varaktighetTom>
+                     <nedsattningsgrad>Helt_nedsatt</nedsattningsgrad>
+                  </arbetsformagaNedsattning>
+                  <sysselsattning>
+                     <typAvSysselsattning>Nuvarande_arbete</typAvSysselsattning>
+                  </sysselsattning>
+               </arbetsformaga>
+            </funktionstillstand>
+         </ns3:lakarutlatande>
+      </ns3:RegisterMedicalCertificate>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificateResponder:1"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Maximal request - patient trigger exception at testproducer"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:11000/tb/eintyg/fk/RegisterMedicalCertificate/3/rivtabp20</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Header>
+      <ns4:To xmlns:ns4="http://www.w3.org/2005/08/addressing" xmlns:ns3="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificateResponder:3" xmlns:ns2="urn:riv:insuranceprocess:healthreporting:2" xmlns="urn:riv:insuranceprocess:healthreporting:mu7263:3">Validate</ns4:To>
+   </soap:Header>
+   <soap:Body>
+      <ns3:RegisterMedicalCertificate xmlns="urn:riv:insuranceprocess:healthreporting:mu7263:3" xmlns:ns2="urn:riv:insuranceprocess:healthreporting:2" xmlns:ns3="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificateResponder:3" xmlns:ns4="http://www.w3.org/2005/08/addressing">
+         <ns3:lakarutlatande>
+            <lakarutlatande-id>80832895-5a9c-450a-bd74-08af43750788</lakarutlatande-id>
+            <typAvUtlatande>Läkarintyg enligt 3 kap, 8 § lagen (1962:381) om allmän försäkring</typAvUtlatande>
+            <kommentar>Prognosen för patienten är god. Han kommer att kunna återgå till sitt arbete efter genomförd behandling.</kommentar>
+            <signeringsdatum>2011-01-26T00:00:00.000+01:00</signeringsdatum>
+            <skickatDatum>2011-03-23T09:29:15.193+01:00</skickatDatum>
+            <patient>
+               <ns2:person-id extension="19721212-1212" root="1.2.752.129.2.1.3.1"/>
+               <ns2:fullstandigtNamn>Test Testorsson</ns2:fullstandigtNamn>
+            </patient>
+            <skapadAvHosPersonal>
+               <ns2:personal-id extension="Personal HSA-ID" root="1.2.752.129.2.1.4.1"/>
+               <ns2:fullstandigtNamn>Ewa Sundholm</ns2:fullstandigtNamn>
+               <ns2:enhet>
+                  <ns2:enhets-id extension="VardenhetY" root="1.2.752.129.2.1.4.1"/>
+                  <ns2:arbetsplatskod extension="123456789011" root="1.2.752.29.4.71"/>
+                  <ns2:enhetsnamn>Kir mott</ns2:enhetsnamn>
+                  <ns2:postadress>Lasarettsvägen 13</ns2:postadress>
+                  <ns2:postnummer>85150</ns2:postnummer>
+                  <ns2:postort>Sundsvall</ns2:postort>
+                  <ns2:telefonnummer>060-1818000</ns2:telefonnummer>
+                  <ns2:vardgivare>
+                     <ns2:vardgivare-id extension="VardgivarId" root="1.2.752.129.2.1.4.1"/>
+                     <ns2:vardgivarnamn>Landstinget Norrland</ns2:vardgivarnamn>
+                  </ns2:vardgivare>
+               </ns2:enhet>
+            </skapadAvHosPersonal>
+            <vardkontakt>
+               <vardkontakttyp>Min_undersokning_av_patienten</vardkontakttyp>
+               <vardkontaktstid>2011-01-26+01:00</vardkontaktstid>
+            </vardkontakt>
+            <vardkontakt>
+               <vardkontakttyp>Min_telefonkontakt_med_patienten</vardkontakttyp>
+               <vardkontaktstid>2011-01-12+01:00</vardkontaktstid>
+            </vardkontakt>
+            <referens>
+               <referenstyp>Journaluppgifter</referenstyp>
+               <datum>2010-01-14+01:00</datum>
+            </referens>
+            <referens>
+               <referenstyp>Annat</referenstyp>
+               <datum>2010-01-24+01:00</datum>
+            </referens>
+            <aktivitet>
+               <aktivitetskod>Patienten_behover_fa_kontakt_med_Arbetsformedlingen</aktivitetskod>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Patienten_behover_fa_kontakt_med_foretagshalsovarden</aktivitetskod>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Ovrigt</aktivitetskod>
+               <beskrivning>När skadan förbättrats rekommenderas muskeluppbyggande sjukgymnastik</beskrivning>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Planerad_eller_pagaende_behandling_eller_atgard_inom_sjukvarden</aktivitetskod>
+               <beskrivning>Utreds om operation är nödvändig</beskrivning>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Planerad_eller_pagaende_annan_atgard</aktivitetskod>
+               <beskrivning>Patienten ansvarar för att armen hålls i stillhet</beskrivning>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Gar_ej_att_bedomma_om_arbetslivsinriktad_rehabilitering_ar_aktuell</aktivitetskod>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Forandrat_ressatt_till_arbetsplatsen_ar_ej_aktuellt</aktivitetskod>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Kontakt_med_Forsakringskassan_ar_aktuell</aktivitetskod>
+            </aktivitet>
+            <bedomtTillstand>
+               <beskrivning>Patienten klämde höger överarm vid olycka i hemmet. Problemen har pågått en längre tid.</beskrivning>
+            </bedomtTillstand>
+            <medicinsktTillstand>
+               <beskrivning>Klämskada på överarm</beskrivning>
+               <tillstandskod codeSystemName="ICD-10" code="S47"/>
+            </medicinsktTillstand>
+            <funktionstillstand>
+               <beskrivning>Kraftigt nedsatt rörlighet i överarmen pga skadan. Böj- och sträckförmågan är mycket dålig. Smärtar vid rörelse vilket ger att patienten inte kan använda armen särkilt mycket.</beskrivning>
+               <typAvFunktionstillstand>Kroppsfunktion</typAvFunktionstillstand>
+            </funktionstillstand>
+            <funktionstillstand>
+               <beskrivning>Patienten bör/kan inte använda armen förrän skadan läkt. Skadan förvärras vid för tidigt påtvingad belastning. Patienten kan inte lyfta armen utan den ska hållas riktad nedåt och i fast läge så mycket som möjligt under tiden för läkning.</beskrivning>
+               <typAvFunktionstillstand>Aktivitet</typAvFunktionstillstand>
+               <arbetsformaga>
+                  <motivering>Skadan har förvärrats vid varje tillfälle patienten använt armen. Måste hållas i total stillhet tills läkningsprocessen kommit en bit på väg. Eventuellt kan utredning visa att operation är nödvändig för att läka skadan.</motivering>
+                  <prognosangivelse>Det_gar_inte_att_bedomma</prognosangivelse>
+                  <arbetsuppgift>
+                     <typAvArbetsuppgift>Dirigent. Dirigerar en större orkester på deltid</typAvArbetsuppgift>
+                  </arbetsuppgift>
+                  <arbetsformagaNedsattning>
+                     <varaktighetFrom>2011-04-01+02:00</varaktighetFrom>
+                     <varaktighetTom>2011-05-31+02:00</varaktighetTom>
+                     <nedsattningsgrad>Nedsatt_med_1/4</nedsattningsgrad>
+                  </arbetsformagaNedsattning>
+                  <arbetsformagaNedsattning>
+                     <varaktighetFrom>2011-03-07+01:00</varaktighetFrom>
+                     <varaktighetTom>2011-03-31+02:00</varaktighetTom>
+                     <nedsattningsgrad>Nedsatt_med_1/2</nedsattningsgrad>
+                  </arbetsformagaNedsattning>
+                  <arbetsformagaNedsattning>
+                     <varaktighetFrom>2011-02-14+01:00</varaktighetFrom>
+                     <varaktighetTom>2011-03-06+01:00</varaktighetTom>
+                     <nedsattningsgrad>Nedsatt_med_3/4</nedsattningsgrad>
+                  </arbetsformagaNedsattning>
+                  <arbetsformagaNedsattning>
+                     <varaktighetFrom>2011-01-26+01:00</varaktighetFrom>
+                     <varaktighetTom>2011-02-13+01:00</varaktighetTom>
+                     <nedsattningsgrad>Helt_nedsatt</nedsattningsgrad>
+                  </arbetsformagaNedsattning>
+                  <sysselsattning>
+                     <typAvSysselsattning>Nuvarande_arbete</typAvSysselsattning>
+                  </sysselsattning>
+                  <sysselsattning>
+                     <typAvSysselsattning>Arbetsloshet</typAvSysselsattning>
+                  </sysselsattning>
+                  <sysselsattning>
+                     <typAvSysselsattning>Foraldraledighet</typAvSysselsattning>
+                  </sysselsattning>
+               </arbetsformaga>
+            </funktionstillstand>
+         </ns3:lakarutlatande>
+      </ns3:RegisterMedicalCertificate>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificateResponder:1"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Maximal request - against validate endpoint"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:11000/tb/eintyg/fk/RegisterMedicalCertificate/3/rivtabp20/validate</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Header>
+      <ns4:To xmlns:ns4="http://www.w3.org/2005/08/addressing" xmlns:ns3="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificateResponder:3" xmlns:ns2="urn:riv:insuranceprocess:healthreporting:2" xmlns="urn:riv:insuranceprocess:healthreporting:mu7263:3">Validate</ns4:To>
+   </soap:Header>
+   <soap:Body>
+      <ns3:RegisterMedicalCertificate xmlns="urn:riv:insuranceprocess:healthreporting:mu7263:3" xmlns:ns2="urn:riv:insuranceprocess:healthreporting:2" xmlns:ns3="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificateResponder:3" xmlns:ns4="http://www.w3.org/2005/08/addressing">
+         <ns3:lakarutlatande>
+            <lakarutlatande-id>80832895-5a9c-450a-bd74-08af43750788</lakarutlatande-id>
+            <typAvUtlatande>Läkarintyg enligt 3 kap, 8 § lagen (1962:381) om allmän försäkring</typAvUtlatande>
+            <kommentar>Prognosen för patienten är god. Han kommer att kunna återgå till sitt arbete efter genomförd behandling.</kommentar>
+            <signeringsdatum>2011-01-26T00:00:00.000+01:00</signeringsdatum>
+            <skickatDatum>2011-03-23T09:29:15.193+01:00</skickatDatum>
+            <patient>
+               <ns2:person-id extension="19770430-2913" root="1.2.752.129.2.1.3.1"/>
+               <ns2:fullstandigtNamn>Test Testorsson</ns2:fullstandigtNamn>
+            </patient>
+            <skapadAvHosPersonal>
+               <ns2:personal-id extension="Personal HSA-ID" root="1.2.752.129.2.1.4.1"/>
+               <ns2:fullstandigtNamn>Ewa Sundholm</ns2:fullstandigtNamn>
+               <ns2:enhet>
+                  <ns2:enhets-id extension="VardenhetY" root="1.2.752.129.2.1.4.1"/>
+                  <ns2:arbetsplatskod extension="123456789011" root="1.2.752.29.4.71"/>
+                  <ns2:enhetsnamn>Kir mott</ns2:enhetsnamn>
+                  <ns2:postadress>Lasarettsvägen 13</ns2:postadress>
+                  <ns2:postnummer>85150</ns2:postnummer>
+                  <ns2:postort>Sundsvall</ns2:postort>
+                  <ns2:telefonnummer>060-1818000</ns2:telefonnummer>
+                  <ns2:vardgivare>
+                     <ns2:vardgivare-id extension="VardgivarId" root="1.2.752.129.2.1.4.1"/>
+                     <ns2:vardgivarnamn>Landstinget Norrland</ns2:vardgivarnamn>
+                  </ns2:vardgivare>
+               </ns2:enhet>
+            </skapadAvHosPersonal>
+            <vardkontakt>
+               <vardkontakttyp>Min_undersokning_av_patienten</vardkontakttyp>
+               <vardkontaktstid>2011-01-26+01:00</vardkontaktstid>
+            </vardkontakt>
+            <vardkontakt>
+               <vardkontakttyp>Min_telefonkontakt_med_patienten</vardkontakttyp>
+               <vardkontaktstid>2011-01-12+01:00</vardkontaktstid>
+            </vardkontakt>
+            <referens>
+               <referenstyp>Journaluppgifter</referenstyp>
+               <datum>2010-01-14+01:00</datum>
+            </referens>
+            <referens>
+               <referenstyp>Annat</referenstyp>
+               <datum>2010-01-24+01:00</datum>
+            </referens>
+            <aktivitet>
+               <aktivitetskod>Patienten_behover_fa_kontakt_med_Arbetsformedlingen</aktivitetskod>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Patienten_behover_fa_kontakt_med_foretagshalsovarden</aktivitetskod>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Ovrigt</aktivitetskod>
+               <beskrivning>När skadan förbättrats rekommenderas muskeluppbyggande sjukgymnastik</beskrivning>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Planerad_eller_pagaende_behandling_eller_atgard_inom_sjukvarden</aktivitetskod>
+               <beskrivning>Utreds om operation är nödvändig</beskrivning>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Planerad_eller_pagaende_annan_atgard</aktivitetskod>
+               <beskrivning>Patienten ansvarar för att armen hålls i stillhet</beskrivning>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Gar_ej_att_bedomma_om_arbetslivsinriktad_rehabilitering_ar_aktuell</aktivitetskod>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Forandrat_ressatt_till_arbetsplatsen_ar_ej_aktuellt</aktivitetskod>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Kontakt_med_Forsakringskassan_ar_aktuell</aktivitetskod>
+            </aktivitet>
+            <bedomtTillstand>
+               <beskrivning>Patienten klämde höger överarm vid olycka i hemmet. Problemen har pågått en längre tid.</beskrivning>
+            </bedomtTillstand>
+            <medicinsktTillstand>
+               <beskrivning>Klämskada på överarm</beskrivning>
+               <tillstandskod codeSystemName="ICD-10" code="S47"/>
+            </medicinsktTillstand>
+            <funktionstillstand>
+               <beskrivning>Kraftigt nedsatt rörlighet i överarmen pga skadan. Böj- och sträckförmågan är mycket dålig. Smärtar vid rörelse vilket ger att patienten inte kan använda armen särkilt mycket.</beskrivning>
+               <typAvFunktionstillstand>Kroppsfunktion</typAvFunktionstillstand>
+            </funktionstillstand>
+            <funktionstillstand>
+               <beskrivning>Patienten bör/kan inte använda armen förrän skadan läkt. Skadan förvärras vid för tidigt påtvingad belastning. Patienten kan inte lyfta armen utan den ska hållas riktad nedåt och i fast läge så mycket som möjligt under tiden för läkning.</beskrivning>
+               <typAvFunktionstillstand>Aktivitet</typAvFunktionstillstand>
+               <arbetsformaga>
+                  <motivering>Skadan har förvärrats vid varje tillfälle patienten använt armen. Måste hållas i total stillhet tills läkningsprocessen kommit en bit på väg. Eventuellt kan utredning visa att operation är nödvändig för att läka skadan.</motivering>
+                  <prognosangivelse>Det_gar_inte_att_bedomma</prognosangivelse>
+                  <arbetsuppgift>
+                     <typAvArbetsuppgift>Dirigent. Dirigerar en större orkester på deltid</typAvArbetsuppgift>
+                  </arbetsuppgift>
+                  <arbetsformagaNedsattning>
+                     <varaktighetFrom>2011-04-01+02:00</varaktighetFrom>
+                     <varaktighetTom>2011-05-31+02:00</varaktighetTom>
+                     <nedsattningsgrad>Nedsatt_med_1/4</nedsattningsgrad>
+                  </arbetsformagaNedsattning>
+                  <arbetsformagaNedsattning>
+                     <varaktighetFrom>2011-03-07+01:00</varaktighetFrom>
+                     <varaktighetTom>2011-03-31+02:00</varaktighetTom>
+                     <nedsattningsgrad>Nedsatt_med_1/2</nedsattningsgrad>
+                  </arbetsformagaNedsattning>
+                  <arbetsformagaNedsattning>
+                     <varaktighetFrom>2011-02-14+01:00</varaktighetFrom>
+                     <varaktighetTom>2011-03-06+01:00</varaktighetTom>
+                     <nedsattningsgrad>Nedsatt_med_3/4</nedsattningsgrad>
+                  </arbetsformagaNedsattning>
+                  <arbetsformagaNedsattning>
+                     <varaktighetFrom>2011-01-26+01:00</varaktighetFrom>
+                     <varaktighetTom>2011-02-13+01:00</varaktighetTom>
+                     <nedsattningsgrad>Helt_nedsatt</nedsattningsgrad>
+                  </arbetsformagaNedsattning>
+                  <sysselsattning>
+                     <typAvSysselsattning>Nuvarande_arbete</typAvSysselsattning>
+                  </sysselsattning>
+                  <sysselsattning>
+                     <typAvSysselsattning>Arbetsloshet</typAvSysselsattning>
+                  </sysselsattning>
+                  <sysselsattning>
+                     <typAvSysselsattning>Foraldraledighet</typAvSysselsattning>
+                  </sysselsattning>
+               </arbetsformaga>
+            </funktionstillstand>
+         </ns3:lakarutlatande>
+      </ns3:RegisterMedicalCertificate>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificateResponder:1"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Maximal request - against test endpoint"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:11000/tb/eintyg/fk/RegisterMedicalCertificate/3/rivtabp20/test</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Header>
+      <ns4:To xmlns:ns4="http://www.w3.org/2005/08/addressing" xmlns:ns3="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificateResponder:3" xmlns:ns2="urn:riv:insuranceprocess:healthreporting:2" xmlns="urn:riv:insuranceprocess:healthreporting:mu7263:3">Validate</ns4:To>
+   </soap:Header>
+   <soap:Body>
+      <ns3:RegisterMedicalCertificate xmlns="urn:riv:insuranceprocess:healthreporting:mu7263:3" xmlns:ns2="urn:riv:insuranceprocess:healthreporting:2" xmlns:ns3="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificateResponder:3" xmlns:ns4="http://www.w3.org/2005/08/addressing">
+         <ns3:lakarutlatande>
+            <lakarutlatande-id>80832895-5a9c-450a-bd74-08af43750788</lakarutlatande-id>
+            <typAvUtlatande>Läkarintyg enligt 3 kap, 8 § lagen (1962:381) om allmän försäkring</typAvUtlatande>
+            <kommentar>Prognosen för patienten är god. Han kommer att kunna återgå till sitt arbete efter genomförd behandling.</kommentar>
+            <signeringsdatum>2011-01-26T00:00:00.000+01:00</signeringsdatum>
+            <skickatDatum>2011-03-23T09:29:15.193+01:00</skickatDatum>
+            <patient>
+               <ns2:person-id extension="19770430-2913" root="1.2.752.129.2.1.3.1"/>
+               <ns2:fullstandigtNamn>Test Testorsson</ns2:fullstandigtNamn>
+            </patient>
+            <skapadAvHosPersonal>
+               <ns2:personal-id extension="Personal HSA-ID" root="1.2.752.129.2.1.4.1"/>
+               <ns2:fullstandigtNamn>Ewa Sundholm</ns2:fullstandigtNamn>
+               <ns2:enhet>
+                  <ns2:enhets-id extension="VardenhetY" root="1.2.752.129.2.1.4.1"/>
+                  <ns2:arbetsplatskod extension="123456789011" root="1.2.752.29.4.71"/>
+                  <ns2:enhetsnamn>Kir mott</ns2:enhetsnamn>
+                  <ns2:postadress>Lasarettsvägen 13</ns2:postadress>
+                  <ns2:postnummer>85150</ns2:postnummer>
+                  <ns2:postort>Sundsvall</ns2:postort>
+                  <ns2:telefonnummer>060-1818000</ns2:telefonnummer>
+                  <ns2:vardgivare>
+                     <ns2:vardgivare-id extension="VardgivarId" root="1.2.752.129.2.1.4.1"/>
+                     <ns2:vardgivarnamn>Landstinget Norrland</ns2:vardgivarnamn>
+                  </ns2:vardgivare>
+               </ns2:enhet>
+            </skapadAvHosPersonal>
+            <vardkontakt>
+               <vardkontakttyp>Min_undersokning_av_patienten</vardkontakttyp>
+               <vardkontaktstid>2011-01-26+01:00</vardkontaktstid>
+            </vardkontakt>
+            <vardkontakt>
+               <vardkontakttyp>Min_telefonkontakt_med_patienten</vardkontakttyp>
+               <vardkontaktstid>2011-01-12+01:00</vardkontaktstid>
+            </vardkontakt>
+            <referens>
+               <referenstyp>Journaluppgifter</referenstyp>
+               <datum>2010-01-14+01:00</datum>
+            </referens>
+            <referens>
+               <referenstyp>Annat</referenstyp>
+               <datum>2010-01-24+01:00</datum>
+            </referens>
+            <aktivitet>
+               <aktivitetskod>Patienten_behover_fa_kontakt_med_Arbetsformedlingen</aktivitetskod>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Patienten_behover_fa_kontakt_med_foretagshalsovarden</aktivitetskod>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Ovrigt</aktivitetskod>
+               <beskrivning>När skadan förbättrats rekommenderas muskeluppbyggande sjukgymnastik</beskrivning>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Planerad_eller_pagaende_behandling_eller_atgard_inom_sjukvarden</aktivitetskod>
+               <beskrivning>Utreds om operation är nödvändig</beskrivning>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Planerad_eller_pagaende_annan_atgard</aktivitetskod>
+               <beskrivning>Patienten ansvarar för att armen hålls i stillhet</beskrivning>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Gar_ej_att_bedomma_om_arbetslivsinriktad_rehabilitering_ar_aktuell</aktivitetskod>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Forandrat_ressatt_till_arbetsplatsen_ar_ej_aktuellt</aktivitetskod>
+            </aktivitet>
+            <aktivitet>
+               <aktivitetskod>Kontakt_med_Forsakringskassan_ar_aktuell</aktivitetskod>
+            </aktivitet>
+            <bedomtTillstand>
+               <beskrivning>Patienten klämde höger överarm vid olycka i hemmet. Problemen har pågått en längre tid.</beskrivning>
+            </bedomtTillstand>
+            <medicinsktTillstand>
+               <beskrivning>Klämskada på överarm</beskrivning>
+               <tillstandskod codeSystemName="ICD-10" code="S47"/>
+            </medicinsktTillstand>
+            <funktionstillstand>
+               <beskrivning>Kraftigt nedsatt rörlighet i överarmen pga skadan. Böj- och sträckförmågan är mycket dålig. Smärtar vid rörelse vilket ger att patienten inte kan använda armen särkilt mycket.</beskrivning>
+               <typAvFunktionstillstand>Kroppsfunktion</typAvFunktionstillstand>
+            </funktionstillstand>
+            <funktionstillstand>
+               <beskrivning>Patienten bör/kan inte använda armen förrän skadan läkt. Skadan förvärras vid för tidigt påtvingad belastning. Patienten kan inte lyfta armen utan den ska hållas riktad nedåt och i fast läge så mycket som möjligt under tiden för läkning.</beskrivning>
+               <typAvFunktionstillstand>Aktivitet</typAvFunktionstillstand>
+               <arbetsformaga>
+                  <motivering>Skadan har förvärrats vid varje tillfälle patienten använt armen. Måste hållas i total stillhet tills läkningsprocessen kommit en bit på väg. Eventuellt kan utredning visa att operation är nödvändig för att läka skadan.</motivering>
+                  <prognosangivelse>Det_gar_inte_att_bedomma</prognosangivelse>
+                  <arbetsuppgift>
+                     <typAvArbetsuppgift>Dirigent. Dirigerar en större orkester på deltid</typAvArbetsuppgift>
+                  </arbetsuppgift>
+                  <arbetsformagaNedsattning>
+                     <varaktighetFrom>2011-04-01+02:00</varaktighetFrom>
+                     <varaktighetTom>2011-05-31+02:00</varaktighetTom>
+                     <nedsattningsgrad>Nedsatt_med_1/4</nedsattningsgrad>
+                  </arbetsformagaNedsattning>
+                  <arbetsformagaNedsattning>
+                     <varaktighetFrom>2011-03-07+01:00</varaktighetFrom>
+                     <varaktighetTom>2011-03-31+02:00</varaktighetTom>
+                     <nedsattningsgrad>Nedsatt_med_1/2</nedsattningsgrad>
+                  </arbetsformagaNedsattning>
+                  <arbetsformagaNedsattning>
+                     <varaktighetFrom>2011-02-14+01:00</varaktighetFrom>
+                     <varaktighetTom>2011-03-06+01:00</varaktighetTom>
+                     <nedsattningsgrad>Nedsatt_med_3/4</nedsattningsgrad>
+                  </arbetsformagaNedsattning>
+                  <arbetsformagaNedsattning>
+                     <varaktighetFrom>2011-01-26+01:00</varaktighetFrom>
+                     <varaktighetTom>2011-02-13+01:00</varaktighetTom>
+                     <nedsattningsgrad>Helt_nedsatt</nedsattningsgrad>
+                  </arbetsformagaNedsattning>
+                  <sysselsattning>
+                     <typAvSysselsattning>Nuvarande_arbete</typAvSysselsattning>
+                  </sysselsattning>
+                  <sysselsattning>
+                     <typAvSysselsattning>Arbetsloshet</typAvSysselsattning>
+                  </sysselsattning>
+                  <sysselsattning>
+                     <typAvSysselsattning>Foraldraledighet</typAvSysselsattning>
                   </sysselsattning>
                </arbetsformaga>
             </funktionstillstand>
@@ -3201,4 +3683,1485 @@ Simo Dzeletovic</ns2:meddelandeText>
          </Answer>
       </SendMedicalCertificateAnswer>
    </soap:Body>
-</soap:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:fk:insuranceprocess:healthreporting:SendMedicalCertificateAnswerResponder:1"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:fk:insuranceprocess:healthreporting:SendMedicalCertificateAnswerResponder:1"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="TaEmotSvarResponderBinding" type="wsdl" bindingName="{urn:riv:fk:vardgivare:sjukvard:TaEmotSvar:1:rivtabp20}TaEmotSvarResponderBinding" soapVersion="1_2" anonymous="optional" definition="http://localhost:11000/tb/fk/ifv/TaEmotSvar/1/rivtabp20?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:11000/tb/fk/ifv/TaEmotSvar/1/rivtabp20?wsdl"><con:part><con:url>http://localhost:11000/tb/fk/ifv/TaEmotSvar/1/rivtabp20?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="TaEmotSvarInteraction" targetNamespace="urn:riv:fk:vardgivare:sjukvard:TaEmotSvar:1:rivtabp20" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tjs="urn:riv:fk:vardgivare:sjukvard:TaEmotSvarResponder:1" xmlns:tns="urn:riv:fk:vardgivare:sjukvard:TaEmotSvar:1:rivtabp20" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema>
+      <xs:import namespace="urn:riv:fk:vardgivare:sjukvard:TaEmotSvarResponder:1" schemaLocation="http://localhost:11000/tb/fk/ifv/TaEmotSvar/1/rivtabp20?xsd=TaEmotSvarResponder_1.0.xsd"/>
+    </xs:schema>
+    <xs:schema>
+      <xs:import namespace="http://www.w3.org/2005/08/addressing" schemaLocation="http://localhost:11000/tb/fk/ifv/TaEmotSvar/1/rivtabp20?xsd=ws-addressing-1.0.xsd"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="TaEmotSvarResponse">
+    <wsdl:part element="tjs:TaEmotSvarResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TaEmotSvarRequest">
+    <wsdl:part element="wsa:To" name="LogicalAddress"></wsdl:part>
+    <wsdl:part element="tjs:TaEmotSvar" name="parameters"></wsdl:part>
+    <xs:annotation>
+      <xs:documentation>LogicalAddress is the organization id for Försäkringskassan or vårdenhet.</xs:documentation>
+    </xs:annotation>
+  </wsdl:message>
+  <wsdl:portType name="TaEmotSvarResponderInterface">
+    <wsdl:operation name="TaEmotSvar">
+      <wsdl:input message="tns:TaEmotSvarRequest"></wsdl:input>
+      <wsdl:output message="tns:TaEmotSvarResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TaEmotSvarResponderBinding" type="tns:TaEmotSvarResponderInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="TaEmotSvar">
+      <soap:operation soapAction="urn:riv:fk:vardgivare:sjukvard:TaEmotSvarResponder:1"/>
+      <wsdl:input>
+        <soap:header message="tns:TaEmotSvarRequest" part="LogicalAddress" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TaEmotSvarResponderService">
+    <wsdl:port binding="tns:TaEmotSvarResponderBinding" name="TaEmotSvarResponderPort">
+      <soap:address location="http://localhost:11000/tb/fk/ifv/TaEmotSvar/1/rivtabp20"/>
+    </wsdl:port>
+  </wsdl:service>
+  <xs:annotation>
+    <xs:documentation>Tjänsteinteraktionens namn: TaEmotSvarInteraction
+			Beskrivning: 
+				Operation för att skicka in ett svar på en fråga till Försäkringskassan/vården från vården/Försäkringskassan
+			Revisioner: 2010-12-09 Version 1.0, Mats Ekhammar - Callista Enterprise AB
+			Tjänstedomän: fk:vardgivare:sjukvard
+			Tjänsteinteraktionstyp: Fråga-svar
+			RIV Teknisk Anvisning: Basic Profile 2.0
+			Förvaltas av: Försäkringskassan</xs:documentation>
+  </xs:annotation>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:11000/tb/fk/ifv/TaEmotSvar/1/rivtabp20?xsd=TaEmotSvarResponder_1.0.xsd</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:riv:fk:vardgivare:sjukvard:TaEmotSvarResponder:1" version="1.0" xmlns:tns="urn:riv:fk:vardgivare:sjukvard:TaEmotSvarResponder:1" xmlns:vas="http://schema.forsakringskassan.se/vardgivare_sjukvard" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schema.forsakringskassan.se/vardgivare_sjukvard" schemaLocation="http://localhost:11000/tb/fk/ifv/TaEmotSvar/1/rivtabp20?xsd=vardgivare_sjukvard/TaEmotSvarAnrop.xsd"/>
+  <xs:element name="TaEmotSvar" type="tns:TaEmotSvarType"/>
+  <xs:element name="TaEmotSvarResponse" type="tns:TaEmotSvarResponseType"/>
+  <xs:complexType name="TaEmotSvarType">
+    <xs:sequence>
+      <xs:element ref="vas:FK.SKL.TaEmotSvar.Anrop"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--soap:Fault eller inget-->
+  <xs:complexType name="TaEmotSvarResponseType">
+    <xs:sequence>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--<xs:complexType name="Svar">
+   <xs:complexType name="Response">
+   
+   <xs:complexType name="Resultat">
+      <xs:annotation>
+         <xs:documentation>
+            Holds information about the success of the call. If INFO is set the field infoText should contain more information.
+            If ERROR is set the fields errorId and errorText will contain information about the error.
+         </xs:documentation>
+      </xs:annotation>
+      <xs:choice maxOccurs="0">
+         <xs:element name="information" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>Om vi ngn gång i framtiden vill skicka ngn form av kvittensnummer eller dyligt, så kan denna nyttjas</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="applikationsfel" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>Detta betyder att ngt är fel i applikationen som borde upptäckas under utveckling vilket kräver en omleverans för att korrigeraså det är bara att lägga ner verksamheten</xs:documentation>
+               <xs:documentation>Exempelvis; validation-error, out-of-bounds, logic-error, null-pointer osv</xs:documentation>
+               <xs:documentation>Skall normalt adresseras förvaltning</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="systemfel" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>Detta betyder att ngt är fel i miljön eller att ngt är felkonfigurerat och som ej kan upptäckas under utveckling vilket kan vara temporärt</xs:documentation>
+               <xs:documentation>Exempelvis; time-out, os-error, runtime-error, out-of-space, stuff-missing osv</xs:documentation>
+               <xs:documentation>Skall normalt adresseras drift</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="verksamhetsfel" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>Detta betyder att det är ngt fel i aktuellt data en aktör i användningsfallet angett som regler enligt krav ej skall acceptera och aktören bör kunna korrigera detta utan inblandning från drift eller förvaltning</xs:documentation>
+               <xs:documentation>Exempelvis; beskrivning saknas, belopp för högt, ärende saknas, felaktigt personnummer osv</xs:documentation>
+               <xs:documentation>Skall normalt adresseras aktör</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:choice>
+   </xs:complexType>-->
+  <!--Old definition...
+
+<xs:complexType name="SkickaLakarintygResponseType">
+<xs:sequence>
+<xs:element name="result" type="tns:ResultOfCall" minOccurs="0" maxOccurs="1" />
+<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ResultOfCall">
+<xs:annotation>
+<xs:documentation>
+Holds information about the success of the call. If INFO is set the field infoText should contain more information.
+If ERROR is set the fields errorId and errorText will contain information about the error.
+</xs:documentation>
+</xs:annotation>
+<xs:sequence>
+<xs:element name="resultCode" type="tns:ResultCodeEnum" minOccurs="1" maxOccurs="1" />
+<xs:element name="infoText" type="xs:string" minOccurs="0" maxOccurs="1" />
+<xs:element name="errorId" type="xs:string" minOccurs="0" maxOccurs="1" />
+<xs:element name="errorText" type="xs:string" minOccurs="0" maxOccurs="1" />
+<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="ResultCodeEnum">
+<xs:restriction base="xs:string">
+<xs:enumeration value="OK" />
+<xs:enumeration value="ERROR" />
+<xs:enumeration value="INFO" />
+</xs:restriction>
+</xs:simpleType>-->
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:11000/tb/fk/ifv/TaEmotSvar/1/rivtabp20?xsd=vardgivare_sjukvard/TaEmotSvarAnrop.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schema.forsakringskassan.se/vardgivare_sjukvard" version="1.0" xmlns="http://schema.forsakringskassan.se/vardgivare_sjukvard" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>2010-05-26</xs:documentation>
+  </xs:annotation>
+  <!--<xs:include schemaLocation="http://schema.forsakringskassan.se/vardgivare_sjukvard/adressering.xsd"/>
+   <xs:include schemaLocation="http://schema.forsakringskassan.se/vardgivare_sjukvard/patient.xsd"/>
+   <xs:include schemaLocation="http://schema.forsakringskassan.se/vardgivare_sjukvard/meddelande.xsd"/>-->
+  <xs:include schemaLocation="http://localhost:11000/tb/fk/ifv/TaEmotSvar/1/rivtabp20?xsd=adressering.xsd"/>
+  <xs:include schemaLocation="http://localhost:11000/tb/fk/ifv/TaEmotSvar/1/rivtabp20?xsd=patient.xsd"/>
+  <xs:include schemaLocation="http://localhost:11000/tb/fk/ifv/TaEmotSvar/1/rivtabp20?xsd=meddelande.xsd"/>
+  <xs:complexType name="TaEmotSvar">
+    <xs:sequence>
+      <xs:element name="adressering" type="Adressering"/>
+      <xs:element name="patient" type="Patient"/>
+      <xs:element name="lakarintyg" type="Lakarintygsreferens"/>
+      <xs:element name="amne" type="Amne"/>
+      <xs:element name="fraga" type="Meddelande"/>
+      <xs:element name="svar" type="Meddelande"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FK.SKL.TaEmotSvar.Anrop" type="TaEmotSvar"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:11000/tb/fk/ifv/TaEmotSvar/1/rivtabp20?xsd=adressering.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schema.forsakringskassan.se/vardgivare_sjukvard" version="1.0" xmlns="http://schema.forsakringskassan.se/vardgivare_sjukvard" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>2010-06-03</xs:documentation>
+  </xs:annotation>
+  <xs:complexType name="InternIdentitetsbeteckning">
+    <!--<xs:complexType name="ExternIdentitetsbeteckning">-->
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="NationellIdentitetsbeteckning">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="InternationellIdentitetsbeteckning">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Namn">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Telefon">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Epostadress">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Postadress">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Postnummer">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Postort">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <!--Bï¿½r vi ha ngn Intern-, Internationell- eller NationellIndentitetsbeteckning pï¿½ land (exempelvis SE) ?-->
+  <xs:complexType name="Land">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Adress">
+    <xs:sequence>
+      <xs:element name="postadress" type="Postadress"/>
+      <xs:element name="postnummer" type="Postnummer"/>
+      <xs:element name="postort" type="Postort"/>
+      <!--<xs:element name="land" type="Land" default="Sverige"/>-->
+      <xs:element name="land" type="Land"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Kontaktuppgifter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="telefon" type="Telefon">
+        <xs:annotation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/tjanstestalle/enhetTelefon</xs:documentation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/utfardare/utfTelefon</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="epost" type="Epostadress">
+        <xs:annotation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/tjanstestalle/enhetEadress</xs:documentation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/utfardare/utfEadress</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="adress" type="Adress">
+        <xs:annotation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/tjanstestalle/enhetUtdadress</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Person">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="InternIdentitetsbeteckning">
+        <xs:annotation>
+          <xs:documentation>Exempelvis HSA-id</xs:documentation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/utfardares/@id</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:choice>
+        <xs:annotation>
+          <xs:documentation>(exempelvis) eDok/metadata/skaparUppgifter/utfardare/utfNamn</xs:documentation>
+          <xs:documentation>(exempelvis) eDok/verksamhetsdata/SJP:lakarensUnderskrift/SJP:lakaresNamnteckning</xs:documentation>
+        </xs:annotation>
+        <xs:element name="namn" type="xs:string"/>
+        <xs:sequence>
+          <xs:element name="fornamn" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="mellannamn" type="xs:string"/>
+          <xs:element name="efternamn" type="xs:string"/>
+        </xs:sequence>
+      </xs:choice>
+      <xs:element minOccurs="0" name="kontaktuppgifter" type="Kontaktuppgifter"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Enhet">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="InternIdentitetsbeteckning">
+        <xs:annotation>
+          <xs:documentation>Exempelvis HSA-id</xs:documentation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/tjanstestalle/enhetId</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="namn" type="Namn">
+        <xs:annotation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/tjanstestalle/enhetNamn</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="kontaktuppgifter" type="Kontaktuppgifter"/>
+      <xs:element minOccurs="0" name="person" type="Person"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Organisation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="InternIdentitetsbeteckning">
+        <xs:annotation>
+          <xs:documentation>Exempelvis HSA-id</xs:documentation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/orgId</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="organisationsnummer" type="NationellIdentitetsbeteckning">
+        <xs:annotation>
+          <xs:documentation>ï¿½r detta ngt mï¿½nniskan eller maskinen behï¿½ver nu eller i framtiden ? Skall vi ha kvar det fast med kardinalitet 0..1 och lï¿½ta applikationen/sammanhanget avgï¿½ra ?</xs:documentation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/orgNr</xs:documentation>
+          <xs:documentation>eDok/metadata/eDokInformation/adressat</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="namn" type="Namn">
+        <xs:annotation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/orgNamn</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="kontaktuppgifter" type="Kontaktuppgifter"/>
+      <xs:element minOccurs="0" name="enhet" type="Enhet"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReferensAdressering">
+    <xs:annotation>
+      <xs:documentation>En referens fï¿½r det som signerades, exempelvis id fï¿½r lï¿½karintyg eller ï¿½rendeid som motparten kan nyttja fï¿½r denotation</xs:documentation>
+      <xs:documentation>eDok/metadata/skaparUppgifter/skaparRef</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Adressering">
+    <xs:sequence>
+      <xs:element name="mottagare">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="organisation" type="Organisation"/>
+            <xs:element minOccurs="0" name="referens" type="ReferensAdressering"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="avsandare">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="organisation" type="Organisation"/>
+            <xs:element minOccurs="0" name="referens" type="ReferensAdressering"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="skickades" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Avser tidpunkten dï¿½ innehï¿½llet skickades och anvï¿½nds frï¿½mst tills vidare fï¿½r eventuell felsï¿½kning</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:11000/tb/fk/ifv/TaEmotSvar/1/rivtabp20?xsd=patient.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schema.forsakringskassan.se/vardgivare_sjukvard" version="1.0" xmlns="http://schema.forsakringskassan.se/vardgivare_sjukvard" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>2010-05-25</xs:documentation>
+  </xs:annotation>
+  <xs:complexType name="Patient">
+    <xs:sequence>
+      <xs:element name="identifierare" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Nationell identifierare som i praktiken ï¿½r personnummer eller samordningsnummer och avgï¿½rs i applikationslogiken</xs:documentation>
+          <xs:documentation>eDok/basdata/person/pnr</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:choice>
+        <xs:element name="namn" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Finns ingen plats fï¿½r detta (idag), men vi kan kanske slï¿½ isï¿½r det pï¿½ ngt finurligt sï¿½tt</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:sequence>
+          <xs:element name="fornamn" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>eDok/basdata/person/fnamn</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="mellannamn" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Finns ingen plats fï¿½r detta (idag), men kan vi mï¿½jligtvis slï¿½ ihop det med fnamn ?</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="efternamn" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>eDok/basdata/person/enamn</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:11000/tb/fk/ifv/TaEmotSvar/1/rivtabp20?xsd=meddelande.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schema.forsakringskassan.se/vardgivare_sjukvard" version="1.0" xmlns="http://schema.forsakringskassan.se/vardgivare_sjukvard" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>2010-06-21</xs:documentation>
+  </xs:annotation>
+  <xs:simpleType name="ReferensLakarintyg">
+    <xs:restriction base="xs:string">
+      <xs:annotation>
+        <xs:documentation>Avser referens till lï¿½karintyg</xs:documentation>
+        <xs:documentation>eDok/verksamhetsdata/VAS:lakarintyg/VAS:referens</xs:documentation>
+      </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Signerades">
+    <xs:restriction base="xs:dateTime">
+      <xs:annotation>
+        <xs:documentation>Avser dï¿½ lï¿½karintyget, frï¿½gan eller svaret skrevs/signerades</xs:documentation>
+        <xs:documentation>eDok/verksamhetsdata/VAS:lakarintyg/VAS:signerades</xs:documentation>
+        <xs:documentation>eDok/verksamhetsdata/VAS:fraga/VAS:signerades</xs:documentation>
+        <xs:documentation>eDok/verksamhetsdata/VAS:svar/VAS:signerades</xs:documentation>
+      </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Falt">
+    <xs:sequence>
+      <xs:element name="namn">
+        <xs:simpleType>
+          <xs:annotation>
+            <xs:documentation>Avser specifikt fï¿½lt i angivet lï¿½karintyg</xs:documentation>
+            <xs:documentation>eDok/verksamhetsdata/VAS:lakarintyg/VAS:falt/VAS:namn</xs:documentation>
+          </xs:annotation>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1. Avstï¿½ngning enligt smittskyddslagen pï¿½ grund av smitta"/>
+            <xs:enumeration value="2. Diagnos/diagnoser fï¿½r sjukdom/symtom som orsakar nedsatt arbetsfï¿½rmï¿½ga"/>
+            <xs:enumeration value="3. Aktuellt sjukdomsfï¿½rlopp"/>
+            <xs:enumeration value="4. Funktionsnedsï¿½ttning - observationer, undersï¿½kningsfynd och utredningsresultat"/>
+            <xs:enumeration value="5. Aktivitetsbegrï¿½nsning relaterat till diagnos (fï¿½lt 2) och funktionsnedsï¿½ttning (fï¿½lt 4)"/>
+            <xs:enumeration value="6a. Rekommendationer"/>
+            <xs:enumeration value="6b. Planerad eller pï¿½gï¿½ende behandling eller ï¿½tgï¿½rd"/>
+            <xs:enumeration value="7. ï¿½r arbetslivsinriktad rehabilitering aktuell?"/>
+            <xs:enumeration value="8a. Patientens arbetsfï¿½rmï¿½ga bedï¿½ms i fï¿½rhï¿½llande till"/>
+            <xs:enumeration value="8b. Jag bedï¿½mer att patientens arbetsfï¿½rmï¿½ga ï¿½r"/>
+            <xs:enumeration value="9. Jag bedï¿½mer att patientens arbetsfï¿½rmï¿½ga ï¿½r nedsatt lï¿½ngre tid ï¿½n den som det fï¿½rsï¿½kringsmedicinska beslutstï¿½det anger, dï¿½rfï¿½r att:"/>
+            <xs:enumeration value="10. Prognos - kommer patienten att fï¿½ tillbaka sin arbetsfï¿½rmï¿½ga i nuvarande arbete? (Gï¿½ller inte arbetslï¿½sa)"/>
+            <xs:enumeration value="11. Kan resor till och frï¿½n arbetet med annat fï¿½rdsï¿½tt ï¿½n det patienten normalt anvï¿½nder gï¿½ra det mï¿½jligt fï¿½r patienten att ï¿½tergï¿½ till arbete?"/>
+            <xs:enumeration value="12. Kontakt ï¿½nskas med Fï¿½rsï¿½kringskassan"/>
+            <xs:enumeration value="13. ï¿½vriga upplysningar"/>
+            <xs:enumeration value="14. Datum"/>
+            <xs:enumeration value="15. Namnfï¿½rtydligande, mottagningens adress, telefon"/>
+            <xs:enumeration value="16. Lï¿½karens namnteckning"/>
+            <xs:enumeration value="17. Fï¿½rskrivarkod och arbetsplatskod"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="kommentar" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Eventuell kommentar till angivet fï¿½lt</xs:documentation>
+          <xs:documentation>eDok/verksamhetsdata/VAS:lakarintyg/VAS:falt/VAS:kommentar</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Lakarintygsreferens">
+    <!--<xs:complexType name="Lakarintyg">-->
+    <xs:sequence>
+      <xs:element name="referens" type="ReferensLakarintyg"/>
+      <xs:element name="signerades" type="Signerades"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="falt" type="Falt"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Amne">
+    <xs:sequence>
+      <xs:element name="beskrivning">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:annotation>
+              <xs:documentation>Avser meddelandets ï¿½mne</xs:documentation>
+              <xs:documentation>eDok/verksamhetsdata/VAS:amne/VAS:namn</xs:documentation>
+            </xs:annotation>
+            <xs:enumeration value="Arbetstidsfï¿½rlï¿½ggning"/>
+            <xs:enumeration value="Avstï¿½mningsmï¿½te"/>
+            <xs:enumeration value="Komplettering"/>
+            <xs:enumeration value="Kontakt"/>
+            <xs:enumeration value="Makulering"/>
+            <xs:enumeration value="Pï¿½minnelse"/>
+            <xs:enumeration value="ï¿½vrigt"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="fritext">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:annotation>
+              <xs:documentation>Avser eventuellt anvï¿½ndarens egna explicit angivna ï¿½mne</xs:documentation>
+              <xs:documentation>eDok/verksamhetsdata/VAS:amne/VAS:text</xs:documentation>
+            </xs:annotation>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Text">
+    <xs:restriction base="xs:string">
+      <xs:annotation>
+        <xs:documentation>Avser meddelandets innehï¿½ll</xs:documentation>
+        <xs:documentation>eDok/verksamhetsdata/VAS:fraga/VAS:text</xs:documentation>
+        <xs:documentation>eDok/verksamhetsdata/VAS:svar/VAS:text</xs:documentation>
+      </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Besvaras">
+    <xs:restriction base="xs:date">
+      <xs:annotation>
+        <xs:documentation>Avser eventuellt datum dï¿½ svar senast ï¿½nskas</xs:documentation>
+        <xs:documentation>eDok/verksamhetsdata/VAS:besvaras</xs:documentation>
+      </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Meddelande">
+    <xs:sequence>
+      <xs:element name="signerades" type="Signerades"/>
+      <xs:element name="text" type="Text"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:11000/tb/fk/ifv/TaEmotSvar/1/rivtabp20?xsd=ws-addressing-1.0.xsd</con:url><con:content><![CDATA[<!--W3C XML Schema defined in the Web Services Addressing 1.0 specification
+    http://www.w3.org/TR/ws-addr-core
+
+   Copyright © 2005 World Wide Web Consortium,
+
+   (Massachusetts Institute of Technology, European Research Consortium for
+   Informatics and Mathematics, Keio University). All Rights Reserved. This
+   work is distributed under the W3C® Software License [1] in the hope that
+   it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+   warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+   [1] http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231
+
+   $Id: ws-addr.xsd,v 1.4 2008/07/14 18:48:47 plehegar Exp $-->
+<xs:schema attributeFormDefault="unqualified" blockDefault="#all" elementFormDefault="qualified" finalDefault="" targetNamespace="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.w3.org/2005/08/addressing" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--Constructs from the WS-Addressing Core-->
+  <xs:element name="EndpointReference" type="tns:EndpointReferenceType"/>
+  <xs:complexType mixed="false" name="EndpointReferenceType">
+    <xs:sequence>
+      <xs:element name="Address" type="tns:AttributedURIType"/>
+      <xs:element minOccurs="0" name="ReferenceParameters" type="tns:ReferenceParametersType"/>
+      <xs:element minOccurs="0" ref="tns:Metadata"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:complexType mixed="false" name="ReferenceParametersType">
+    <xs:sequence>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:element name="Metadata" type="tns:MetadataType"/>
+  <xs:complexType mixed="false" name="MetadataType">
+    <xs:sequence>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:element name="MessageID" type="tns:AttributedURIType"/>
+  <xs:element name="RelatesTo" type="tns:RelatesToType"/>
+  <xs:complexType mixed="false" name="RelatesToType">
+    <xs:simpleContent>
+      <xs:extension base="xs:anyURI">
+        <xs:attribute default="http://www.w3.org/2005/08/addressing/reply" name="RelationshipType" type="tns:RelationshipTypeOpenEnum" use="optional"/>
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="RelationshipTypeOpenEnum">
+    <xs:union memberTypes="tns:RelationshipType xs:anyURI"/>
+  </xs:simpleType>
+  <xs:simpleType name="RelationshipType">
+    <xs:restriction base="xs:anyURI">
+      <xs:enumeration value="http://www.w3.org/2005/08/addressing/reply"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ReplyTo" type="tns:EndpointReferenceType"/>
+  <xs:element name="From" type="tns:EndpointReferenceType"/>
+  <xs:element name="FaultTo" type="tns:EndpointReferenceType"/>
+  <xs:element name="To" type="tns:AttributedURIType"/>
+  <xs:element name="Action" type="tns:AttributedURIType"/>
+  <xs:complexType mixed="false" name="AttributedURIType">
+    <xs:simpleContent>
+      <xs:extension base="xs:anyURI">
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <!--Constructs from the WS-Addressing SOAP binding-->
+  <xs:attribute name="IsReferenceParameter" type="xs:boolean"/>
+  <xs:simpleType name="FaultCodesOpenEnumType">
+    <xs:union memberTypes="tns:FaultCodesType xs:QName"/>
+  </xs:simpleType>
+  <xs:simpleType name="FaultCodesType">
+    <xs:restriction base="xs:QName">
+      <xs:enumeration value="tns:InvalidAddressingHeader"/>
+      <xs:enumeration value="tns:InvalidAddress"/>
+      <xs:enumeration value="tns:InvalidEPR"/>
+      <xs:enumeration value="tns:InvalidCardinality"/>
+      <xs:enumeration value="tns:MissingAddressInEPR"/>
+      <xs:enumeration value="tns:DuplicateMessageID"/>
+      <xs:enumeration value="tns:ActionMismatch"/>
+      <xs:enumeration value="tns:MessageAddressingHeaderRequired"/>
+      <xs:enumeration value="tns:DestinationUnreachable"/>
+      <xs:enumeration value="tns:ActionNotSupported"/>
+      <xs:enumeration value="tns:EndpointUnavailable"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RetryAfter" type="tns:AttributedUnsignedLongType"/>
+  <xs:complexType mixed="false" name="AttributedUnsignedLongType">
+    <xs:simpleContent>
+      <xs:extension base="xs:unsignedLong">
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="ProblemHeaderQName" type="tns:AttributedQNameType"/>
+  <xs:complexType mixed="false" name="AttributedQNameType">
+    <xs:simpleContent>
+      <xs:extension base="xs:QName">
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="ProblemHeader" type="tns:AttributedAnyType"/>
+  <xs:complexType mixed="false" name="AttributedAnyType">
+    <xs:sequence>
+      <xs:any maxOccurs="1" minOccurs="1" namespace="##any" processContents="lax"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:element name="ProblemIRI" type="tns:AttributedURIType"/>
+  <xs:element name="ProblemAction" type="tns:ProblemActionType"/>
+  <xs:complexType mixed="false" name="ProblemActionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:Action"/>
+      <xs:element minOccurs="0" name="SoapAction" type="xs:anyURI"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:11000/tb/fk/ifv/TaEmotSvar/1/rivtabp20</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:fk:vardgivare:sjukvard:TaEmotSvarResponder:1" name="TaEmotSvar" bindingOperationName="TaEmotSvar" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Normal request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:11000/tb/fk/ifv/TaEmotSvar/1/rivtabp20</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:add="http://www.w3.org/2005/08/addressing" xmlns:urn="urn:riv:fk:vardgivare:sjukvard:TaEmotSvarResponder:1" xmlns:var="http://schema.forsakringskassan.se/vardgivare_sjukvard">
+   <soapenv:Header>
+      <add:To>VardgivareX</add:To>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn:TaEmotSvar>
+         <var:FK.SKL.TaEmotSvar.Anrop>
+            <var:adressering>
+               <var:mottagare>
+                  <var:organisation>
+                     <var:id>VardgivareX</var:id>
+                     <var:organisationsnummer>org nummer</var:organisationsnummer>
+                     <var:namn>Vardgivare namn</var:namn>
+                     <var:enhet>
+                        <var:id>VardenhetX</var:id>
+                        <var:namn>Vardenhetsnamn</var:namn>
+                        <var:kontaktuppgifter>
+                           <var:telefon>08-213123123</var:telefon>
+                           <var:epost>kalletelia.com</var:epost>
+                           <var:adress>
+                              <var:postadress>Sjukgatan 1</var:postadress>
+                              <var:postnummer>12345</var:postnummer>
+                              <var:postort>LasarettStad</var:postort>
+                              <var:land>Sverige</var:land>
+                           </var:adress>
+                        </var:kontaktuppgifter>
+                        <var:person>
+                           <var:id>HSA-ID lakare</var:id>
+                           <var:namn>Kalle Persson</var:namn>
+                        </var:person>
+                     </var:enhet>
+                  </var:organisation>
+                  <var:referens>Ursprungs refid fran varden</var:referens>
+               </var:mottagare>
+               <var:avsandare>
+                  <var:organisation>
+                     <var:id>FK Id</var:id>
+                     <var:organisationsnummer>FK Org id</var:organisationsnummer>
+                     <var:namn>Försäkringskassan</var:namn>
+                     <var:enhet>
+                        <var:id>?</var:id>
+                        <var:namn>?</var:namn>
+                        <var:person>
+                           <var:id>?</var:id>
+                           <var:namn>Karl Persson</var:namn>
+                        </var:person>
+                     </var:enhet>
+                  </var:organisation>
+                  <var:referens>FK referens id</var:referens>
+               </var:avsandare>
+               <var:skickades>2011-03-23T15:45:11</var:skickades>
+            </var:adressering>
+            <var:patient>
+               <var:identifierare>1912121212-1212</var:identifierare>
+               <var:namn>Kalle Kula</var:namn>
+            </var:patient>
+            <var:lakarintyg>
+               <var:referens>medcert id</var:referens>
+               <var:signerades>2011-03-23T15:45:11</var:signerades>
+            </var:lakarintyg>
+            <var:amne>
+               <var:beskrivning>Övrigt</var:beskrivning>
+               <var:fritext>Möte på stan</var:fritext>
+            </var:amne>
+            <var:fraga>
+               <var:signerades>2011-03-23T15:45:11</var:signerades>
+               <var:text>var kan vi mötas?</var:text>
+            </var:fraga>
+            <var:svar>
+               <var:signerades>2011-03-23T15:45:11</var:signerades>
+               <var:text>På ICA</var:text>
+            </var:svar>
+         </var:FK.SKL.TaEmotSvar.Anrop>
+         <!--You may enter ANY elements at this point-->
+      </urn:TaEmotSvar>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:fk:vardgivare:sjukvard:TaEmotSvar:1:rivtabp20/TaEmotSvarResponderInterface/TaEmotSvarRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Error request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:11000/tb/fk/ifv/TaEmotSvar/1/rivtabp20</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:add="http://www.w3.org/2005/08/addressing" xmlns:urn="urn:riv:fk:vardgivare:sjukvard:TaEmotSvarResponder:1" xmlns:var="http://schema.forsakringskassan.se/vardgivare_sjukvard">
+   <soapenv:Header>
+      <add:To>FromFK-internal</add:To>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn:TaEmotSvar>
+         <var:FK.SKL.TaEmotSvar.Anrop>
+            <var:adressering>
+               <var:mottagare>
+                  <var:organisation>
+                     <var:id>VardgivareXX</var:id>
+                     <var:organisationsnummer>org nummer</var:organisationsnummer>
+                     <var:namn>Vardgivare namn</var:namn>
+                     <var:enhet>
+                        <var:id>VardenhetY</var:id>
+                        <var:namn>Vardenhetsnamn</var:namn>
+                        <var:kontaktuppgifter>
+                           <var:telefon>08-213123123</var:telefon>
+                           <var:epost>kalletelia.com</var:epost>
+                           <var:adress>
+                              <var:postadress>Sjukgatan 1</var:postadress>
+                              <var:postnummer>12345</var:postnummer>
+                              <var:postort>LasarettStad</var:postort>
+                              <var:land>Sverige</var:land>
+                           </var:adress>
+                        </var:kontaktuppgifter>
+                        <var:person>
+                           <var:id>HSA-ID lakare</var:id>
+                           <var:namn>Kalle Persson</var:namn>
+                        </var:person>
+                     </var:enhet>
+                  </var:organisation>
+                  <var:referens>Ursprungs refid fran varden</var:referens>
+               </var:mottagare>
+               <var:avsandare>
+                  <var:organisation>
+                     <var:id>FK Id</var:id>
+                     <var:organisationsnummer>FK Org id</var:organisationsnummer>
+                     <var:namn>Försäkringskassan</var:namn>
+                     <var:enhet>
+                        <var:id>?</var:id>
+                        <var:namn>?</var:namn>
+                        <var:person>
+                           <var:id>?</var:id>
+                           <var:namn>Karl Persson</var:namn>
+                        </var:person>
+                     </var:enhet>
+                  </var:organisation>
+                  <var:referens>FK referens id</var:referens>
+               </var:avsandare>
+               <var:skickades>2011-03-23T15:45:11</var:skickades>
+            </var:adressering>
+            <var:patient>
+               <var:identifierare>19101010-1234</var:identifierare>
+               <var:namn>Kalle Kula</var:namn>
+            </var:patient>
+            <var:lakarintyg>
+               <var:referens>medcert id</var:referens>
+               <var:signerades>2011-03-23T15:45:11</var:signerades>
+            </var:lakarintyg>
+            <var:amne>
+               <var:beskrivning>Övrigt</var:beskrivning>
+               <var:fritext>Möte på stan</var:fritext>
+            </var:amne>
+            <var:fraga>
+               <var:signerades>2011-03-23T15:45:11</var:signerades>
+               <var:text>var kan vi mötas?</var:text>
+            </var:fraga>
+            <var:svar>
+               <var:signerades>2011-03-23T15:45:11</var:signerades>
+               <var:text>På ICA</var:text>
+            </var:svar>
+         </var:FK.SKL.TaEmotSvar.Anrop>
+         <!--You may enter ANY elements at this point-->
+      </urn:TaEmotSvar>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:fk:vardgivare:sjukvard:TaEmotSvar:1:rivtabp20/TaEmotSvarResponderInterface/TaEmotSvarRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="TaEmotFragaResponderBinding" type="wsdl" bindingName="{urn:riv:fk:vardgivare:sjukvard:TaEmotFraga:1:rivtabp20}TaEmotFragaResponderBinding" soapVersion="1_2" anonymous="optional" definition="http://localhost:11000/tb/fk/ifv/TaEmotFraga/1/rivtabp20?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:11000/tb/fk/ifv/TaEmotFraga/1/rivtabp20?wsdl"><con:part><con:url>http://localhost:11000/tb/fk/ifv/TaEmotFraga/1/rivtabp20?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="TaEmotFragaInteraction" targetNamespace="urn:riv:fk:vardgivare:sjukvard:TaEmotFraga:1:rivtabp20" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tjs="urn:riv:fk:vardgivare:sjukvard:TaEmotFragaResponder:1" xmlns:tns="urn:riv:fk:vardgivare:sjukvard:TaEmotFraga:1:rivtabp20" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema>
+      <xs:import namespace="urn:riv:fk:vardgivare:sjukvard:TaEmotFragaResponder:1" schemaLocation="http://localhost:11000/tb/fk/ifv/TaEmotFraga/1/rivtabp20?xsd=TaEmotFragaResponder_1.0.xsd"/>
+    </xs:schema>
+    <xs:schema>
+      <xs:import namespace="http://www.w3.org/2005/08/addressing" schemaLocation="http://localhost:11000/tb/fk/ifv/TaEmotFraga/1/rivtabp20?xsd=ws-addressing-1.0.xsd"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="TaEmotFragaResponse">
+    <wsdl:part element="tjs:TaEmotFragaResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TaEmotFragaRequest">
+    <wsdl:part element="wsa:To" name="LogicalAddress"></wsdl:part>
+    <wsdl:part element="tjs:TaEmotFraga" name="parameters"></wsdl:part>
+    <xs:annotation>
+      <xs:documentation>LogicalAddress is the organization id for Försäkringskassan or vårdenhet.</xs:documentation>
+    </xs:annotation>
+  </wsdl:message>
+  <wsdl:portType name="TaEmotFragaResponderInterface">
+    <wsdl:operation name="TaEmotFraga">
+      <wsdl:input message="tns:TaEmotFragaRequest"></wsdl:input>
+      <wsdl:output message="tns:TaEmotFragaResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TaEmotFragaResponderBinding" type="tns:TaEmotFragaResponderInterface">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="TaEmotFraga">
+      <soap12:operation soapAction="urn:riv:fk:vardgivare:sjukvard:TaEmotFragaResponder:1"/>
+      <wsdl:input>
+        <soap12:header message="tns:TaEmotFragaRequest" part="LogicalAddress" use="literal"></soap12:header>
+        <soap12:body encodingStyle="http://www.w3.org/2001/12/soap-encoding" parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body encodingStyle="http://www.w3.org/2001/12/soap-encoding" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TaEmotFragaResponderService">
+    <wsdl:port binding="tns:TaEmotFragaResponderBinding" name="TaEmotFragaResponderPort">
+      <soap12:address location="http://localhost:11000/tb/fk/ifv/TaEmotFraga/1/rivtabp20"/>
+    </wsdl:port>
+  </wsdl:service>
+  <xs:annotation>
+    <xs:documentation>Tjänsteinteraktionens namn: TaEmotFragaInteraction
+			Beskrivning: 
+				Operation för att skicka in en fråga från Försäkringskassan/vården till vården/Försäkringskassan
+			Revisioner: 2010-12-09 Version 1.0, Mats Ekhammar - Callista Enterprise AB
+			Tjänstedomän: fk:vardgivare:sjukvard
+			Tjänsteinteraktionstyp: Fråga-svar
+			RIV Teknisk Anvisning: Basic Profile 2.0
+			Förvaltas av: Försäkringskassan</xs:documentation>
+  </xs:annotation>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:11000/tb/fk/ifv/TaEmotFraga/1/rivtabp20?xsd=TaEmotFragaResponder_1.0.xsd</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:riv:fk:vardgivare:sjukvard:TaEmotFragaResponder:1" version="1.0" xmlns:tns="urn:riv:fk:vardgivare:sjukvard:TaEmotFragaResponder:1" xmlns:vas="http://schema.forsakringskassan.se/vardgivare_sjukvard" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schema.forsakringskassan.se/vardgivare_sjukvard" schemaLocation="http://localhost:11000/tb/fk/ifv/TaEmotFraga/1/rivtabp20?xsd=vardgivare_sjukvard/TaEmotFragaAnrop.xsd"/>
+  <xs:element name="TaEmotFraga" type="tns:TaEmotFragaType"/>
+  <xs:element name="TaEmotFragaResponse" type="tns:TaEmotFragaResponseType"/>
+  <xs:complexType name="TaEmotFragaType">
+    <xs:sequence>
+      <xs:element ref="vas:FK.SKL.TaEmotFraga.Anrop"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--soap:Fault eller inget-->
+  <xs:complexType name="TaEmotFragaResponseType">
+    <xs:sequence>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--<xs:complexType name="Svar">
+   <xs:complexType name="Response">
+   
+   <xs:complexType name="Resultat">
+      <xs:annotation>
+         <xs:documentation>
+            Holds information about the success of the call. If INFO is set the field infoText should contain more information.
+            If ERROR is set the fields errorId and errorText will contain information about the error.
+         </xs:documentation>
+      </xs:annotation>
+      <xs:choice maxOccurs="0">
+         <xs:element name="information" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>Om vi ngn gång i framtiden vill skicka ngn form av kvittensnummer eller dyligt, så kan denna nyttjas</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="applikationsfel" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>Detta betyder att ngt är fel i applikationen som borde upptäckas under utveckling vilket kräver en omleverans för att korrigeraså det är bara att lägga ner verksamheten</xs:documentation>
+               <xs:documentation>Exempelvis; validation-error, out-of-bounds, logic-error, null-pointer osv</xs:documentation>
+               <xs:documentation>Skall normalt adresseras förvaltning</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="systemfel" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>Detta betyder att ngt är fel i miljön eller att ngt är felkonfigurerat och som ej kan upptäckas under utveckling vilket kan vara temporärt</xs:documentation>
+               <xs:documentation>Exempelvis; time-out, os-error, runtime-error, out-of-space, stuff-missing osv</xs:documentation>
+               <xs:documentation>Skall normalt adresseras drift</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="verksamhetsfel" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>Detta betyder att det är ngt fel i aktuellt data en aktör i användningsfallet angett som regler enligt krav ej skall acceptera och aktören bör kunna korrigera detta utan inblandning från drift eller förvaltning</xs:documentation>
+               <xs:documentation>Exempelvis; beskrivning saknas, belopp för högt, ärende saknas, felaktigt personnummer osv</xs:documentation>
+               <xs:documentation>Skall normalt adresseras aktör</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:choice>
+   </xs:complexType>-->
+  <!--Old definition...
+
+<xs:complexType name="SkickaLakarintygResponseType">
+<xs:sequence>
+<xs:element name="result" type="tns:ResultOfCall" minOccurs="0" maxOccurs="1" />
+<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ResultOfCall">
+<xs:annotation>
+<xs:documentation>
+Holds information about the success of the call. If INFO is set the field infoText should contain more information.
+If ERROR is set the fields errorId and errorText will contain information about the error.
+</xs:documentation>
+</xs:annotation>
+<xs:sequence>
+<xs:element name="resultCode" type="tns:ResultCodeEnum" minOccurs="1" maxOccurs="1" />
+<xs:element name="infoText" type="xs:string" minOccurs="0" maxOccurs="1" />
+<xs:element name="errorId" type="xs:string" minOccurs="0" maxOccurs="1" />
+<xs:element name="errorText" type="xs:string" minOccurs="0" maxOccurs="1" />
+<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="ResultCodeEnum">
+<xs:restriction base="xs:string">
+<xs:enumeration value="OK" />
+<xs:enumeration value="ERROR" />
+<xs:enumeration value="INFO" />
+</xs:restriction>
+</xs:simpleType>-->
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:11000/tb/fk/ifv/TaEmotFraga/1/rivtabp20?xsd=vardgivare_sjukvard/TaEmotFragaAnrop.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schema.forsakringskassan.se/vardgivare_sjukvard" version="1.0" xmlns="http://schema.forsakringskassan.se/vardgivare_sjukvard" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>2010-05-26</xs:documentation>
+  </xs:annotation>
+  <!--<xs:include schemaLocation="http://schema.forsakringskassan.se/vardgivare_sjukvard/adressering.xsd"/>
+   <xs:include schemaLocation="http://schema.forsakringskassan.se/vardgivare_sjukvard/patient.xsd"/>
+   <xs:include schemaLocation="http://schema.forsakringskassan.se/vardgivare_sjukvard/meddelande.xsd"/>-->
+  <xs:include schemaLocation="http://localhost:11000/tb/fk/ifv/TaEmotFraga/1/rivtabp20?xsd=adressering.xsd"/>
+  <xs:include schemaLocation="http://localhost:11000/tb/fk/ifv/TaEmotFraga/1/rivtabp20?xsd=patient.xsd"/>
+  <xs:include schemaLocation="http://localhost:11000/tb/fk/ifv/TaEmotFraga/1/rivtabp20?xsd=meddelande.xsd"/>
+  <xs:complexType name="TaEmotFraga">
+    <xs:sequence>
+      <xs:element name="adressering" type="Adressering"/>
+      <xs:element name="patient" type="Patient"/>
+      <xs:element name="lakarintyg" type="Lakarintygsreferens"/>
+      <xs:element name="amne" type="Amne"/>
+      <xs:element name="fraga" type="Meddelande"/>
+      <xs:element minOccurs="0" name="besvaras" type="Besvaras"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FK.SKL.TaEmotFraga.Anrop" type="TaEmotFraga"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:11000/tb/fk/ifv/TaEmotFraga/1/rivtabp20?xsd=adressering.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schema.forsakringskassan.se/vardgivare_sjukvard" version="1.0" xmlns="http://schema.forsakringskassan.se/vardgivare_sjukvard" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>2010-06-03</xs:documentation>
+  </xs:annotation>
+  <xs:complexType name="InternIdentitetsbeteckning">
+    <!--<xs:complexType name="ExternIdentitetsbeteckning">-->
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="NationellIdentitetsbeteckning">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="InternationellIdentitetsbeteckning">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Namn">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Telefon">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Epostadress">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Postadress">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Postnummer">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Postort">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <!--Bï¿½r vi ha ngn Intern-, Internationell- eller NationellIndentitetsbeteckning pï¿½ land (exempelvis SE) ?-->
+  <xs:complexType name="Land">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Adress">
+    <xs:sequence>
+      <xs:element name="postadress" type="Postadress"/>
+      <xs:element name="postnummer" type="Postnummer"/>
+      <xs:element name="postort" type="Postort"/>
+      <!--<xs:element name="land" type="Land" default="Sverige"/>-->
+      <xs:element name="land" type="Land"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Kontaktuppgifter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="telefon" type="Telefon">
+        <xs:annotation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/tjanstestalle/enhetTelefon</xs:documentation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/utfardare/utfTelefon</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="epost" type="Epostadress">
+        <xs:annotation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/tjanstestalle/enhetEadress</xs:documentation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/utfardare/utfEadress</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="adress" type="Adress">
+        <xs:annotation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/tjanstestalle/enhetUtdadress</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Person">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="InternIdentitetsbeteckning">
+        <xs:annotation>
+          <xs:documentation>Exempelvis HSA-id</xs:documentation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/utfardares/@id</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:choice>
+        <xs:annotation>
+          <xs:documentation>(exempelvis) eDok/metadata/skaparUppgifter/utfardare/utfNamn</xs:documentation>
+          <xs:documentation>(exempelvis) eDok/verksamhetsdata/SJP:lakarensUnderskrift/SJP:lakaresNamnteckning</xs:documentation>
+        </xs:annotation>
+        <xs:element name="namn" type="xs:string"/>
+        <xs:sequence>
+          <xs:element name="fornamn" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="mellannamn" type="xs:string"/>
+          <xs:element name="efternamn" type="xs:string"/>
+        </xs:sequence>
+      </xs:choice>
+      <xs:element minOccurs="0" name="kontaktuppgifter" type="Kontaktuppgifter"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Enhet">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="InternIdentitetsbeteckning">
+        <xs:annotation>
+          <xs:documentation>Exempelvis HSA-id</xs:documentation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/tjanstestalle/enhetId</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="namn" type="Namn">
+        <xs:annotation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/tjanstestalle/enhetNamn</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="kontaktuppgifter" type="Kontaktuppgifter"/>
+      <xs:element minOccurs="0" name="person" type="Person"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Organisation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="InternIdentitetsbeteckning">
+        <xs:annotation>
+          <xs:documentation>Exempelvis HSA-id</xs:documentation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/orgId</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="organisationsnummer" type="NationellIdentitetsbeteckning">
+        <xs:annotation>
+          <xs:documentation>ï¿½r detta ngt mï¿½nniskan eller maskinen behï¿½ver nu eller i framtiden ? Skall vi ha kvar det fast med kardinalitet 0..1 och lï¿½ta applikationen/sammanhanget avgï¿½ra ?</xs:documentation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/orgNr</xs:documentation>
+          <xs:documentation>eDok/metadata/eDokInformation/adressat</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="namn" type="Namn">
+        <xs:annotation>
+          <xs:documentation>eDok/metadata/skaparUppgifter/orgNamn</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="kontaktuppgifter" type="Kontaktuppgifter"/>
+      <xs:element minOccurs="0" name="enhet" type="Enhet"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReferensAdressering">
+    <xs:annotation>
+      <xs:documentation>En referens fï¿½r det som signerades, exempelvis id fï¿½r lï¿½karintyg eller ï¿½rendeid som motparten kan nyttja fï¿½r denotation</xs:documentation>
+      <xs:documentation>eDok/metadata/skaparUppgifter/skaparRef</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Adressering">
+    <xs:sequence>
+      <xs:element name="mottagare">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="organisation" type="Organisation"/>
+            <xs:element minOccurs="0" name="referens" type="ReferensAdressering"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="avsandare">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="organisation" type="Organisation"/>
+            <xs:element minOccurs="0" name="referens" type="ReferensAdressering"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="skickades" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Avser tidpunkten dï¿½ innehï¿½llet skickades och anvï¿½nds frï¿½mst tills vidare fï¿½r eventuell felsï¿½kning</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:11000/tb/fk/ifv/TaEmotFraga/1/rivtabp20?xsd=patient.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schema.forsakringskassan.se/vardgivare_sjukvard" version="1.0" xmlns="http://schema.forsakringskassan.se/vardgivare_sjukvard" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>2010-05-25</xs:documentation>
+  </xs:annotation>
+  <xs:complexType name="Patient">
+    <xs:sequence>
+      <xs:element name="identifierare" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Nationell identifierare som i praktiken ï¿½r personnummer eller samordningsnummer och avgï¿½rs i applikationslogiken</xs:documentation>
+          <xs:documentation>eDok/basdata/person/pnr</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:choice>
+        <xs:element name="namn" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Finns ingen plats fï¿½r detta (idag), men vi kan kanske slï¿½ isï¿½r det pï¿½ ngt finurligt sï¿½tt</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:sequence>
+          <xs:element name="fornamn" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>eDok/basdata/person/fnamn</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="mellannamn" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Finns ingen plats fï¿½r detta (idag), men kan vi mï¿½jligtvis slï¿½ ihop det med fnamn ?</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="efternamn" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>eDok/basdata/person/enamn</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:11000/tb/fk/ifv/TaEmotFraga/1/rivtabp20?xsd=meddelande.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schema.forsakringskassan.se/vardgivare_sjukvard" version="1.0" xmlns="http://schema.forsakringskassan.se/vardgivare_sjukvard" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>2010-06-21</xs:documentation>
+  </xs:annotation>
+  <xs:simpleType name="ReferensLakarintyg">
+    <xs:restriction base="xs:string">
+      <xs:annotation>
+        <xs:documentation>Avser referens till lï¿½karintyg</xs:documentation>
+        <xs:documentation>eDok/verksamhetsdata/VAS:lakarintyg/VAS:referens</xs:documentation>
+      </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Signerades">
+    <xs:restriction base="xs:dateTime">
+      <xs:annotation>
+        <xs:documentation>Avser dï¿½ lï¿½karintyget, frï¿½gan eller svaret skrevs/signerades</xs:documentation>
+        <xs:documentation>eDok/verksamhetsdata/VAS:lakarintyg/VAS:signerades</xs:documentation>
+        <xs:documentation>eDok/verksamhetsdata/VAS:fraga/VAS:signerades</xs:documentation>
+        <xs:documentation>eDok/verksamhetsdata/VAS:svar/VAS:signerades</xs:documentation>
+      </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Falt">
+    <xs:sequence>
+      <xs:element name="namn">
+        <xs:simpleType>
+          <xs:annotation>
+            <xs:documentation>Avser specifikt fï¿½lt i angivet lï¿½karintyg</xs:documentation>
+            <xs:documentation>eDok/verksamhetsdata/VAS:lakarintyg/VAS:falt/VAS:namn</xs:documentation>
+          </xs:annotation>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1. Avstï¿½ngning enligt smittskyddslagen pï¿½ grund av smitta"/>
+            <xs:enumeration value="2. Diagnos/diagnoser fï¿½r sjukdom/symtom som orsakar nedsatt arbetsfï¿½rmï¿½ga"/>
+            <xs:enumeration value="3. Aktuellt sjukdomsfï¿½rlopp"/>
+            <xs:enumeration value="4. Funktionsnedsï¿½ttning - observationer, undersï¿½kningsfynd och utredningsresultat"/>
+            <xs:enumeration value="5. Aktivitetsbegrï¿½nsning relaterat till diagnos (fï¿½lt 2) och funktionsnedsï¿½ttning (fï¿½lt 4)"/>
+            <xs:enumeration value="6a. Rekommendationer"/>
+            <xs:enumeration value="6b. Planerad eller pï¿½gï¿½ende behandling eller ï¿½tgï¿½rd"/>
+            <xs:enumeration value="7. ï¿½r arbetslivsinriktad rehabilitering aktuell?"/>
+            <xs:enumeration value="8a. Patientens arbetsfï¿½rmï¿½ga bedï¿½ms i fï¿½rhï¿½llande till"/>
+            <xs:enumeration value="8b. Jag bedï¿½mer att patientens arbetsfï¿½rmï¿½ga ï¿½r"/>
+            <xs:enumeration value="9. Jag bedï¿½mer att patientens arbetsfï¿½rmï¿½ga ï¿½r nedsatt lï¿½ngre tid ï¿½n den som det fï¿½rsï¿½kringsmedicinska beslutstï¿½det anger, dï¿½rfï¿½r att:"/>
+            <xs:enumeration value="10. Prognos - kommer patienten att fï¿½ tillbaka sin arbetsfï¿½rmï¿½ga i nuvarande arbete? (Gï¿½ller inte arbetslï¿½sa)"/>
+            <xs:enumeration value="11. Kan resor till och frï¿½n arbetet med annat fï¿½rdsï¿½tt ï¿½n det patienten normalt anvï¿½nder gï¿½ra det mï¿½jligt fï¿½r patienten att ï¿½tergï¿½ till arbete?"/>
+            <xs:enumeration value="12. Kontakt ï¿½nskas med Fï¿½rsï¿½kringskassan"/>
+            <xs:enumeration value="13. ï¿½vriga upplysningar"/>
+            <xs:enumeration value="14. Datum"/>
+            <xs:enumeration value="15. Namnfï¿½rtydligande, mottagningens adress, telefon"/>
+            <xs:enumeration value="16. Lï¿½karens namnteckning"/>
+            <xs:enumeration value="17. Fï¿½rskrivarkod och arbetsplatskod"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="kommentar" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Eventuell kommentar till angivet fï¿½lt</xs:documentation>
+          <xs:documentation>eDok/verksamhetsdata/VAS:lakarintyg/VAS:falt/VAS:kommentar</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Lakarintygsreferens">
+    <!--<xs:complexType name="Lakarintyg">-->
+    <xs:sequence>
+      <xs:element name="referens" type="ReferensLakarintyg"/>
+      <xs:element name="signerades" type="Signerades"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="falt" type="Falt"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Amne">
+    <xs:sequence>
+      <xs:element name="beskrivning">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:annotation>
+              <xs:documentation>Avser meddelandets ï¿½mne</xs:documentation>
+              <xs:documentation>eDok/verksamhetsdata/VAS:amne/VAS:namn</xs:documentation>
+            </xs:annotation>
+            <xs:enumeration value="Arbetstidsfï¿½rlï¿½ggning"/>
+            <xs:enumeration value="Avstï¿½mningsmï¿½te"/>
+            <xs:enumeration value="Komplettering"/>
+            <xs:enumeration value="Kontakt"/>
+            <xs:enumeration value="Makulering"/>
+            <xs:enumeration value="Pï¿½minnelse"/>
+            <xs:enumeration value="ï¿½vrigt"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="fritext">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:annotation>
+              <xs:documentation>Avser eventuellt anvï¿½ndarens egna explicit angivna ï¿½mne</xs:documentation>
+              <xs:documentation>eDok/verksamhetsdata/VAS:amne/VAS:text</xs:documentation>
+            </xs:annotation>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Text">
+    <xs:restriction base="xs:string">
+      <xs:annotation>
+        <xs:documentation>Avser meddelandets innehï¿½ll</xs:documentation>
+        <xs:documentation>eDok/verksamhetsdata/VAS:fraga/VAS:text</xs:documentation>
+        <xs:documentation>eDok/verksamhetsdata/VAS:svar/VAS:text</xs:documentation>
+      </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Besvaras">
+    <xs:restriction base="xs:date">
+      <xs:annotation>
+        <xs:documentation>Avser eventuellt datum dï¿½ svar senast ï¿½nskas</xs:documentation>
+        <xs:documentation>eDok/verksamhetsdata/VAS:besvaras</xs:documentation>
+      </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Meddelande">
+    <xs:sequence>
+      <xs:element name="signerades" type="Signerades"/>
+      <xs:element name="text" type="Text"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:11000/tb/fk/ifv/TaEmotFraga/1/rivtabp20?xsd=ws-addressing-1.0.xsd</con:url><con:content><![CDATA[<!--W3C XML Schema defined in the Web Services Addressing 1.0 specification
+    http://www.w3.org/TR/ws-addr-core
+
+   Copyright © 2005 World Wide Web Consortium,
+
+   (Massachusetts Institute of Technology, European Research Consortium for
+   Informatics and Mathematics, Keio University). All Rights Reserved. This
+   work is distributed under the W3C® Software License [1] in the hope that
+   it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+   warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+   [1] http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231
+
+   $Id: ws-addr.xsd,v 1.4 2008/07/14 18:48:47 plehegar Exp $-->
+<xs:schema attributeFormDefault="unqualified" blockDefault="#all" elementFormDefault="qualified" finalDefault="" targetNamespace="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.w3.org/2005/08/addressing" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--Constructs from the WS-Addressing Core-->
+  <xs:element name="EndpointReference" type="tns:EndpointReferenceType"/>
+  <xs:complexType mixed="false" name="EndpointReferenceType">
+    <xs:sequence>
+      <xs:element name="Address" type="tns:AttributedURIType"/>
+      <xs:element minOccurs="0" name="ReferenceParameters" type="tns:ReferenceParametersType"/>
+      <xs:element minOccurs="0" ref="tns:Metadata"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:complexType mixed="false" name="ReferenceParametersType">
+    <xs:sequence>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:element name="Metadata" type="tns:MetadataType"/>
+  <xs:complexType mixed="false" name="MetadataType">
+    <xs:sequence>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:element name="MessageID" type="tns:AttributedURIType"/>
+  <xs:element name="RelatesTo" type="tns:RelatesToType"/>
+  <xs:complexType mixed="false" name="RelatesToType">
+    <xs:simpleContent>
+      <xs:extension base="xs:anyURI">
+        <xs:attribute default="http://www.w3.org/2005/08/addressing/reply" name="RelationshipType" type="tns:RelationshipTypeOpenEnum" use="optional"/>
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="RelationshipTypeOpenEnum">
+    <xs:union memberTypes="tns:RelationshipType xs:anyURI"/>
+  </xs:simpleType>
+  <xs:simpleType name="RelationshipType">
+    <xs:restriction base="xs:anyURI">
+      <xs:enumeration value="http://www.w3.org/2005/08/addressing/reply"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ReplyTo" type="tns:EndpointReferenceType"/>
+  <xs:element name="From" type="tns:EndpointReferenceType"/>
+  <xs:element name="FaultTo" type="tns:EndpointReferenceType"/>
+  <xs:element name="To" type="tns:AttributedURIType"/>
+  <xs:element name="Action" type="tns:AttributedURIType"/>
+  <xs:complexType mixed="false" name="AttributedURIType">
+    <xs:simpleContent>
+      <xs:extension base="xs:anyURI">
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <!--Constructs from the WS-Addressing SOAP binding-->
+  <xs:attribute name="IsReferenceParameter" type="xs:boolean"/>
+  <xs:simpleType name="FaultCodesOpenEnumType">
+    <xs:union memberTypes="tns:FaultCodesType xs:QName"/>
+  </xs:simpleType>
+  <xs:simpleType name="FaultCodesType">
+    <xs:restriction base="xs:QName">
+      <xs:enumeration value="tns:InvalidAddressingHeader"/>
+      <xs:enumeration value="tns:InvalidAddress"/>
+      <xs:enumeration value="tns:InvalidEPR"/>
+      <xs:enumeration value="tns:InvalidCardinality"/>
+      <xs:enumeration value="tns:MissingAddressInEPR"/>
+      <xs:enumeration value="tns:DuplicateMessageID"/>
+      <xs:enumeration value="tns:ActionMismatch"/>
+      <xs:enumeration value="tns:MessageAddressingHeaderRequired"/>
+      <xs:enumeration value="tns:DestinationUnreachable"/>
+      <xs:enumeration value="tns:ActionNotSupported"/>
+      <xs:enumeration value="tns:EndpointUnavailable"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RetryAfter" type="tns:AttributedUnsignedLongType"/>
+  <xs:complexType mixed="false" name="AttributedUnsignedLongType">
+    <xs:simpleContent>
+      <xs:extension base="xs:unsignedLong">
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="ProblemHeaderQName" type="tns:AttributedQNameType"/>
+  <xs:complexType mixed="false" name="AttributedQNameType">
+    <xs:simpleContent>
+      <xs:extension base="xs:QName">
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="ProblemHeader" type="tns:AttributedAnyType"/>
+  <xs:complexType mixed="false" name="AttributedAnyType">
+    <xs:sequence>
+      <xs:any maxOccurs="1" minOccurs="1" namespace="##any" processContents="lax"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:element name="ProblemIRI" type="tns:AttributedURIType"/>
+  <xs:element name="ProblemAction" type="tns:ProblemActionType"/>
+  <xs:complexType mixed="false" name="ProblemActionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:Action"/>
+      <xs:element minOccurs="0" name="SoapAction" type="xs:anyURI"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:11000/tb/fk/ifv/TaEmotFraga/1/rivtabp20</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:fk:vardgivare:sjukvard:TaEmotFragaResponder:1" name="TaEmotFraga" bindingOperationName="TaEmotFraga" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Normal request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:11000/tb/fk/ifv/TaEmotFraga/1/rivtabp20</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:add="http://www.w3.org/2005/08/addressing" xmlns:urn="urn:riv:fk:vardgivare:sjukvard:TaEmotFragaResponder:1" xmlns:var="http://schema.forsakringskassan.se/vardgivare_sjukvard">
+   <soapenv:Header>
+      <add:To>VardgivareX</add:To>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn:TaEmotFraga>
+         <var:FK.SKL.TaEmotFraga.Anrop>
+            <var:adressering>
+               <var:mottagare>
+                  <var:organisation>
+                     <var:id>SE321000000</var:id>
+                     <var:namn>Landstinget Sörmland</var:namn>
+                     <var:enhet>
+                        <var:id>VardenhetY</var:id>
+                        <var:namn>CR01-K-Hudkliniken</var:namn>
+                        <var:kontaktuppgifter>
+                           <var:telefon>555 585 58 85</var:telefon>
+                           <var:adress>
+                              <var:postadress>Bakgatan 72</var:postadress>
+                              <var:postnummer>462 80</var:postnummer>
+                              <var:postort>MÖLNDAL</var:postort>
+                              <var:land>Sverige</var:land>
+                           </var:adress>
+                        </var:kontaktuppgifter>
+                        <var:person>
+                           <var:id>SE162321000255-101999</var:id>
+                           <var:namn>Erik Svensson</var:namn>
+                        </var:person>
+                     </var:enhet>
+                  </var:organisation>
+               </var:mottagare>
+               <var:avsandare>
+                  <var:organisation>
+                     <var:id>FK Id</var:id>
+                     <var:organisationsnummer>FK Org nummer</var:organisationsnummer>
+                     <var:namn>Försäkringskassan</var:namn>
+                     <var:enhet>
+                        <var:id>?</var:id>
+                        <var:namn>?</var:namn>
+                        <var:person>
+                           <var:id>?</var:id>
+                           <var:namn>per Johansson</var:namn>
+                        </var:person>
+                     </var:enhet>
+                  </var:organisation>
+                  <var:referens>FK referens</var:referens>
+               </var:avsandare>
+               <var:skickades>2011-05-30T17:12:11</var:skickades>
+            </var:adressering>
+            <var:patient>
+               <var:identifierare>19 400628-00AB</var:identifierare>
+               <var:namn>Sven Eriksson</var:namn>
+            </var:patient>
+            <var:lakarintyg>
+               <var:referens>77e8b52a-2a51-4b5f-a8ba-7c13acc2f8d3</var:referens>
+               <var:signerades>2011-05-30T15:58:28</var:signerades>
+<!--
+               <var:falt>
+                  <var:namn>?</var:namn>
+                  <var:kommentar>?</var:kommentar>
+               </var:falt>
+-->
+            </var:lakarintyg>
+            <var:amne>
+               <var:beskrivning>Övrigt</var:beskrivning>
+               <var:fritext>Fritext övrigt!</var:fritext>
+            </var:amne>
+            <var:fraga>
+               <var:signerades>2011-05-30T16:45:11</var:signerades>
+               <var:text>Var finns patienten? Å Ä Ö</var:text>
+            </var:fraga>
+            <var:besvaras>2011-06-15</var:besvaras>
+         </var:FK.SKL.TaEmotFraga.Anrop>
+      </urn:TaEmotFraga>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:fk:vardgivare:sjukvard:TaEmotFraga:1:rivtabp20/TaEmotFragaResponderInterface/TaEmotFragaRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
