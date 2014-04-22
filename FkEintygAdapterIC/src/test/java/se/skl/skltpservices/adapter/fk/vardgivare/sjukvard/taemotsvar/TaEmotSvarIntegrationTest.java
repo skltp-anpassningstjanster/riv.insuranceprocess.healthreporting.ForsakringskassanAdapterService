@@ -22,9 +22,12 @@ package se.skl.skltpservices.adapter.fk.vardgivare.sjukvard.taemotsvar;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static se.skl.skltpservices.adapter.fk.FkIntegrationComponentMuleServer.getAddress;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.soitoolkit.commons.mule.test.junit4.AbstractTestCase;
 import org.soitoolkit.commons.mule.util.RecursiveResourceBundle;
 
@@ -33,7 +36,13 @@ import se.skl.skltpservices.adapter.fk.producer.FkAdapterTestProducerLogger;
 
 public class TaEmotSvarIntegrationTest extends AbstractTestCase {
 	
-	private static final RecursiveResourceBundle rb = new RecursiveResourceBundle("FkIntegrationComponent-config");
+private static final RecursiveResourceBundle rb = new RecursiveResourceBundle("FkIntegrationComponent-config");
+	
+	@SuppressWarnings("unused")
+	private static final Logger log = LoggerFactory.getLogger(TaEmotSvarIntegrationTest.class);
+
+	private static final String DEFAULT_SERVICE_ADDRESS_HTTPS = getAddress("inbound.endpoint.https.eintyg.receivemedicalcertificateanswer");
+	private static final String DEFAULT_SERVICE_ADDRESS_HTTP = getAddress("inbound.endpoint.http.eintyg.receivemedicalcertificateanswer");
 
 	public TaEmotSvarIntegrationTest() {
 		// Only start up Mule once to make the tests run faster...
@@ -49,17 +58,30 @@ public class TaEmotSvarIntegrationTest extends AbstractTestCase {
 
 	@Override
 	protected String getConfigResources() {
-		return "soitoolkit-mule-jms-connector-activemq-embedded.xml,FkIntegrationComponent-config.xml,teststub-services/ReceiveMedicalertificateAnswer-fk-teststub-service.xml";
+		return "soitoolkit-mule-jms-connector-activemq-embedded.xml,"+
+				"FkIntegrationComponent-common.xml,"+
+				"services/ReceiveMedicalertificateAnswer-fk-service.xml," +
+				"teststub-services/ReceiveMedicalertificateAnswer-fk-teststub-service.xml";
 	}
 
 	@Test
-	public void testTaEmotSvar() throws Exception {
+	public void testTaEmotSvar_happydays_https() throws Exception {
 
-		TaEmotSvarTestConsumer fkAsConsumer = new TaEmotSvarTestConsumer(
-				"https://localhost:12000/tb/fk/ifv/TaEmotSvar/1/rivtabp20");
-
+		TaEmotSvarTestConsumer fkAsConsumer = new TaEmotSvarTestConsumer(DEFAULT_SERVICE_ADDRESS_HTTPS);
 		TaEmotSvarResponseType response = fkAsConsumer.taEmotSvar();
+		assertNotNull(response);
+		
+		//Verify http headers are propagated frpm FKAdapter to producer (VP)
+		assertEquals(rb.getString("FKADAPTER_HSA_ID"), FkAdapterTestProducerLogger.getLatestSenderId());
+		assertEquals(rb.getString("VP_INSTANCE_ID"), FkAdapterTestProducerLogger.getLatestVpInstanceId());
 
+	}
+	
+	@Test
+	public void testTaEmotSvar_happydays_http() throws Exception {
+
+		TaEmotSvarTestConsumer fkAsConsumer = new TaEmotSvarTestConsumer(DEFAULT_SERVICE_ADDRESS_HTTP);
+		TaEmotSvarResponseType response = fkAsConsumer.taEmotSvar();
 		assertNotNull(response);
 		
 		//Verify http headers are propagated frpm FKAdapter to producer (VP)

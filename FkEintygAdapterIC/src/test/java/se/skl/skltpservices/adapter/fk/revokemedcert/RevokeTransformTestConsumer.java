@@ -22,13 +22,14 @@ package se.skl.skltpservices.adapter.fk.revokemedcert;
 
 import iso.v21090.dt.v1.II;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.GregorianCalendar;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 
+import org.apache.cxf.bus.spring.SpringBusFactory;
+import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.w3.wsaddressing10.AttributedURIType;
 
 import se.skl.riv.insuranceprocess.healthreporting.qa.v1.Amnetyp;
@@ -36,7 +37,6 @@ import se.skl.riv.insuranceprocess.healthreporting.qa.v1.InnehallType;
 import se.skl.riv.insuranceprocess.healthreporting.qa.v1.LakarutlatandeEnkelType;
 import se.skl.riv.insuranceprocess.healthreporting.qa.v1.VardAdresseringsType;
 import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificatequestion.v1.rivtabp20.SendMedicalCertificateQuestionResponderInterface;
-import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificatequestion.v1.rivtabp20.SendMedicalCertificateQuestionResponderService;
 import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificatequestionresponder.v1.QuestionToFkType;
 import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificatequestionresponder.v1.SendMedicalCertificateQuestionResponseType;
 import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificatequestionresponder.v1.SendMedicalCertificateQuestionType;
@@ -47,11 +47,21 @@ import se.skl.riv.insuranceprocess.healthreporting.v2.VardgivareType;
 
 public class RevokeTransformTestConsumer {
 
-	SendMedicalCertificateQuestionResponderInterface service;
+	SendMedicalCertificateQuestionResponderInterface _service;
 
 	public RevokeTransformTestConsumer(String endpointAdress) {
-		URL url = createEndpointUrlFromServiceAddress(endpointAdress);
-		service = new SendMedicalCertificateQuestionResponderService(url).getSendMedicalCertificateQuestionResponderPort();
+		JaxWsProxyFactoryBean proxyFactory = new JaxWsProxyFactoryBean();
+		proxyFactory.setServiceClass(SendMedicalCertificateQuestionResponderInterface.class);
+		proxyFactory.setAddress(endpointAdress);
+		
+		// Used for HTTPS
+		SpringBusFactory bf = new SpringBusFactory();
+		URL cxfConfig = RevokeTransformTestConsumer.class.getClassLoader().getResource("cxf-test-consumer-config.xml");
+		if (cxfConfig != null) {
+			proxyFactory.setBus(bf.createBus(cxfConfig));
+		}
+		
+		_service = (SendMedicalCertificateQuestionResponderInterface) proxyFactory.create();
 	}
 
 	public SendMedicalCertificateQuestionResponseType sendMCQuestion(Amnetyp amne, String patientName) throws DatatypeConfigurationException {
@@ -63,7 +73,7 @@ public class RevokeTransformTestConsumer {
 			AttributedURIType adressing = new AttributedURIType();
 			adressing.setValue("LOGICALADRESS");
 	
-			return service.sendMedicalCertificateQuestion(adressing, request);
+			return _service.sendMedicalCertificateQuestion(adressing, request);
 		} catch (Exception ex) {
 			System.out.println("Exception=" + ex.getMessage());
 			return null;
@@ -130,13 +140,4 @@ public class RevokeTransformTestConsumer {
 		
 		return meddelande;
 	}
-
-	private static URL createEndpointUrlFromServiceAddress(String serviceAddress) {
-		try {
-			return new URL(serviceAddress + "?wsdl");
-		} catch (MalformedURLException e) {
-			throw new RuntimeException("Malformed URL Exception: " + e.getMessage());
-		}
-	}
-
 }

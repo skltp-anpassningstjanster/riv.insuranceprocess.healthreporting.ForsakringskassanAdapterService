@@ -31,19 +31,27 @@ import se.fk.vardgivare.sjukvard.taemotlakarintygresponder.v1.TaEmotLakarintygTy
 
 @WebService(serviceName = "TaEmotLakarintygResponderService", endpointInterface = "se.fk.vardgivare.sjukvard.taemotlakarintyg.v1.rivtabp20.TaEmotLakarintygResponderInterface", portName = "TaEmotLakarintygResponderPort", targetNamespace = "urn:riv:fk:vardgivare:sjukvard:TaEmotLakarintyg:1:rivtabp20", wsdlLocation = "schemas/fk/TaEmotLakarintygInteraction_1.0_rivtabp20.wsdl")
 public class TaEmotLakarintygImpl implements TaEmotLakarintygResponderInterface {
-
+	
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	public TaEmotLakarintygResponseType taEmotLakarintyg(
 			org.w3.wsaddressing10.AttributedURIType logicalAddress,
-			TaEmotLakarintygType parameters) {
+			TaEmotLakarintygType request) {
 
-		logger.info("taEmotLakarintyg({}, {})", logicalAddress.getValue(),
-				parameters);
+		logger.info("taEmotLakarintyg({}, {})", logicalAddress.getValue(), request);
+		
+		String ssn = request.getFKSKLTaEmotLakarintygAnrop().getPatient().getIdentifierare();
+		
+		logger.debug("Patient with ssn {} was requested", ssn);
+		
+		if("19721212-1212".equals(ssn)){
+			logger.debug("Patient ssn {} triggers an exception to be returned from testproducer", ssn);
+			throw new RuntimeException("Exception triggered by sending in patient " + ssn);
+		}
 
 		try {
 			TaEmotLakarintygResponseType response = new TaEmotLakarintygResponseType();
-			logger.info("response sent!");
+			logger.info("Response sent for patient with ssn {}", ssn);
 			return response;
 		} catch (RuntimeException e) {
 			throw new RuntimeException("Error occured in taEmotLakarintyg", e);

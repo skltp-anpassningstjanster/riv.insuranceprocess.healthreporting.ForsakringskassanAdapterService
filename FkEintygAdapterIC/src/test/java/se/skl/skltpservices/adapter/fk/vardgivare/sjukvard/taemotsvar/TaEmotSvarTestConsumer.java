@@ -20,17 +20,17 @@
  */
 package se.skl.skltpservices.adapter.fk.vardgivare.sjukvard.taemotsvar;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import org.apache.cxf.bus.spring.SpringBusFactory;
+import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.w3.wsaddressing10.AttributedURIType;
 
 import se.fk.vardgivare.sjukvard.taemotsvar.v1.rivtabp20.TaEmotSvarResponderInterface;
-import se.fk.vardgivare.sjukvard.taemotsvar.v1.rivtabp20.TaEmotSvarResponderService;
 import se.fk.vardgivare.sjukvard.taemotsvarresponder.v1.TaEmotSvarResponseType;
 import se.fk.vardgivare.sjukvard.taemotsvarresponder.v1.TaEmotSvarType;
 import se.fk.vardgivare.sjukvard.v1.Adress;
@@ -56,14 +56,25 @@ import se.fk.vardgivare.sjukvard.v1.Postort;
 import se.fk.vardgivare.sjukvard.v1.ReferensAdressering;
 import se.fk.vardgivare.sjukvard.v1.TaEmotSvar;
 import se.fk.vardgivare.sjukvard.v1.Telefon;
+import se.skl.skltpservices.adapter.fk.revokemedcert.RevokeTransformTestConsumer;
 
 public class TaEmotSvarTestConsumer {
 
-	TaEmotSvarResponderInterface service;
+	TaEmotSvarResponderInterface _service;
 
 	public TaEmotSvarTestConsumer(String endpointAdress) {
-		URL url = createEndpointUrlFromServiceAddress(endpointAdress);
-		service = new TaEmotSvarResponderService(url).getTaEmotSvarResponderPort();
+		JaxWsProxyFactoryBean proxyFactory = new JaxWsProxyFactoryBean();
+		proxyFactory.setServiceClass(TaEmotSvarResponderInterface.class);
+		proxyFactory.setAddress(endpointAdress);
+		
+		// Used for HTTPS
+		SpringBusFactory bf = new SpringBusFactory();
+		URL cxfConfig = RevokeTransformTestConsumer.class.getClassLoader().getResource("cxf-test-consumer-config.xml");
+		if (cxfConfig != null) {
+			proxyFactory.setBus(bf.createBus(cxfConfig));
+		}
+		
+		_service = (TaEmotSvarResponderInterface) proxyFactory.create();
 	}
 
 	public TaEmotSvarResponseType taEmotSvar() throws DatatypeConfigurationException {
@@ -82,7 +93,7 @@ public class TaEmotSvarTestConsumer {
 		AttributedURIType adressing = new AttributedURIType();
 		adressing.setValue("LOGICALADRESS");
 
-		return service.taEmotSvar(adressing, request);
+		return _service.taEmotSvar(adressing, request);
 	}
 
 	private Meddelande createSvar() {
@@ -271,13 +282,4 @@ public class TaEmotSvarTestConsumer {
 		adressering.setValue("refadressing");
 		return adressering;
 	}
-
-	private static URL createEndpointUrlFromServiceAddress(String serviceAddress) {
-		try {
-			return new URL(serviceAddress + "?wsdl");
-		} catch (MalformedURLException e) {
-			throw new RuntimeException("Malformed URL Exception: " + e.getMessage());
-		}
-	}
-
 }

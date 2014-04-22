@@ -21,9 +21,7 @@
 package se.skl.skltpservices.adapter.common.processor;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.security.cert.X509Certificate;
@@ -34,7 +32,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 import org.mule.api.transformer.TransformerException;
 
-public class WhiteListProcessorTest {
+public class CheckSenderHsaIdTransformerTest {
 
 	@Test
 	public void testExtractSenderFromCertificate() throws Exception {
@@ -44,7 +42,7 @@ public class WhiteListProcessorTest {
 		final X509Certificate cert = Mockito.mock(X509Certificate.class);
 		Mockito.when(cert.getSubjectX500Principal()).thenReturn(principal);
 
-		final WhiteListProcessor processor = new WhiteListProcessor();
+		final CheckSenderHsaIdTransformer processor = new CheckSenderHsaIdTransformer();
 		processor.setSenderIdPropertyName("OU");
 		processor.setWhiteList("127.0.0.1");
 
@@ -68,7 +66,7 @@ public class WhiteListProcessorTest {
 		final X509Certificate cert = Mockito.mock(X509Certificate.class);
 		Mockito.when(cert.getSubjectX500Principal()).thenReturn(principal);
 
-		final WhiteListProcessor processor = new WhiteListProcessor();
+		final CheckSenderHsaIdTransformer processor = new CheckSenderHsaIdTransformer();
 		processor.setSenderIdPropertyName("OU");
 		processor.setWhiteList("127.0.0.1");
 
@@ -83,7 +81,7 @@ public class WhiteListProcessorTest {
 	@Test
 	public void testExtractSenderWithNullCert() throws Exception {
 
-		final WhiteListProcessor processor = new WhiteListProcessor();
+		final CheckSenderHsaIdTransformer processor = new CheckSenderHsaIdTransformer();
 
 		try {
 			processor.extractSenderIdFromCertificate(null);
@@ -98,7 +96,7 @@ public class WhiteListProcessorTest {
 
 	@Test
 	public void testExtractSenderWithNullPattern() throws Exception {
-		final WhiteListProcessor processor = new WhiteListProcessor();
+		final CheckSenderHsaIdTransformer processor = new CheckSenderHsaIdTransformer();
 
 		try {
 			processor.extractSenderIdFromCertificate(Mockito.mock(X509Certificate.class));
@@ -117,7 +115,7 @@ public class WhiteListProcessorTest {
 		final X509Certificate cert = Mockito.mock(X509Certificate.class);
 		Mockito.when(cert.getSubjectX500Principal()).thenReturn(principal);
 
-		final WhiteListProcessor processor = new WhiteListProcessor();
+		final CheckSenderHsaIdTransformer processor = new CheckSenderHsaIdTransformer();
 		processor.setSenderIdPropertyName("OU");
 
 		try {
@@ -131,64 +129,13 @@ public class WhiteListProcessorTest {
 	}
 
 	@Test
-	public void senderIdFoundInWhitelist() throws Exception {
-		final WhiteListProcessor processor = new WhiteListProcessor();
-		processor.setWhiteList("kalle");
-		boolean inWhiteList = processor.senderInWhiteList("kalle");
-
-		assertTrue(inWhiteList);
-	}
-
-	@Test
-	public void senderIdFoundInListOfManysenderIds() throws Exception {
-		final WhiteListProcessor processor = new WhiteListProcessor();
-		processor.setWhiteList("Olle,kalle,Pelle");
-		boolean inWhiteList = processor.senderInWhiteList("kalle");
-
-		assertTrue(inWhiteList);
-	}
-
-	@Test
-	public void senderIdNotFoundInListOfManysenderIds() throws Exception {
-		final WhiteListProcessor processor = new WhiteListProcessor();
-		processor.setWhiteList("Olle,Nisse,Pelle");
-		boolean inWhiteList = processor.senderInWhiteList("kalle");
-
-		assertFalse(inWhiteList);
-	}
-
-	@Test
-	public void senderIdNotFoundInWhitelist() throws Exception {
-		final WhiteListProcessor processor = new WhiteListProcessor();
-		processor.setWhiteList("Pelle");
-		boolean inWhiteList = processor.senderInWhiteList("kalle");
-
-		assertFalse(inWhiteList);
-	}
-
-	@Test(expected = TransformerException.class)
-	public void whenWhiteListIsEmptyExceptionIsThrown() throws Exception {
-		final WhiteListProcessor processor = new WhiteListProcessor();
-		processor.senderInWhiteList("kalle");
-		fail("Expected TransformerException when no whitelist");
-	}
-
-	@Test(expected = TransformerException.class)
-	public void whenSenderIdIsEmptyExceptionIsThrown() throws Exception {
-		final WhiteListProcessor processor = new WhiteListProcessor();
-		processor.setWhiteList("Pelle");
-		processor.senderInWhiteList(null);
-		fail("Expected TransformerException when no senderId");
-	}
-
-	@Test
 	public void extractFirstCertificateInChain() throws Exception {
 
 		final X509Certificate firstCertInChain = Mockito.mock(X509Certificate.class);
 		final X509Certificate[] certs = new X509Certificate[1];
 		certs[0] = firstCertInChain;
 
-		final WhiteListProcessor processor = new WhiteListProcessor();
+		final CheckSenderHsaIdTransformer processor = new CheckSenderHsaIdTransformer();
 		X509Certificate firstCertRecieved = processor.extractFirstCertificateInChain(certs);
 
 		assertEquals(firstCertInChain, firstCertRecieved);
@@ -205,7 +152,7 @@ public class WhiteListProcessorTest {
 		certs[1] = secondCertInChain;
 		certs[2] = thirdCertInChain;
 
-		final WhiteListProcessor processor = new WhiteListProcessor();
+		final CheckSenderHsaIdTransformer processor = new CheckSenderHsaIdTransformer();
 		X509Certificate firstCertRecieved = processor.extractFirstCertificateInChain(certs);
 
 		assertEquals(firstCertInChain, firstCertRecieved);
@@ -216,7 +163,7 @@ public class WhiteListProcessorTest {
 
 		final X509Certificate[] certs = null;
 
-		final WhiteListProcessor processor = new WhiteListProcessor();
+		final CheckSenderHsaIdTransformer processor = new CheckSenderHsaIdTransformer();
 		processor.extractFirstCertificateInChain(certs);
 
 		fail("Expected TransformerException when no cert was found in chain");

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<!-- This is the System-level Maven POM. Usage: Define all truly common things 
-	for the system here. For example: versions of third-party dependencies used 
+<!-- This is the System-level Maven POM. Usage: Define all truly common things
+	for the system here. For example: versions of third-party dependencies used
 	throughout the system. -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -96,7 +96,7 @@
 					<configuration>
 						<properties>
 							<year>2013</year>
-							<copyright>Center for eHalsa i samverkan (CeHis). 
+							<copyright>Center for eHalsa i samverkan (CeHis).
 							&lt;http://cehis.se/&gt;</copyright>
 							<product>SKLTP</product>
 						</properties>
@@ -113,6 +113,7 @@
 							<exclude>**/*.wsdl</exclude>
 							<exclude>**/*.xml</exclude>
 							<exclude>**/*.dtd</exclude>
+							<exclude>**/*.jks</exclude>
 						</excludes>
 						<useDefaultExcludes>true</useDefaultExcludes>
 						<mapping>
@@ -122,7 +123,7 @@
 					</configuration>
 				</plugin>
 
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
+				<!--This plugin's configuration is used to store Eclipse m2e settings
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>

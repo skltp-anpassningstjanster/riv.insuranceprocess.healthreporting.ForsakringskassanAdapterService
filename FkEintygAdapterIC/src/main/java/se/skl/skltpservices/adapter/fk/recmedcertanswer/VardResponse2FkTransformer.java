@@ -40,6 +40,7 @@ import org.slf4j.LoggerFactory;
 import se.fk.vardgivare.sjukvard.taemotsvarresponder.v1.TaEmotSvarResponseType;
 import se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificateanswerresponder.v1.ReceiveMedicalCertificateAnswerResponseType;
 import se.skl.riv.insuranceprocess.healthreporting.v2.ResultCodeEnum;
+import se.skl.skltpservices.adapter.common.processor.FkAdapterUtil;
 
 public class VardResponse2FkTransformer extends AbstractMessageTransformer {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
@@ -94,7 +95,7 @@ public class VardResponse2FkTransformer extends AbstractMessageTransformer {
 					payload = payload.substring(pos + 2);
 				}
 
-				createSoapFault(payload, result);
+				result.append(FkAdapterUtil.generateErrorCallingServiceProducerSoapFaultWithCause(payload));
 			} else {
 				ReceiveMedicalCertificateAnswerResponseType inResponse = (ReceiveMedicalCertificateAnswerResponseType) src;
 
@@ -109,7 +110,7 @@ public class VardResponse2FkTransformer extends AbstractMessageTransformer {
 							&& inResponse.getResult().getErrorText().length() > 0) {
 						errorText = inResponse.getResult().getErrorText();
 					}
-					createSoapFault("Error: " + errorText, result);
+					result.append(FkAdapterUtil.generateErrorCallingServiceProducerSoapFaultWithCause(errorText));
 					logger.debug("Return SOAP Envelope: {}", result.toString());
 					return result.toString();
 				}
@@ -141,12 +142,4 @@ public class VardResponse2FkTransformer extends AbstractMessageTransformer {
 			throw new TransformerException(this, e);
 		}
 	}
-
-	private void createSoapFault(String errorText, StringBuffer result) {
-		result.append("<soap:Fault xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'>");
-		result.append("<faultcode>soap:Server</faultcode>");
-		result.append("<faultstring>VP009 Exception when calling the service producer: " + errorText + "</faultstring>");
-		result.append("</soap:Fault>");
-	}
-
 }

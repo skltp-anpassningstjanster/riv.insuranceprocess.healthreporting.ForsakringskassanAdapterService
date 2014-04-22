@@ -114,7 +114,7 @@
 	</logger>
 	
 	 <logger name="se.skl.skltpservices.adapter.fk">
-        <level value="INFO"/>
+        <level value="DEBUG"/>
     </logger>
     
     <!-- Level DEBUG: Log http headers transfered during a request/response -->

@@ -88,14 +88,22 @@
 	</flow>
 	
 	<flow name="varden-fk-registermedicalcertificate-service-test">
-
-		<https:inbound-endpoint address="${inbound.endpoint.eintyg.registermedicalcertificate.test}"
-			connector-ref="soitoolkit-https-connector" 
-			exchange-pattern="request-response"
-			responseTransformer-refs="objToStr logRespOut"
-			transformer-refs="objToStr logReqIn changeNamespaceRegisterCertificate">
-		</https:inbound-endpoint>
-
+	
+		<composite-source>
+			<https:inbound-endpoint address="${inbound.endpoint.https.eintyg.registermedicalcertificate.test}"
+				connector-ref="soitoolkit-https-connector" 
+				exchange-pattern="request-response"
+				responseTransformer-refs="objToStr logRespOut"
+				transformer-refs="objToStr logReqIn changeNamespaceRegisterCertificate">
+			</https:inbound-endpoint>
+			
+			<http:inbound-endpoint address="${inbound.endpoint.http.eintyg.registermedicalcertificate.test}"
+				exchange-pattern="request-response"
+				responseTransformer-refs="objToStr logRespOut"
+				transformer-refs="objToStr logReqIn changeNamespaceRegisterCertificate">
+			</http:inbound-endpoint>
+		</composite-source>
+		
 		<cxf:proxy-service
 			namespace="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificate:3:rivtabp20"
 			payload="body" 
@@ -123,14 +131,22 @@
 	</flow>
 	
 	<flow name="varden-fk-registermedicalcertificate-service-validate">
-
-		<https:inbound-endpoint address="${inbound.endpoint.eintyg.registermedicalcertificate.validate}"
-			connector-ref="soitoolkit-https-connector" 
-			exchange-pattern="request-response"
-			responseTransformer-refs="objToStr logRespOut"
-			transformer-refs="objToStr logReqIn changeNamespaceRegisterCertificate">
-		</https:inbound-endpoint>
-
+		
+		<composite-source>
+			<https:inbound-endpoint address="${inbound.endpoint.https.eintyg.registermedicalcertificate.validate}"
+				connector-ref="soitoolkit-https-connector" 
+				exchange-pattern="request-response"
+				responseTransformer-refs="objToStr logRespOut"
+				transformer-refs="objToStr logReqIn changeNamespaceRegisterCertificate">
+			</https:inbound-endpoint>
+			
+			<http:inbound-endpoint address="${inbound.endpoint.http.eintyg.registermedicalcertificate.validate}"
+				exchange-pattern="request-response"
+				responseTransformer-refs="objToStr logRespOut"
+				transformer-refs="objToStr logReqIn changeNamespaceRegisterCertificate">
+			</http:inbound-endpoint>
+		</composite-source>
+		
 		<cxf:proxy-service
 			namespace="urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificate:3:rivtabp20"
 			payload="body" 

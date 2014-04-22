@@ -42,6 +42,7 @@ import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificatequestio
 import se.skl.riv.insuranceprocess.healthreporting.v2.ErrorIdEnum;
 import se.skl.riv.insuranceprocess.healthreporting.v2.ResultCodeEnum;
 import se.skl.riv.insuranceprocess.healthreporting.v2.ResultOfCall;
+import se.skl.skltpservices.adapter.common.processor.FkAdapterUtil;
 
 public class FkResponse2VardTransformer extends AbstractMessageTransformer {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
@@ -103,7 +104,7 @@ public class FkResponse2VardTransformer extends AbstractMessageTransformer {
 					payload = payload.substring(pos + 2);
 				}
 
-				createSoapFault(payload, result);
+				result.append(FkAdapterUtil.generateErrorCallingServiceProducerSoapFaultWithCause(payload));
 			} else {
 				// Create new JAXB object for the outgoing data
 				SendMedicalCertificateQuestionResponseType outResponse = new SendMedicalCertificateQuestionResponseType();
@@ -153,17 +154,5 @@ public class FkResponse2VardTransformer extends AbstractMessageTransformer {
 		} catch (Exception e) {
 			throw new TransformerException(this, e);
 		}
-	}
-
-	private void createSoapFault(String errorText, StringBuffer result) {
-		result.append("<?xml version='1.0' encoding='UTF-8'?>");
-		result.append("<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">");
-		result.append("<soap:Body>");
-		result.append("<soap:Fault>");
-		result.append("<faultcode>soap:Server</faultcode>");
-		result.append("<faultstring>VP009 Exception when calling the service producer: " + errorText + "</faultstring>");
-		result.append("</soap:Fault>");
-		result.append("</soap:Body>");
-		result.append("</soap:Envelope>");
 	}
 }

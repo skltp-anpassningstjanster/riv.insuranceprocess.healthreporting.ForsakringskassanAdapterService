@@ -46,16 +46,22 @@
 		<delete-message-property key="soapaction" />
 	</message-properties-transformer>
 
-
 	<flow name="fk-varden-question-service">
-	
-		<https:inbound-endpoint address="${inbound.endpoint.eintyg.taemotfraga}"
-			connector-ref="soitoolkit-https-connector" 
-			exchange-pattern="request-response"
-			responseTransformer-refs="objToStr logRespOut"
-			transformer-refs="objToStr logReqIn fkWhiteListProcessor newReceiverIdQuestion changeNamespaceRecMedCertQuestion">
-		</https:inbound-endpoint>
-	
+		<composite-source>
+			<https:inbound-endpoint address="${inbound.endpoint.https.eintyg.taemotfraga}"
+				connector-ref="soitoolkit-https-connector" 
+				exchange-pattern="request-response"
+				responseTransformer-refs="objToStr logRespOut"
+				transformer-refs="objToStr logReqIn checkSenderHsaIdTransformer newReceiverIdQuestion changeNamespaceRecMedCertQuestion">
+			</https:inbound-endpoint>
+			
+			<http:inbound-endpoint address="${inbound.endpoint.http.eintyg.taemotfraga}"
+				exchange-pattern="request-response"
+				responseTransformer-refs="objToStr logRespOut"
+				transformer-refs="objToStr logReqIn checkSenderIpTransformer newReceiverIdQuestion changeNamespaceRecMedCertQuestion">
+			</http:inbound-endpoint>
+		 </composite-source>
+		 
 		<cxf:proxy-service
 			namespace="urn:riv:fk:vardgivare:sjukvard:TaEmotFraga:1:rivtabp20"
 			payload="body" 
@@ -88,6 +94,10 @@
 		 <response>
             <custom-transformer doc:name="transform-response" class="se.skl.skltpservices.adapter.fk.recmedcertquestion.VardResponse2FkTransformer"/>
         </response>
+        
+        <catch-exception-strategy>
+        	<custom-transformer class="se.skl.skltpservices.adapter.common.processor.ExceptionMessageTransformer"/>     	
+        </catch-exception-strategy>
 
 	</flow>
 </mule>

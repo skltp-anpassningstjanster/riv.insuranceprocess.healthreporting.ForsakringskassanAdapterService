@@ -20,17 +20,17 @@
  */
 package se.skl.skltpservices.adapter.fk.vardgivare.sjukvard.taemotfraga;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import org.apache.cxf.bus.spring.SpringBusFactory;
+import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.w3.wsaddressing10.AttributedURIType;
 
 import se.fk.vardgivare.sjukvard.taemotfraga.v1.rivtabp20.TaEmotFragaResponderInterface;
-import se.fk.vardgivare.sjukvard.taemotfraga.v1.rivtabp20.TaEmotFragaResponderService;
 import se.fk.vardgivare.sjukvard.taemotfragaresponder.v1.TaEmotFragaResponseType;
 import se.fk.vardgivare.sjukvard.taemotfragaresponder.v1.TaEmotFragaType;
 import se.fk.vardgivare.sjukvard.v1.Adress;
@@ -56,14 +56,25 @@ import se.fk.vardgivare.sjukvard.v1.Postort;
 import se.fk.vardgivare.sjukvard.v1.ReferensAdressering;
 import se.fk.vardgivare.sjukvard.v1.TaEmotFraga;
 import se.fk.vardgivare.sjukvard.v1.Telefon;
+import se.skl.skltpservices.adapter.fk.revokemedcert.RevokeTransformTestConsumer;
 
 public class TaEmotFragaTestConsumer {
 
-	TaEmotFragaResponderInterface service;
+	TaEmotFragaResponderInterface _service;
 
 	public TaEmotFragaTestConsumer(String endpointAdress) {
-		URL url = createEndpointUrlFromServiceAddress(endpointAdress);
-		service = new TaEmotFragaResponderService(url).getTaEmotFragaResponderPort();
+		JaxWsProxyFactoryBean proxyFactory = new JaxWsProxyFactoryBean();
+		proxyFactory.setServiceClass(TaEmotFragaResponderInterface.class);
+		proxyFactory.setAddress(endpointAdress);
+		
+		// Used for HTTPS
+		SpringBusFactory bf = new SpringBusFactory();
+		URL cxfConfig = RevokeTransformTestConsumer.class.getClassLoader().getResource("cxf-test-consumer-config.xml");
+		if (cxfConfig != null) {
+			proxyFactory.setBus(bf.createBus(cxfConfig));
+		}
+		
+		_service = (TaEmotFragaResponderInterface) proxyFactory.create();
 	}
 
 	public TaEmotFragaResponseType taEmotFraga() throws DatatypeConfigurationException {
@@ -82,7 +93,7 @@ public class TaEmotFragaTestConsumer {
 		AttributedURIType adressing = new AttributedURIType();
 		adressing.setValue("LOGICALADRESS");
 
-		return service.taEmotFraga(adressing, request);
+		return _service.taEmotFraga(adressing, request);
 	}
 
 	private Meddelande createSvar() {
@@ -271,13 +282,4 @@ public class TaEmotFragaTestConsumer {
 		adressering.setValue("refadressing");
 		return adressering;
 	}
-
-	private static URL createEndpointUrlFromServiceAddress(String serviceAddress) {
-		try {
-			return new URL(serviceAddress + "?wsdl");
-		} catch (MalformedURLException e) {
-			throw new RuntimeException("Malformed URL Exception: " + e.getMessage());
-		}
-	}
-
 }

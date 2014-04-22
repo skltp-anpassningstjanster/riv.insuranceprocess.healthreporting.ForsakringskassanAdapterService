@@ -21,10 +21,12 @@
 package se.skl.skltpservices.adapter.fk.revokemedcert;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static se.skl.skltpservices.adapter.fk.FkIntegrationComponentMuleServer.getAddress;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.soitoolkit.commons.mule.test.junit4.AbstractTestCase;
 import org.soitoolkit.commons.mule.util.RecursiveResourceBundle;
 
@@ -36,7 +38,13 @@ import se.skl.skltpservices.adapter.fk.producer.FkAdapterTestProducerLogger;
 public class RevokeTransformIntegrationTest extends AbstractTestCase {
 	
 	private static final RecursiveResourceBundle rb = new RecursiveResourceBundle("FkIntegrationComponent-config");
+	
+	@SuppressWarnings("unused")
+	private static final Logger log = LoggerFactory.getLogger(RevokeTransformIntegrationTest.class);
 
+	private static final String DEFAULT_SERVICE_ADDRESS_HTTPS = getAddress("inbound.endpoint.https.eintyg.sendmedicalcertificatequestion.revoke");
+	private static final String DEFAULT_SERVICE_ADDRESS_HTTP = getAddress("inbound.endpoint.http.eintyg.sendmedicalcertificatequestion.revoke");
+	
 	@Before
 	public void doSetUp() throws Exception {
 		super.doSetUp();
@@ -45,17 +53,15 @@ public class RevokeTransformIntegrationTest extends AbstractTestCase {
 	@Override
 	protected String getConfigResources() {
 		return 	"soitoolkit-mule-jms-connector-activemq-embedded.xml," +
-				"FkIntegrationComponent-config.xml," +
+				"FkIntegrationComponent-common.xml," +
+				"services/Revoke-fk-service.xml," +
 			    "teststub-services/RevokeMedicalCertificate-fk-teststub-service.xml";
 	}
 
 	@Test
-	public void sendMCQMakulering() throws Exception {
-		RevokeTransformTestConsumer consumer = new RevokeTransformTestConsumer(
-				"https://localhost:12000/tb/eintyg/revoke/SendMedicalCertificateQuestion/1/rivtabp20");
-
+	public void sendMCQMakulering_happydays_https() throws Exception {
+		RevokeTransformTestConsumer consumer = new RevokeTransformTestConsumer(DEFAULT_SERVICE_ADDRESS_HTTPS);
 		SendMedicalCertificateQuestionResponseType response = consumer.sendMCQuestion(Amnetyp.MAKULERING_AV_LAKARINTYG, "Kalle");
-
 		Thread.currentThread().sleep(1000);
 		
 		assertEquals(response.getResult().getResultCode(), ResultCodeEnum.OK);
@@ -66,12 +72,31 @@ public class RevokeTransformIntegrationTest extends AbstractTestCase {
 	}
 	
 	@Test
-	public void sendMCQOvrigt() throws Exception {
-		RevokeTransformTestConsumer consumer = new RevokeTransformTestConsumer(
-				"https://localhost:12000/tb/eintyg/revoke/SendMedicalCertificateQuestion/1/rivtabp20");
-
+	public void sendMCQMakulering_happydays_http() throws Exception {
+		RevokeTransformTestConsumer consumer = new RevokeTransformTestConsumer(DEFAULT_SERVICE_ADDRESS_HTTP);
+		SendMedicalCertificateQuestionResponseType response = consumer.sendMCQuestion(Amnetyp.MAKULERING_AV_LAKARINTYG, "Kalle");
+		Thread.currentThread().sleep(1000);
+		
+		assertEquals(response.getResult().getResultCode(), ResultCodeEnum.OK);
+		
+		//Verify http headers are propagated frpm FKAdapter to producer (VP) when revoke is triggered
+		assertEquals(rb.getString("FKADAPTER_HSA_ID"), FkAdapterTestProducerLogger.getLatestSenderId());
+		assertEquals(rb.getString("VP_INSTANCE_ID"), FkAdapterTestProducerLogger.getLatestVpInstanceId());
+	}
+	
+	@Test
+	public void sendMCQOvrigt_happydays_https() throws Exception {
+		RevokeTransformTestConsumer consumer = new RevokeTransformTestConsumer(DEFAULT_SERVICE_ADDRESS_HTTPS);
 		SendMedicalCertificateQuestionResponseType response = consumer.sendMCQuestion(Amnetyp.OVRIGT, "Kalle");
-
+		Thread.currentThread().sleep(1000);
+		
+		assertEquals(response.getResult().getResultCode(), ResultCodeEnum.OK);
+	}
+	
+	@Test
+	public void sendMCQOvrigt_happydays_http() throws Exception {
+		RevokeTransformTestConsumer consumer = new RevokeTransformTestConsumer(DEFAULT_SERVICE_ADDRESS_HTTP);
+		SendMedicalCertificateQuestionResponseType response = consumer.sendMCQuestion(Amnetyp.OVRIGT, "Kalle");
 		Thread.currentThread().sleep(1000);
 		
 		assertEquals(response.getResult().getResultCode(), ResultCodeEnum.OK);
