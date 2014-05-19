@@ -29,6 +29,7 @@ import org.w3.wsaddressing10.AttributedURIType;
 import se.skl.riv.insuranceprocess.healthreporting.registermedicalcertificate.v3.rivtabp20.RegisterMedicalCertificateResponderInterface;
 import se.skl.riv.insuranceprocess.healthreporting.registermedicalcertificateresponder.v3.RegisterMedicalCertificateResponseType;
 import se.skl.riv.insuranceprocess.healthreporting.registermedicalcertificateresponder.v3.RegisterMedicalCertificateType;
+import se.skl.riv.insuranceprocess.healthreporting.v2.ErrorIdEnum;
 import se.skl.riv.insuranceprocess.healthreporting.v2.ResultCodeEnum;
 import se.skl.riv.insuranceprocess.healthreporting.v2.ResultOfCall;
 
@@ -63,6 +64,7 @@ public class RegisterMedCertImpl implements RegisterMedicalCertificateResponderI
 			if (name.equalsIgnoreCase("Error") || logiskAdress.contains("Error") ) {
 				ResultOfCall result = new ResultOfCall();
 				result.setResultCode(ResultCodeEnum.ERROR);
+				result.setErrorId(ErrorIdEnum.APPLICATION_ERROR);
 				response.setResult(result);
 				logger.debug("Returned Error for not validating!");
 			} else if (name.equalsIgnoreCase("Exception") || logiskAdress.contains("Exception")) {
