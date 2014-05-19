@@ -20,20 +20,16 @@
  */
 package se.skl.skltpservices.adapter.fk.vardgivare.sjukvard.taemotsvar;
 
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.jws.WebService;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.Marshaller;
-import javax.xml.namespace.QName;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.soitoolkit.commons.mule.jaxb.JaxbUtil;
 import org.w3.wsaddressing10.AttributedURIType;
 
 import se.fk.vardgivare.sjukvard.taemotsvar.v1.rivtabp20.TaEmotSvarResponderInterface;
@@ -48,6 +44,7 @@ import se.fk.vardgivare.sjukvard.taemotsvarresponder.v1.TaEmotSvarType;
 		wsdlLocation = "schemas/fk/TaEmotSvarInteraction_1.0_rivtabp20.wsdl")
 public class TaEmotSvarImpl implements TaEmotSvarResponderInterface {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
+	private static final JaxbUtil JAXB_UTIL = new JaxbUtil(TaEmotSvarResponseType.class);
 
 	static Map<String, List<String>> answerMapFK = new HashMap<String, List<String>>(); 
 	static Map<String, List<String>> answerMapVard = new HashMap<String, List<String>>(); 
@@ -59,11 +56,7 @@ public class TaEmotSvarImpl implements TaEmotSvarResponderInterface {
 			TaEmotSvarResponseType response = new TaEmotSvarResponseType();
 
 			// Transform payload to xml string
-            StringWriter writer = new StringWriter();
-        	Marshaller marshaller = JAXBContext.newInstance(TaEmotSvarType.class).createMarshaller();
-        	marshaller.marshal(new JAXBElement(new QName("urn:riv:fk:vardgivare:sjukvard:TaEmotSvarResponder:1", "TaEmotSvarSvar"), TaEmotSvarType.class, parameters), writer);
-			String payload = (String)writer.toString();
-			logger.debug("Payload: " + payload);
+			String payload = JAXB_UTIL.marshal(response, "urn:riv:fk:vardgivare:sjukvard:TaEmotSvarResponder:1", "TaEmotSvarSvar");
 			
 			String vardenhetHsaId = null;
 			boolean isFromFK = false;

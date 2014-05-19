@@ -23,7 +23,6 @@ package se.skl.skltpservices.adapter.fk.sendmedcertquestion;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ResourceBundle;
-import java.util.regex.Pattern;
 
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;

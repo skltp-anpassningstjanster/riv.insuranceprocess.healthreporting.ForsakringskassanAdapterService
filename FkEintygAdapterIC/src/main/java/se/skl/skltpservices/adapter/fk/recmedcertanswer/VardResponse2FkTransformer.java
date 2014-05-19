@@ -20,13 +20,6 @@
  */
 package se.skl.skltpservices.adapter.fk.recmedcertanswer;
 
-import java.io.StringWriter;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.Marshaller;
-import javax.xml.namespace.QName;
-
 import org.mule.api.ExceptionPayload;
 import org.mule.api.MuleMessage;
 import org.mule.api.routing.ResponseTimeoutException;
@@ -36,6 +29,7 @@ import org.mule.transformer.types.DataTypeFactory;
 import org.mule.transport.NullPayload;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.soitoolkit.commons.mule.jaxb.JaxbUtil;
 
 import se.fk.vardgivare.sjukvard.taemotsvarresponder.v1.TaEmotSvarResponseType;
 import se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificateanswerresponder.v1.ReceiveMedicalCertificateAnswerResponseType;
@@ -44,6 +38,7 @@ import se.skl.skltpservices.adapter.common.processor.FkAdapterUtil;
 
 public class VardResponse2FkTransformer extends AbstractMessageTransformer {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
+	private static final JaxbUtil JAXB_UTIL = new JaxbUtil(TaEmotSvarResponseType.class);
 
 	public VardResponse2FkTransformer() {
 		super();
@@ -116,18 +111,13 @@ public class VardResponse2FkTransformer extends AbstractMessageTransformer {
 				}
 
 				// Transform the JAXB object into a XML payload
-				StringWriter writer = new StringWriter();
-				Marshaller marshaller = JAXBContext.newInstance(TaEmotSvarResponseType.class).createMarshaller();
-				marshaller.marshal(new JAXBElement(new QName("urn:riv:fk:vardgivare:sjukvard:TaEmotSvar:1:rivtabp20",
-						"TaEmotSvarResponse"), TaEmotSvarResponseType.class, outResponse), writer);
-				logger.debug("Extracted information: {}", writer.toString());
-				String payload = (String) writer.toString();
+				String payload = JAXB_UTIL.marshal(outResponse, "urn:riv:fk:vardgivare:sjukvard:TaEmotSvar:1:rivtabp20", "TaEmotSvarResponse");				
+				
 				if (payload.startsWith("<?")) {
 					int pos = payload.indexOf("?>");
 					payload = payload.substring(pos + 2);
 				}
 
-				writer.close();
 				result.append(payload);
 			}
 

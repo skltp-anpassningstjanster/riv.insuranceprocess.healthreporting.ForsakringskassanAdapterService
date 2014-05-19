@@ -20,20 +20,16 @@
  */
 package se.skl.skltpservices.adapter.fk.vardgivare.sjukvard.taemotfraga;
 
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.jws.WebService;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.Marshaller;
-import javax.xml.namespace.QName;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.soitoolkit.commons.mule.jaxb.JaxbUtil;
 import org.w3.wsaddressing10.AttributedURIType;
 
 import se.fk.vardgivare.sjukvard.taemotfraga.v1.rivtabp20.TaEmotFragaResponderInterface;
@@ -48,7 +44,9 @@ import se.fk.vardgivare.sjukvard.taemotfragaresponder.v1.TaEmotFragaType;
 		wsdlLocation = "schemas/fk/TaEmotFragaInteraction_1.0_rivtabp20.wsdl")
 public class TaEmotFragaImpl implements TaEmotFragaResponderInterface {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
+	private static final JaxbUtil JAXB_UTIL = new JaxbUtil(TaEmotFragaResponseType.class);
 
+	
 	static Map<String, List<String>> questionMapFK = new HashMap<String, List<String>>(); 
 	static Map<String, List<String>> questionMapVard = new HashMap<String, List<String>>(); 
 	
@@ -58,11 +56,7 @@ public class TaEmotFragaImpl implements TaEmotFragaResponderInterface {
 			TaEmotFragaResponseType response = new TaEmotFragaResponseType();
 			
 			// Transform payload to xml string
-            StringWriter writer = new StringWriter();
-        	Marshaller marshaller = JAXBContext.newInstance(TaEmotFragaType.class).createMarshaller();
-        	marshaller.marshal(new JAXBElement(new QName("urn:riv:fk:vardgivare:sjukvard:TaEmotFragaResponder:1", "TaEmotFraga"), TaEmotFragaType.class, parameters), writer);
-			String payload = (String)writer.toString();
-			logger.debug("Payload: " + payload);
+			String payload = JAXB_UTIL.marshal(response, "urn:riv:fk:vardgivare:sjukvard:TaEmotFragaResponder:1", "TaEmotFraga");
 			
 			String vardenhetHsaId = null;
 			boolean isFromFK = false;
