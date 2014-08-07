@@ -36,18 +36,6 @@
 		</layout>
 	</appender>
     
-    <appender name="ROLLINGFILE" class="org.apache.log4j.RollingFileAppender">
-        <param  name="file" value="${mule.home}/logs/mule-app-FkEintygAdapter.log"/>
-        <param name="MaxBackupIndex" value="3" />
-        <param name="MaxFileSize" value="1MB" />
-        
-        <!-- The threshold level for this appender. -->
-        <!-- <param name="Threshold" value="ERROR"/> -->
-        <layout class="org.apache.log4j.PatternLayout">
-        	 <param name="ConversionPattern" value="%d %-5p %-30C - %m%n" />
-        </layout>
-    </appender>
-    
     <!--
 		Loglevels: {OFF, FATAL, ERROR, WARN, INFO, DEBUG, TRACE, ALL} See:
 		http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Level.html
@@ -113,6 +101,12 @@
 		<level value="DEBUG" />
 	</logger>
 	
+	<!-- Monitoring logs to separate log file, additivity makes sure not logged twice -->
+    <logger name="se.skltp.adapterservices.monitoring" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+	
 	 <logger name="se.skl.skltpservices.adapter.fk">
         <level value="DEBUG"/>
     </logger>
@@ -131,8 +125,6 @@
        <priority value="WARN" />
 
         <appender-ref ref="CONSOLE"/>
-		<!--
-        <appender-ref ref="ROLLINGFILE" />
-		-->
+	
     </root>
 </log4j:configuration>

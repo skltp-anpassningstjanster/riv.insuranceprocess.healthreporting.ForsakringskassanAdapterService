@@ -26,6 +26,12 @@
 			<groupId>se.skltp.adapterservices.insuranceprocess.healthreporting</groupId>
 			<artifactId>fk-vardgivare-sjukvard-schemas</artifactId>
 		</dependency>
+		
+		<!-- itintegration monitoring schemas för PingForConfiguration -->
+		<dependency>
+		  	<groupId>se.skltp.itintegration.monitoring</groupId>
+  			<artifactId>ServiceContracts_itintegration_monitoring</artifactId>
+		</dependency>
 
 		<!-- soi toolkit dependencies -->
 

@@ -9,7 +9,7 @@
 	">
    
     <spring:beans>
-        <spring:import resource="classpath:teststub-services/*-fk-teststub-service.xml"/>
+        <spring:import resource="classpath:teststub-services/*-teststub-service.xml"/>
     </spring:beans>
 
 </mule>

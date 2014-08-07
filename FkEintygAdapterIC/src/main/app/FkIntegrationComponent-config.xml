@@ -11,7 +11,7 @@
 		<!-- <spring:import resource="classpath:FkIntegrationComponent-common.xml"/> -->
         
      	<!-- Import services -->
-        <spring:import resource="classpath:services/*-fk-service.xml"/>
+        <spring:import resource="classpath:services/*-service.xml"/>
         
     </spring:beans>
 
