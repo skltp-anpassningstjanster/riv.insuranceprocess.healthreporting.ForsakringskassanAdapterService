@@ -21,16 +21,12 @@
 package se.skl.skltpservices.adapter.common.processor;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 
 public class FkAdapterUtilTest {
-	
-	public static final String HSA_ID_WHITE_LIST="HSAID-1,HSAID-2,HSAID-3";
 
 	final static String CORRECT_FORMATED_SOAP_FAULT = 
 			"<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
@@ -53,55 +49,4 @@ public class FkAdapterUtilTest {
 		assertNotNull(actualResult);
 		assertEquals(expectedResult, actualResult);
 	}
-	
-	@Test
-	public void isCallerOnWhiteListOk(){
-				
-		boolean callerOnWhiteList = FkAdapterUtil.isCallerOnWhiteList("HSAID-2", HSA_ID_WHITE_LIST);
-		assertTrue(callerOnWhiteList);
-	}
-	
-	@Test
-	public void isCallerOnWhiteListOkWhenWhiteListContainsLeadingWiteSpaces(){
-		
-		final String WHITE_LIST_WITH_WHITE_SPACE="HSAID-1, HSAID-2";
-		boolean callerOnWhiteList = FkAdapterUtil.isCallerOnWhiteList("HSAID-2", WHITE_LIST_WITH_WHITE_SPACE);
-		assertTrue(callerOnWhiteList);
-	}		
-	
-	@Test
-	public void isCallerOnWhiteListHsaIdDoesNotMatch(){
-		assertFalse(FkAdapterUtil.isCallerOnWhiteList("HSAID-UNKOWN", HSA_ID_WHITE_LIST));
-		assertFalse(FkAdapterUtil.isCallerOnWhiteList("HSAID", HSA_ID_WHITE_LIST));
-		assertFalse(FkAdapterUtil.isCallerOnWhiteList("ID-1", HSA_ID_WHITE_LIST));
-	}
-	
-	@Test
-	public void isCallerOnWhiteListReturnsFalseWhenHsaIdAddressIsEmpty(){		
-		
-		String hsaId = "";
-		assertFalse(FkAdapterUtil.isCallerOnWhiteList(hsaId, HSA_ID_WHITE_LIST));
-	}
-	
-	@Test
-	public void isCallerOnWhiteListReturnsFalseWhenHsaIdAddressIsNull(){		
-		
-		String hsaId = null;
-		assertFalse(FkAdapterUtil.isCallerOnWhiteList(hsaId, HSA_ID_WHITE_LIST));
-	}
-	
-	@Test
-	public void isCallerOnWhiteListReturnsFalseWhenWhiteListIsEmpty(){
-			
-		String whiteList = "";
-		assertFalse(FkAdapterUtil.isCallerOnWhiteList("HSAID-1", whiteList));
-	}
-	
-	@Test
-	public void isCallerOnWhiteListReturnsFalseWhenWhiteListIsNull(){
-			
-		String whiteList = null;
-		assertFalse(FkAdapterUtil.isCallerOnWhiteList("HSAID-1", whiteList));
-	}
-
 }

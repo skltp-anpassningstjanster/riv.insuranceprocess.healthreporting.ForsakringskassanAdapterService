@@ -21,7 +21,9 @@
 package se.skl.skltpservices.adapter.common.processor;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.security.cert.X509Certificate;
@@ -33,6 +35,8 @@ import org.mockito.Mockito;
 import org.mule.api.transformer.TransformerException;
 
 public class CheckSenderHsaIdTransformerTest {
+	
+	public static final String HSA_ID_WHITE_LIST="HSAID-1,HSAID-2,HSAID-3";
 
 	@Test
 	public void testExtractSenderFromCertificate() throws Exception {
@@ -167,6 +171,50 @@ public class CheckSenderHsaIdTransformerTest {
 		processor.extractFirstCertificateInChain(certs);
 
 		fail("Expected TransformerException when no cert was found in chain");
+	}
+	
+	@Test
+	public void isCallerOnWhiteListOk(){
+		boolean callerOnWhiteList = CheckSenderHsaIdTransformer.isCallerOnWhiteList("HSAID-2", HSA_ID_WHITE_LIST);
+		assertTrue(callerOnWhiteList);
+	}
+	
+	@Test
+	public void isCallerOnWhiteListOkWhenWhiteListContainsLeadingWiteSpaces(){
+		final String WHITE_LIST_WITH_WHITE_SPACE="HSAID-1, HSAID-2";
+		boolean callerOnWhiteList = CheckSenderHsaIdTransformer.isCallerOnWhiteList("HSAID-2", WHITE_LIST_WITH_WHITE_SPACE);
+		assertTrue(callerOnWhiteList);
+	}		
+	
+	@Test
+	public void isCallerOnWhiteListHsaIdDoesNotMatch(){
+		assertFalse(CheckSenderHsaIdTransformer.isCallerOnWhiteList("HSAID-UNKOWN", HSA_ID_WHITE_LIST));
+		assertFalse(CheckSenderHsaIdTransformer.isCallerOnWhiteList("HSAID", HSA_ID_WHITE_LIST));
+		assertFalse(CheckSenderHsaIdTransformer.isCallerOnWhiteList("ID-1", HSA_ID_WHITE_LIST));
+	}
+	
+	@Test
+	public void isCallerOnWhiteListReturnsFalseWhenHsaIdAddressIsEmpty(){		
+		String hsaId = "";
+		assertFalse(CheckSenderHsaIdTransformer.isCallerOnWhiteList(hsaId, HSA_ID_WHITE_LIST));
+	}
+	
+	@Test
+	public void isCallerOnWhiteListReturnsFalseWhenHsaIdAddressIsNull(){		
+		String hsaId = null;
+		assertFalse(CheckSenderHsaIdTransformer.isCallerOnWhiteList(hsaId, HSA_ID_WHITE_LIST));
+	}
+	
+	@Test
+	public void isCallerOnWhiteListReturnsFalseWhenWhiteListIsEmpty(){	
+		String whiteList = "";
+		assertFalse(CheckSenderHsaIdTransformer.isCallerOnWhiteList("HSAID-1", whiteList));
+	}
+	
+	@Test
+	public void isCallerOnWhiteListReturnsFalseWhenWhiteListIsNull(){
+		String whiteList = null;
+		assertFalse(CheckSenderHsaIdTransformer.isCallerOnWhiteList("HSAID-1", whiteList));
 	}
 
 }

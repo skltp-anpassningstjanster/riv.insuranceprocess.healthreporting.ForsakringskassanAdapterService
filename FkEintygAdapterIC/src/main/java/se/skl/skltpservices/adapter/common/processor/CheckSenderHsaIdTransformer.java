@@ -25,6 +25,7 @@ import java.security.cert.X509Certificate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang.StringUtils;
 import org.mule.api.MuleMessage;
 import org.mule.api.transformer.TransformerException;
 import org.mule.config.i18n.Message;
@@ -66,7 +67,7 @@ public class CheckSenderHsaIdTransformer extends AbstractMessageTransformer {
 		
 		log.debug("Extracted sender HSA ID {}, check if its valid against whitelist", senderId);
 
-		if (!FkAdapterUtil.isCallerOnWhiteList(senderId, whiteList)) {
+		if (!isCallerOnWhiteList(senderId, whiteList)) {
 			log.error("Not a valid HSA ID! Sender HSA ID {} was not found in whitelist", whiteList);
 			throw transformerException("FKADAPT003 Caller was not on the white list of accepted HSA ID's. HSA ID: " + senderId);
 		}
@@ -124,6 +125,39 @@ public class CheckSenderHsaIdTransformer extends AbstractMessageTransformer {
 	private TransformerException transformerException(String msg) {
 		Message errorMsg = MessageFactory.createStaticMessage(msg);
 		return new TransformerException(errorMsg);
+	}
+	
+	/*
+	 * Check if the entry provided by the caller is on accepted list of entries in whitelist. False
+	 * is always returned in case no whitelist exist or provided call entry is empty.
+	 * 
+	 * @param callerEntry The callers entry to match againts whitelist entries
+	 * @param whiteList The comma separated whitelist of entries to compare againts 
+	 * @return true if caller entry is on whitelist
+	 */
+	static boolean isCallerOnWhiteList(String callerEntry, String whiteList) {
+		
+		log.debug("Check if caller {} is in whitelist...", callerEntry);
+
+		if (StringUtils.isBlank(callerEntry)) {
+			log.warn("A potential empty ip address from the caller");
+			return false;
+		}
+		
+		if (StringUtils.isBlank(whiteList)) {
+			log.error("An empty whitelist is used when checking if caller is on whitelist, not ok. Check will return false!");
+			return false;
+		}
+		
+		for (String whiteListEntry : whiteList.split(",")) {
+			if(callerEntry.equals(whiteListEntry.trim())){
+				log.debug("Caller matches entry in white list, ok");
+				return true;
+			}
+		}
+
+		log.warn("Caller was not on the white list of accepted entries. Caller entry: {}, accepted entries in whitelist: {}", callerEntry, whiteList);
+		return false;
 	}
 
 }

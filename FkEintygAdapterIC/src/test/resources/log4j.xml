@@ -107,7 +107,7 @@
         <appender-ref ref="CONSOLE"/>
     </logger>
 	
-	 <logger name="se.skl.skltpservices.adapter.fk">
+	 <logger name="se.skl.skltpservices.adapter">
         <level value="DEBUG"/>
     </logger>
     

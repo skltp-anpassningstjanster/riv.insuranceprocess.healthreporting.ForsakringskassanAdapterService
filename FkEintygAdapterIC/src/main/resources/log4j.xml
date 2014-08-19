@@ -16,7 +16,7 @@
   </appender>
     
     <appender name="ROLLINGFILE" class="org.apache.log4j.RollingFileAppender">
-        <param  name="file" value="${mule.home}/logs/mule-app-FkEintygAdapter.log"/>
+        <param  name="file" value="${mule.home}/logs/mule-app-FkEintygAdapterIC.log"/>
         <param name="MaxBackupIndex" value="10" />
         <param name="MaxFileSize" value="50MB" />
         
@@ -29,7 +29,7 @@
     
      <!-- For PingForConfiguration logging only -->
      <appender name="ROLLINGFILE_MONITORING" class="org.apache.log4j.RollingFileAppender">
-        <param name="file" value="${mule.home}/logs/mule-app-FkEintygAdapter-monitoring.log" />
+        <param name="file" value="${mule.home}/logs/mule-app-FkEintygAdapterIC-monitoring.log" />
         <param name="MaxFileSize" value="1000KB" />
         <param name="MaxBackupIndex" value="3" />
         <layout class="org.apache.log4j.PatternLayout">
@@ -111,7 +111,7 @@
         <appender-ref ref="ROLLINGFILE_MONITORING"/>
     </logger>
   
-    <logger name="se.skl.skltpservices.adapter.fk">
+    <logger name="se.skl.skltpservices.adapter">
         <level value="ERROR"/>
     </logger>
     
