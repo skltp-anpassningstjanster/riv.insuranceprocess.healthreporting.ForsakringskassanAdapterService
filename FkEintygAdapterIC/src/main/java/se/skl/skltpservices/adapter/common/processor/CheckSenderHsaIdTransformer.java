@@ -28,6 +28,7 @@ import java.util.regex.Pattern;
 import org.apache.commons.lang.StringUtils;
 import org.mule.api.MuleMessage;
 import org.mule.api.transformer.TransformerException;
+import org.mule.api.transport.PropertyScope;
 import org.mule.config.i18n.Message;
 import org.mule.config.i18n.MessageFactory;
 import org.mule.transformer.AbstractMessageTransformer;
@@ -59,18 +60,27 @@ public class CheckSenderHsaIdTransformer extends AbstractMessageTransformer {
 
 	@Override
 	public Object transformMessage(MuleMessage message, String outputEncoding) throws TransformerException {
-		final Certificate[] certificateChain = (Certificate[]) message.getProperty(certificatesKey);
-
-		X509Certificate x509Certificate = extractFirstCertificateInChain(certificateChain);
-
-		String senderId = extractSenderIdFromCertificate(x509Certificate);
 		
-		log.debug("Extracted sender HSA ID {}, check if its valid against whitelist", senderId);
-
-		if (!isCallerOnWhiteList(senderId, whiteList)) {
-			log.error("Not a valid HSA ID! Sender HSA ID {} was not found in whitelist", whiteList);
+		String senderId = message.getProperty(FkAdapterUtil.X_FK_SENDER_ID, PropertyScope.INBOUND, null);
+		
+		log.debug("Is property {} found in inbound properties?", FkAdapterUtil.X_FK_SENDER_ID);
+		
+		/*
+		 * Sender id was not found in http header x-fk-sender-id, fall back to the certificate control.
+		 */
+		if(StringUtils.isBlank(senderId)){
+			log.debug("No, look into the senders certificate instead");
+			final Certificate[] certificateChain = (Certificate[]) message.getProperty(certificatesKey);
+			X509Certificate x509Certificate = extractFirstCertificateInChain(certificateChain);
+			senderId = extractSenderIdFromCertificate(x509Certificate);
+		}
+		
+		log.debug("Sender id found in request {}, check against whitelist!", senderId);
+		if (!isCallerOnWhiteList(senderId, whiteList, FkAdapterUtil.X_FK_SENDER_ID)) {
 			throw transformerException("FKADAPT003 Caller was not on the white list of accepted HSA ID's. HSA ID: " + senderId);
 		}
+		
+		message.setProperty(FkAdapterUtil.FK_SENDER_ID, senderId, PropertyScope.OUTBOUND);
 
 		return message;
 	}
@@ -78,12 +88,12 @@ public class CheckSenderHsaIdTransformer extends AbstractMessageTransformer {
 	X509Certificate extractFirstCertificateInChain(final Certificate[] certificateChain) throws TransformerException {
 
 		if (certificateChain == null) {
-			throw transformerException("No certificate chain was found, can not validate sender");
+			throw transformerException("No HTTP property " +FkAdapterUtil.X_FK_SENDER_ID+ ", nor certificate chain was found in request, can not validate sender");
 		}
 
 		X509Certificate x509Certificate = (X509Certificate) certificateChain[0];
 		if (x509Certificate == null) {
-			throw transformerException("Cannot extract any sender because the certificate was null");
+			throw transformerException("No HTTP property " +FkAdapterUtil.X_FK_SENDER_ID+ ", nor certificate was found in request, can not validate sender");
 		}
 		return x509Certificate;
 	}
@@ -93,7 +103,7 @@ public class CheckSenderHsaIdTransformer extends AbstractMessageTransformer {
 		log.debug("Extracting sender id from certificate.");
 
 		if (this.pattern == null) {
-			throw new IllegalArgumentException("Cannot extract any sender becuase the pattern used to find it was null");
+			throw new IllegalArgumentException("Cannot extract any sender from certificate, configured pattern is null. PLease update adapter property FK_CERT_SENDERID");
 		}
 
 		final String principalName = certificate.getSubjectX500Principal().getName();
@@ -133,30 +143,31 @@ public class CheckSenderHsaIdTransformer extends AbstractMessageTransformer {
 	 * 
 	 * @param callerEntry The callers entry to match againts whitelist entries
 	 * @param whiteList The comma separated whitelist of entries to compare againts 
+	 * @param httpHeader The http header causing the check in the white list
 	 * @return true if caller entry is on whitelist
 	 */
-	static boolean isCallerOnWhiteList(String callerEntry, String whiteList) {
+	static boolean isCallerOnWhiteList(String callerHsaId, String whiteList, String httpHeader) {
 		
-		log.debug("Check if caller {} is in whitelist...", callerEntry);
+		log.debug("Check if caller {} is in white list berfore using HTTP header {}...", callerHsaId, httpHeader);
 
-		if (StringUtils.isBlank(callerEntry)) {
-			log.warn("A potential empty ip address from the caller");
+		if (StringUtils.isBlank(callerHsaId)) {
+			log.warn("A potential empty HSA ID from the caller, HSA ID is: {}. HTTP header that caused checking: {} ", callerHsaId, httpHeader);
 			return false;
 		}
 		
 		if (StringUtils.isBlank(whiteList)) {
-			log.error("An empty whitelist is used when checking if caller is on whitelist, not ok. Check will return false!");
+			log.warn("A check against the HSA ID whitelist was requested, but the whitelist is configured empty. Update adapter configuration property FK_WHITE_LIST");
 			return false;
 		}
 		
 		for (String whiteListEntry : whiteList.split(",")) {
-			if(callerEntry.equals(whiteListEntry.trim())){
+			if(callerHsaId.equals(whiteListEntry.trim())){
 				log.debug("Caller matches entry in white list, ok");
 				return true;
 			}
 		}
 
-		log.warn("Caller was not on the white list of accepted entries. Caller entry: {}, accepted entries in whitelist: {}", callerEntry, whiteList);
+		log.error("Not a valid HSA ID! Sender HSA ID {} was not found in whitelist {}", callerHsaId, whiteList);
 		return false;
 	}
 

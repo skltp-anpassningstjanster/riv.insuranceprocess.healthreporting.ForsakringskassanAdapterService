@@ -52,7 +52,7 @@
 			<http:inbound-endpoint address="${inbound.endpoint.http.eintyg.receivemedicalcertificateanswer}"
 				exchange-pattern="request-response"
 				responseTransformer-refs="objToStr logRespOut"
-				transformer-refs="objToStr logReqIn newReceiverIdAnswer changeNamespaceRecMedCertAnswer">
+				transformer-refs="objToStr logReqIn checkSenderHsaIdTransformer newReceiverIdAnswer changeNamespaceRecMedCertAnswer">
 			</http:inbound-endpoint>
 		</composite-source>
 
@@ -70,7 +70,7 @@
  			
  			These two headers are dependent on each other in a way that when using x-vp-sender-id against VP, VP will check for a valid x-vp-instance-id.
  		-->
- 		<set-property propertyName="x-vp-sender-id" value="${FKADAPTER_HSA_ID}" doc:name="propagate x-vp-sender-id when invoking VP" />
+ 		<set-property propertyName="x-vp-sender-id" value="#[message.outboundProperties.get(se.skl.skltpservices.adapter.common.processor.FkAdapterUtil.FK_SENDER_ID)]" doc:name="propagate x-vp-sender-id when invoking VP" />
  		<set-property propertyName="x-vp-instance-id" value="${VP_INSTANCE_ID}" doc:name="propagate x-vp-instance-id when invoking VP" />
 			
 		<http:outbound-endpoint connector-ref="soitoolkit-http-connector"

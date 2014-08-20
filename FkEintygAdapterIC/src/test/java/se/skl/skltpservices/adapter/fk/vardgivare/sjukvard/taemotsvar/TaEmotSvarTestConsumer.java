@@ -21,13 +21,20 @@
 package se.skl.skltpservices.adapter.fk.vardgivare.sjukvard.taemotsvar;
 
 import java.net.URL;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.apache.cxf.bus.spring.SpringBusFactory;
+import org.apache.cxf.endpoint.Client;
+import org.apache.cxf.frontend.ClientProxy;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
+import org.apache.cxf.message.Message;
 import org.w3.wsaddressing10.AttributedURIType;
 
 import se.fk.vardgivare.sjukvard.taemotsvar.v1.rivtabp20.TaEmotSvarResponderInterface;
@@ -56,6 +63,7 @@ import se.fk.vardgivare.sjukvard.v1.Postort;
 import se.fk.vardgivare.sjukvard.v1.ReferensAdressering;
 import se.fk.vardgivare.sjukvard.v1.TaEmotSvar;
 import se.fk.vardgivare.sjukvard.v1.Telefon;
+import se.skl.skltpservices.adapter.common.processor.FkAdapterUtil;
 import se.skl.skltpservices.adapter.fk.revokemedcert.RevokeTransformTestConsumer;
 
 public class TaEmotSvarTestConsumer {
@@ -76,8 +84,12 @@ public class TaEmotSvarTestConsumer {
 		
 		_service = (TaEmotSvarResponderInterface) proxyFactory.create();
 	}
-
+	
 	public TaEmotSvarResponseType taEmotSvar() throws DatatypeConfigurationException {
+		return taEmotSvar(null);
+	}
+
+	public TaEmotSvarResponseType taEmotSvar(String senderId) throws DatatypeConfigurationException {
 
 		TaEmotSvarType request = new TaEmotSvarType();
 		TaEmotSvar taEmotSvar = new TaEmotSvar();
@@ -92,6 +104,8 @@ public class TaEmotSvarTestConsumer {
 
 		AttributedURIType adressing = new AttributedURIType();
 		adressing.setValue("LOGICALADRESS");
+		
+		setSenderId(senderId);
 
 		return _service.taEmotSvar(adressing, request);
 	}
@@ -282,4 +296,25 @@ public class TaEmotSvarTestConsumer {
 		adressering.setValue("refadressing");
 		return adressering;
 	}
+	
+	private void setSenderId (String fkSenderId) {
+
+    	// Get the underlying Client object from the proxy object of service interface
+    	Client proxy = ClientProxy.getClient(_service);
+    	 
+    	// Creating HTTP headers
+    	// Allow the mandatory headers to be null, i.e. skip setting them, 
+    	// to be able to construct negative tests that verify error handling when one or both header are missing
+    	Map<String, List<String>> headers = new HashMap<String, List<String>>();
+    	if (fkSenderId != null) {
+    		headers.put(FkAdapterUtil.X_FK_SENDER_ID, Arrays.asList(fkSenderId));
+    	}
+    	 
+    	// Add HTTP headers to the web service request
+    	proxy.getRequestContext().put(Message.PROTOCOL_HEADERS, headers);
+    	 
+//    	// If you want to log the SOAP XML of outgoing requests and incoming responses at client side, you can leave this uncommented. It'll be helpful in debugging.
+//    	proxy.getOutInterceptors().add(new LoggingOutInterceptor());
+//    	proxy.getInInterceptors().add(new LoggingInInterceptor());    	
+    }
 }

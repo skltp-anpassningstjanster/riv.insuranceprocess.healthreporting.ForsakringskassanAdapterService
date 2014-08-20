@@ -43,7 +43,7 @@
 
 	<!-- To support both https and http at the same time for SendMedicalCertificateQuestion-service-revoke-->
 	<simple-service 
-		name="SendMedicalCertificateQuestion-service-revoke-https"
+		name="varden-fk-SendMedicalCertificateQuestion-service-revoke-https"
         address="${inbound.endpoint.https.eintyg.sendmedicalcertificatequestion.revoke}" 
         component-class="se.skl.skltpservices.adapter.fk.sendmedcertquestion.SendMCQRevoke"
         type="jax-ws" 
@@ -52,7 +52,7 @@
 		
 	<!-- To support both https and http at the same time for SendMedicalCertificateQuestion-service-revoke-->
 	<simple-service 
-		name="SendMedicalCertificateQuestion-service-revoke-http"
+		name="varden-fk-SendMedicalCertificateQuestion-service-revoke-http"
         address="${inbound.endpoint.http.eintyg.sendmedicalcertificatequestion.revoke}" 
         component-class="se.skl.skltpservices.adapter.fk.sendmedcertquestion.SendMCQRevoke"
         type="jax-ws" 

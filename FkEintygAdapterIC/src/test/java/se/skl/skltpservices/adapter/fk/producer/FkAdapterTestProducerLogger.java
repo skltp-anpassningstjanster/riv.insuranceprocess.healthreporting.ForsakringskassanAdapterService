@@ -67,4 +67,9 @@ public class FkAdapterTestProducerLogger extends AbstractMessageTransformer {
 	public static String getLatestVpInstanceId() {
 		return latestVpInstanceId;
 	}
+	
+	public static void resetTestProducerLoggerStaticVariables(){
+		latestSenderId = null;
+		latestVpInstanceId = null;
+	}
 }

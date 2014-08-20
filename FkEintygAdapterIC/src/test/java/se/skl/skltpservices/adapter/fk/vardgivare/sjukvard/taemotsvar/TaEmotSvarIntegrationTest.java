@@ -20,8 +20,7 @@
  */
 package se.skl.skltpservices.adapter.fk.vardgivare.sjukvard.taemotsvar;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 import static se.skl.skltpservices.adapter.fk.FkIntegrationComponentMuleServer.getAddress;
 
 import org.junit.Before;
@@ -54,6 +53,7 @@ private static final RecursiveResourceBundle rb = new RecursiveResourceBundle("F
 	@Before
 	public void doSetUp() throws Exception {
 		super.doSetUp();
+		FkAdapterTestProducerLogger.resetTestProducerLoggerStaticVariables();
 	}
 
 	@Override
@@ -66,28 +66,46 @@ private static final RecursiveResourceBundle rb = new RecursiveResourceBundle("F
 
 	@Test
 	public void testTaEmotSvar_happydays_https() throws Exception {
+		
+		String fkSenderIdFromClientCert = "VardgivareC";
 
 		TaEmotSvarTestConsumer fkAsConsumer = new TaEmotSvarTestConsumer(DEFAULT_SERVICE_ADDRESS_HTTPS);
 		TaEmotSvarResponseType response = fkAsConsumer.taEmotSvar();
 		assertNotNull(response);
 		
 		//Verify http headers are propagated frpm FKAdapter to producer (VP)
-		assertEquals(rb.getString("FKADAPTER_HSA_ID"), FkAdapterTestProducerLogger.getLatestSenderId());
+		assertEquals(fkSenderIdFromClientCert, FkAdapterTestProducerLogger.getLatestSenderId());
 		assertEquals(rb.getString("VP_INSTANCE_ID"), FkAdapterTestProducerLogger.getLatestVpInstanceId());
 
 	}
 	
 	@Test
 	public void testTaEmotSvar_happydays_http() throws Exception {
+		
+		String fkSenderId = "VardgivareC";
 
 		TaEmotSvarTestConsumer fkAsConsumer = new TaEmotSvarTestConsumer(DEFAULT_SERVICE_ADDRESS_HTTP);
-		TaEmotSvarResponseType response = fkAsConsumer.taEmotSvar();
+		TaEmotSvarResponseType response = fkAsConsumer.taEmotSvar(fkSenderId);
 		assertNotNull(response);
 		
 		//Verify http headers are propagated frpm FKAdapter to producer (VP)
-		assertEquals(rb.getString("FKADAPTER_HSA_ID"), FkAdapterTestProducerLogger.getLatestSenderId());
+		assertEquals(fkSenderId, FkAdapterTestProducerLogger.getLatestSenderId());
 		assertEquals(rb.getString("VP_INSTANCE_ID"), FkAdapterTestProducerLogger.getLatestVpInstanceId());
 
 	}
+	
+	@Test
+	public void testTaEmotSvar_http_no_sender_id() throws Exception {
+		
+		String fkSenderId = null;
 
+		TaEmotSvarTestConsumer fkAsConsumer = new TaEmotSvarTestConsumer(DEFAULT_SERVICE_ADDRESS_HTTP);
+		
+		try {
+			fkAsConsumer.taEmotSvar(fkSenderId);
+			fail("Expected exception");
+		} catch (Exception e) {
+			assertTrue(e.getMessage().contains("No HTTP property x-fk-sender-id, nor certificate chain was found in request, can not validate sender"));
+		}
+	}
 }

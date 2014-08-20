@@ -48,6 +48,7 @@ public class RevokeTransformIntegrationTest extends AbstractTestCase {
 	@Before
 	public void doSetUp() throws Exception {
 		super.doSetUp();
+		FkAdapterTestProducerLogger.resetTestProducerLoggerStaticVariables();
 	}
 
 	@Override

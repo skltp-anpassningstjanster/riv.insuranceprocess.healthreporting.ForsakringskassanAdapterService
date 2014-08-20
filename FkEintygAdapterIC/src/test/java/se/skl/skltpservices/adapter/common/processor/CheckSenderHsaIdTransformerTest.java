@@ -48,7 +48,7 @@ public class CheckSenderHsaIdTransformerTest {
 
 		final CheckSenderHsaIdTransformer processor = new CheckSenderHsaIdTransformer();
 		processor.setSenderIdPropertyName("OU");
-		processor.setWhiteList("127.0.0.1");
+		processor.setWhiteList(HSA_ID_WHITE_LIST);
 
 		final String sender = processor.extractSenderIdFromCertificate(cert);
 
@@ -72,7 +72,7 @@ public class CheckSenderHsaIdTransformerTest {
 
 		final CheckSenderHsaIdTransformer processor = new CheckSenderHsaIdTransformer();
 		processor.setSenderIdPropertyName("OU");
-		processor.setWhiteList("127.0.0.1");
+		processor.setWhiteList(HSA_ID_WHITE_LIST);
 
 		final String s = processor.extractSenderIdFromCertificate(cert);
 
@@ -81,7 +81,7 @@ public class CheckSenderHsaIdTransformerTest {
 		assertNotNull(s);
 
 	}
-
+	
 	@Test
 	public void testExtractSenderWithNullCert() throws Exception {
 
@@ -91,7 +91,7 @@ public class CheckSenderHsaIdTransformerTest {
 			processor.extractSenderIdFromCertificate(null);
 			fail("Exception not thrown when certificate was null");
 		} catch (final IllegalArgumentException e) {
-			assertEquals("Cannot extract any sender becuase the pattern used to find it was null", e.getMessage());
+			assertEquals("Cannot extract any sender from certificate, configured pattern is null. PLease update adapter property FK_CERT_SENDERID", e.getMessage());
 			return;
 		}
 
@@ -106,7 +106,7 @@ public class CheckSenderHsaIdTransformerTest {
 			processor.extractSenderIdFromCertificate(Mockito.mock(X509Certificate.class));
 			fail("No exception was thrown when pattern was null");
 		} catch (final IllegalArgumentException e) {
-			assertEquals("Cannot extract any sender becuase the pattern used to find it was null", e.getMessage());
+			assertEquals("Cannot extract any sender from certificate, configured pattern is null. PLease update adapter property FK_CERT_SENDERID", e.getMessage());
 			return;
 		}
 
@@ -175,46 +175,46 @@ public class CheckSenderHsaIdTransformerTest {
 	
 	@Test
 	public void isCallerOnWhiteListOk(){
-		boolean callerOnWhiteList = CheckSenderHsaIdTransformer.isCallerOnWhiteList("HSAID-2", HSA_ID_WHITE_LIST);
+		boolean callerOnWhiteList = CheckSenderHsaIdTransformer.isCallerOnWhiteList("HSAID-2", HSA_ID_WHITE_LIST, FkAdapterUtil.X_FK_SENDER_ID);
 		assertTrue(callerOnWhiteList);
 	}
 	
 	@Test
 	public void isCallerOnWhiteListOkWhenWhiteListContainsLeadingWiteSpaces(){
 		final String WHITE_LIST_WITH_WHITE_SPACE="HSAID-1, HSAID-2";
-		boolean callerOnWhiteList = CheckSenderHsaIdTransformer.isCallerOnWhiteList("HSAID-2", WHITE_LIST_WITH_WHITE_SPACE);
+		boolean callerOnWhiteList = CheckSenderHsaIdTransformer.isCallerOnWhiteList("HSAID-2", WHITE_LIST_WITH_WHITE_SPACE, FkAdapterUtil.X_FK_SENDER_ID);
 		assertTrue(callerOnWhiteList);
 	}		
 	
 	@Test
 	public void isCallerOnWhiteListHsaIdDoesNotMatch(){
-		assertFalse(CheckSenderHsaIdTransformer.isCallerOnWhiteList("HSAID-UNKOWN", HSA_ID_WHITE_LIST));
-		assertFalse(CheckSenderHsaIdTransformer.isCallerOnWhiteList("HSAID", HSA_ID_WHITE_LIST));
-		assertFalse(CheckSenderHsaIdTransformer.isCallerOnWhiteList("ID-1", HSA_ID_WHITE_LIST));
+		assertFalse(CheckSenderHsaIdTransformer.isCallerOnWhiteList("HSAID-UNKOWN", HSA_ID_WHITE_LIST, FkAdapterUtil.X_FK_SENDER_ID));
+		assertFalse(CheckSenderHsaIdTransformer.isCallerOnWhiteList("HSAID", HSA_ID_WHITE_LIST, FkAdapterUtil.X_FK_SENDER_ID));
+		assertFalse(CheckSenderHsaIdTransformer.isCallerOnWhiteList("ID-1", HSA_ID_WHITE_LIST, FkAdapterUtil.X_FK_SENDER_ID));
 	}
 	
 	@Test
 	public void isCallerOnWhiteListReturnsFalseWhenHsaIdAddressIsEmpty(){		
 		String hsaId = "";
-		assertFalse(CheckSenderHsaIdTransformer.isCallerOnWhiteList(hsaId, HSA_ID_WHITE_LIST));
+		assertFalse(CheckSenderHsaIdTransformer.isCallerOnWhiteList(hsaId, HSA_ID_WHITE_LIST, FkAdapterUtil.X_FK_SENDER_ID));
 	}
 	
 	@Test
 	public void isCallerOnWhiteListReturnsFalseWhenHsaIdAddressIsNull(){		
 		String hsaId = null;
-		assertFalse(CheckSenderHsaIdTransformer.isCallerOnWhiteList(hsaId, HSA_ID_WHITE_LIST));
+		assertFalse(CheckSenderHsaIdTransformer.isCallerOnWhiteList(hsaId, HSA_ID_WHITE_LIST, FkAdapterUtil.X_FK_SENDER_ID));
 	}
 	
 	@Test
 	public void isCallerOnWhiteListReturnsFalseWhenWhiteListIsEmpty(){	
 		String whiteList = "";
-		assertFalse(CheckSenderHsaIdTransformer.isCallerOnWhiteList("HSAID-1", whiteList));
+		assertFalse(CheckSenderHsaIdTransformer.isCallerOnWhiteList("HSAID-1", whiteList, FkAdapterUtil.X_FK_SENDER_ID));
 	}
 	
 	@Test
 	public void isCallerOnWhiteListReturnsFalseWhenWhiteListIsNull(){
 		String whiteList = null;
-		assertFalse(CheckSenderHsaIdTransformer.isCallerOnWhiteList("HSAID-1", whiteList));
+		assertFalse(CheckSenderHsaIdTransformer.isCallerOnWhiteList("HSAID-1", whiteList, FkAdapterUtil.X_FK_SENDER_ID));
 	}
 
 }

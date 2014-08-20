@@ -29,6 +29,29 @@ public class FkAdapterUtil {
 	
 	private static final Logger log = LoggerFactory.getLogger(FkAdapterUtil.class);
 	
+	/*
+	 * Http header x-vp-sender-id, for FK adapter to use when acting consumer towards VP. 
+	 * Http heaeder x-vp-instance-id, for FK adapter to use when acting consumer towards VP.
+	 * 
+	 * These two headers are dependent on each other in a way that when using x-vp-sender-id
+	 * against VP, VP will check for a valid x-vp-instance-id.
+	 */
+	public static final String X_VP_SENDER_ID = "x-vp-sender-id";
+	public static final String X_VP_INSTANCE_ID = "x-vp-instance-id";
+
+	/*
+	 * External representation of the FK sender id
+	 * 
+	 * Http header x-fk-sender-id, mandatory header to be used when using http in FK endpoints (TaEmotSvar, TaEmotFraga)
+	 * The value of this header is forward in request to VP using http header x-vp-sender-id
+	 */
+	public static final String X_FK_SENDER_ID = "x-fk-sender-id";
+	
+	/*
+	 * Internal representation of the FK sender id
+	 */
+	public static final String FK_SENDER_ID = "fkSenderId";
+	
 	public static final String REMOTE_ADDR = MuleProperties.MULE_REMOTE_CLIENT_ADDRESS;
 	
 	/*
