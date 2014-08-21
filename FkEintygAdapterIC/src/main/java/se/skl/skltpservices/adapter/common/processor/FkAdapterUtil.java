@@ -52,7 +52,7 @@ public class FkAdapterUtil {
 	 */
 	public static final String FK_SENDER_ID = "fkSenderId";
 	
-	public static final String REMOTE_ADDR = MuleProperties.MULE_REMOTE_CLIENT_ADDRESS;
+	public static final String CERT_SENDERID_PATTERN = "=([^,]+)";
 	
 	/*
 	 * Generic soap fault template, just use String.format(SOAP_FAULT, message);
@@ -67,6 +67,11 @@ public class FkAdapterUtil {
 			"    </soap:Fault>" + 
 			"  </soapenv:Body>" + 
 			"</soapenv:Envelope>";
+
+	/**
+	 * Incoming HTTP Header x-fk-auth-cert, carrying a X509 certificate, used when implementing a reverse proxy.
+	 */
+	public static final String REVERSE_PROXY_HEADER_NAME = "x-fk-auth-cert";
 	
 	/**
      * Escapes the characters in a String using XML entities.

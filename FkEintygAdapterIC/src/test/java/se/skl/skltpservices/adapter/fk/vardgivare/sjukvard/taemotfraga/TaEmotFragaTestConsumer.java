@@ -86,10 +86,10 @@ public class TaEmotFragaTestConsumer {
 	}
 	
 	public TaEmotFragaResponseType taEmotFraga() throws DatatypeConfigurationException {
-		return taEmotFraga(null);
+		return taEmotFraga(null, null);
 	}
 
-	public TaEmotFragaResponseType taEmotFraga(String senderId) throws DatatypeConfigurationException {
+	public TaEmotFragaResponseType taEmotFraga(String header, String value) throws DatatypeConfigurationException {
 
 		TaEmotFragaType request = new TaEmotFragaType();
 		TaEmotFraga taEmotFraga = new TaEmotFraga();
@@ -105,7 +105,7 @@ public class TaEmotFragaTestConsumer {
 		AttributedURIType adressing = new AttributedURIType();
 		adressing.setValue("LOGICALADRESS");
 		
-		setSenderId(senderId);
+		setHttpHeader(header, value);
 
 		return _service.taEmotFraga(adressing, request);
 	}
@@ -297,7 +297,7 @@ public class TaEmotFragaTestConsumer {
 		return adressering;
 	}
 	
-	private void setSenderId (String fkSenderId) {
+	private void setHttpHeader (String header, String value) {
 
     	// Get the underlying Client object from the proxy object of service interface
     	Client proxy = ClientProxy.getClient(_service);
@@ -306,8 +306,8 @@ public class TaEmotFragaTestConsumer {
     	// Allow the mandatory headers to be null, i.e. skip setting them, 
     	// to be able to construct negative tests that verify error handling when one or both header are missing
     	Map<String, List<String>> headers = new HashMap<String, List<String>>();
-    	if (fkSenderId != null) {
-    		headers.put(FkAdapterUtil.X_FK_SENDER_ID, Arrays.asList(fkSenderId));
+    	if (value != null) {
+    		headers.put(header, Arrays.asList(value));
     	}
     	 
     	// Add HTTP headers to the web service request

@@ -34,6 +34,7 @@ import org.soitoolkit.commons.mule.test.junit4.AbstractTestCase;
 import org.soitoolkit.commons.mule.util.RecursiveResourceBundle;
 
 import se.fk.vardgivare.sjukvard.taemotfragaresponder.v1.TaEmotFragaResponseType;
+import se.skl.skltpservices.adapter.common.processor.FkAdapterUtil;
 import se.skl.skltpservices.adapter.fk.producer.FkAdapterTestProducerLogger;
 
 public class TaEmotFragaIntegrationTest extends AbstractTestCase {
@@ -88,7 +89,7 @@ public class TaEmotFragaIntegrationTest extends AbstractTestCase {
 		String fkSenderId = "VardgivareC";
 
 		TaEmotFragaTestConsumer fkAsConsumer = new TaEmotFragaTestConsumer(DEFAULT_SERVICE_ADDRESS_HTTP);
-		TaEmotFragaResponseType response = fkAsConsumer.taEmotFraga(fkSenderId);
+		TaEmotFragaResponseType response = fkAsConsumer.taEmotFraga(FkAdapterUtil.X_FK_SENDER_ID, fkSenderId);
 		assertNotNull(response);
 		
 		//Verify http headers are propagated frpm FKAdapter to producer (VP)
@@ -96,6 +97,7 @@ public class TaEmotFragaIntegrationTest extends AbstractTestCase {
 		assertEquals(rb.getString("VP_INSTANCE_ID"), FkAdapterTestProducerLogger.getLatestVpInstanceId());
 
 	}
+	
 	
 	@Test
 	public void testTaEmotFraga_http_no_sender_id() throws Exception {
@@ -105,10 +107,10 @@ public class TaEmotFragaIntegrationTest extends AbstractTestCase {
 		TaEmotFragaTestConsumer fkAsConsumer = new TaEmotFragaTestConsumer(DEFAULT_SERVICE_ADDRESS_HTTP);
 		
 		try {
-			fkAsConsumer.taEmotFraga(fkSenderId);
+			fkAsConsumer.taEmotFraga(FkAdapterUtil.X_FK_SENDER_ID, fkSenderId);
 			fail("Expected exception");
 		} catch (Exception e) {
-			assertTrue(e.getMessage().contains("No HTTP property x-fk-sender-id, nor certificate chain was found in request, can not validate sender"));
+			assertTrue(e.getMessage().contains("No certificate was found in request, therefore sender is not trusted"));
 		}
 	}
 

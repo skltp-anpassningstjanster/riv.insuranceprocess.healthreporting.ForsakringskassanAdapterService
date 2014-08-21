@@ -52,6 +52,19 @@
 			<artifactId>soitoolkit-mule-3.3.0-dependencies</artifactId>
 			<type>pom</type>
 		</dependency>
+		
+		<dependency>
+			 <groupId>se.skltp.commons</groupId>
+			 <artifactId>tp-commons-mule</artifactId>
+		</dependency>
+		
+		<!-- Test dependecies -->
+		<dependency>
+		  <groupId>org.bouncycastle</groupId>
+		  <artifactId>bcprov-jdk16</artifactId>
+		  <version>1.45</version>
+		  <scope>test</scope>
+		</dependency>
 
 	</dependencies>
 

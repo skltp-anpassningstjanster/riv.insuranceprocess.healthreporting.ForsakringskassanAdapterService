@@ -81,6 +81,12 @@
 				<version>${soitoolkit.version}</version>
 				<type>pom</type>
 			</dependency>
+			
+			<dependency>
+			    <groupId>se.skltp.commons</groupId>
+			    <artifactId>tp-commons-mule</artifactId>
+			    <version>1.0.0</version>
+			</dependency>
 
 		</dependencies>
 	</dependencyManagement>

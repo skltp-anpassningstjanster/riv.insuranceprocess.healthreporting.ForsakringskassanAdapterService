@@ -35,11 +35,13 @@ import org.mule.transformer.AbstractMessageTransformer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import se.skl.skltpservices.adapter.common.cert.CertificateExtractor;
+import se.skl.skltpservices.adapter.common.cert.CertificateExtractorFactory;
+
 public class CheckSenderHsaIdTransformer extends AbstractMessageTransformer {
 
 	private static final Logger log = LoggerFactory.getLogger(CheckSenderHsaIdTransformer.class);
 
-	private static final String CERT_SENDERID_PATTERN = "=([^,]+)";
 	private String whiteList;
 	private String senderIdPropertyName;
 	private Pattern pattern;
@@ -48,14 +50,14 @@ public class CheckSenderHsaIdTransformer extends AbstractMessageTransformer {
 	public void setWhiteList(final String whiteList) {
 		this.whiteList = whiteList;
 	}
+	
+	public void setCertificatesKey(final String certificatesKey) {
+		this.certificatesKey = certificatesKey;
+	}
 
 	public void setSenderIdPropertyName(String senderIdPropertyName) {
 		this.senderIdPropertyName = senderIdPropertyName;
-		pattern = Pattern.compile(this.senderIdPropertyName + CERT_SENDERID_PATTERN);
-	}
-
-	public void setCertificatesKey(final String certificatesKey) {
-		this.certificatesKey = certificatesKey;
+		pattern = Pattern.compile(this.senderIdPropertyName + FkAdapterUtil.CERT_SENDERID_PATTERN);
 	}
 
 	@Override
@@ -70,9 +72,9 @@ public class CheckSenderHsaIdTransformer extends AbstractMessageTransformer {
 		 */
 		if(StringUtils.isBlank(senderId)){
 			log.debug("No, look into the senders certificate instead");
-			final Certificate[] certificateChain = (Certificate[]) message.getProperty(certificatesKey);
-			X509Certificate x509Certificate = extractFirstCertificateInChain(certificateChain);
-			senderId = extractSenderIdFromCertificate(x509Certificate);
+			CertificateExtractorFactory certificateExtractorFactory = new CertificateExtractorFactory(message, pattern, whiteList);
+			CertificateExtractor certHelper = certificateExtractorFactory.creaetCertificateExtractor();
+			senderId = certHelper.extractSenderIdFromCertificate(certificatesKey);
 		}
 		
 		log.debug("Sender id found in request {}, check against whitelist!", senderId);
@@ -170,5 +172,4 @@ public class CheckSenderHsaIdTransformer extends AbstractMessageTransformer {
 		log.error("Not a valid HSA ID! Sender HSA ID {} was not found in whitelist {}", callerHsaId, whiteList);
 		return false;
 	}
-
 }

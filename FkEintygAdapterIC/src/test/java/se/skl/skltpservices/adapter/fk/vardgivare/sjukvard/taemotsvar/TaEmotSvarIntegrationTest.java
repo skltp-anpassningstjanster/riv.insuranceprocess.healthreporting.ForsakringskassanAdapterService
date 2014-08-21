@@ -105,7 +105,7 @@ private static final RecursiveResourceBundle rb = new RecursiveResourceBundle("F
 			fkAsConsumer.taEmotSvar(fkSenderId);
 			fail("Expected exception");
 		} catch (Exception e) {
-			assertTrue(e.getMessage().contains("No HTTP property x-fk-sender-id, nor certificate chain was found in request, can not validate sender"));
+			assertTrue(e.getMessage().contains("No certificate was found in request, therefore sender is not trusted"));
 		}
 	}
 }
