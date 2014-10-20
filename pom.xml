@@ -18,9 +18,10 @@
 	<name>${project.artifactId}</name>
 
 	<scm>
-		<connection>scm:svn:https://skltpservices.googlecode.com/svn/AdapterServices/riv.insuranceprocess.healthreporting/ForsakringskassanAdapterService/trunk/</connection>
-		<developerConnection>scm:svn:https://skltpservices.googlecode.com/svn/AdapterServices/riv.insuranceprocess.healthreporting/ForsakringskassanAdapterService/trunk/</developerConnection>
-		<url>http://skltpservices.googlecode.com/svn/AdapterServices/riv.insuranceprocess.healthreporting/ForsakringskassanAdapterService/trunk/</url>
+		<url>https://github.com/skltp-anpassningstjanster/riv.insuranceprocess.healthreporting.ForsakringskassanAdapterService</url>
+		<connection>scm:git:git://github.com/skltp-anpassningstjanster/riv.insuranceprocess.healthreporting.ForsakringskassanAdapterService.git</connection>
+		<developerConnection>scm:git:git://github.com/skltp-anpassningstjanster/riv.insuranceprocess.healthreporting.ForsakringskassanAdapterService.git</developerConnection>
+		<tag>HEAD</tag>
 	</scm>
 
 	<properties>
@@ -51,7 +52,7 @@
 				<artifactId>fk-vardgivare-sjukvard-schemas</artifactId>
 				<version>2.0.8-SNAPSHOT</version>
 			</dependency>
-			
+
 			<!-- itintegration monitoring schemas för PingForConfiguration -->
 			<dependency>
 			  	<groupId>se.skltp.itintegration.monitoring</groupId>
@@ -81,7 +82,7 @@
 				<version>${soitoolkit.version}</version>
 				<type>pom</type>
 			</dependency>
-			
+
 			<dependency>
 			    <groupId>se.skltp.commons</groupId>
 			    <artifactId>tp-commons-mule</artifactId>
@@ -213,6 +214,17 @@
 							</pluginExecutions>
 						</lifecycleMappingMetadata>
 					</configuration>
+				</plugin>
+				<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-release-plugin</artifactId>
+						<version>2.5.1</version>
+						<configuration>
+								<autoVersionSubmodules>true</autoVersionSubmodules>
+								<tagNameFormat>v@{project.version}</tagNameFormat>
+								<pushChanges>false</pushChanges>
+								<localCheckout>true</localCheckout>
+						</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
