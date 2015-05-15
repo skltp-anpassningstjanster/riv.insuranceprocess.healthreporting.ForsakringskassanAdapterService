@@ -81,7 +81,7 @@
 			responseTransformer-refs="logRespIn">
 			<cxf:jaxws-client port="ReceiveMedicalCertificateAnswerResponderPort"
 				operation="ReceiveMedicalCertificateAnswer"
-				clientClass="se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificateanswer.v1.rivtabp20.ReceiveMedicalCertificateAnswerResponderService"
+				clientClass="se.inera.ifv.insuranceprocess.healthreporting.receivemedicalcertificateanswer.v1.rivtabp20.ReceiveMedicalCertificateAnswerResponderService"
 				wsdlLocation="classpath:/schemas/vard/interactions/ReceiveMedicalCertificateAnswerInteraction/ReceiveMedicalCertificateAnswerInteraction_1.0_rivtabp20.wsdl" />
 		</http:outbound-endpoint>
 		

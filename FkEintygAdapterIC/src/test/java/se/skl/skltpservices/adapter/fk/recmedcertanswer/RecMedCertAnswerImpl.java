@@ -26,14 +26,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3.wsaddressing10.AttributedURIType;
 
-import se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificateanswer.v1.rivtabp20.ReceiveMedicalCertificateAnswerResponderInterface;
-import se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificateanswerresponder.v1.ReceiveMedicalCertificateAnswerResponseType;
-import se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificateanswerresponder.v1.ReceiveMedicalCertificateAnswerType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ErrorIdEnum;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ResultCodeEnum;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ResultOfCall;
+import se.inera.ifv.insuranceprocess.healthreporting.receivemedicalcertificateanswer.v1.rivtabp20.ReceiveMedicalCertificateAnswerResponderInterface;
+import se.inera.ifv.insuranceprocess.healthreporting.receivemedicalcertificateanswerresponder.v1.ReceiveMedicalCertificateAnswerResponseType;
+import se.inera.ifv.insuranceprocess.healthreporting.receivemedicalcertificateanswerresponder.v1.ReceiveMedicalCertificateAnswerType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ErrorIdEnum;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ResultCodeEnum;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ResultOfCall;
 
-@WebService(serviceName = "ReceiveMedicalCertificateAnswerResponderService", endpointInterface = "se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificateanswer.v1.rivtabp20.ReceiveMedicalCertificateAnswerResponderInterface", portName = "ReceiveMedicalCertificateAnswerResponderPort", targetNamespace = "urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateAnswer:1:rivtabp20")
+@WebService(serviceName = "ReceiveMedicalCertificateAnswerResponderService", endpointInterface = "se.inera.ifv.insuranceprocess.healthreporting.receivemedicalcertificateanswer.v1.rivtabp20.ReceiveMedicalCertificateAnswerResponderInterface", portName = "ReceiveMedicalCertificateAnswerResponderPort", targetNamespace = "urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateAnswer:1:rivtabp20")
 public class RecMedCertAnswerImpl implements ReceiveMedicalCertificateAnswerResponderInterface {
 
 	private final Logger log = LoggerFactory.getLogger(getClass());

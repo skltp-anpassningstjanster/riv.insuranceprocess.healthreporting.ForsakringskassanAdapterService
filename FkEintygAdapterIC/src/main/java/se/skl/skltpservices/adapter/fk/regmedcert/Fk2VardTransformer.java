@@ -32,10 +32,10 @@ import org.slf4j.LoggerFactory;
 import org.soitoolkit.commons.mule.jaxb.JaxbUtil;
 
 import se.fk.vardgivare.sjukvard.taemotlakarintygresponder.v1.TaEmotLakarintygResponseType;
-import se.skl.riv.insuranceprocess.healthreporting.registermedicalcertificateresponder.v3.RegisterMedicalCertificateResponseType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ErrorIdEnum;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ResultCodeEnum;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ResultOfCall;
+import se.inera.ifv.insuranceprocess.healthreporting.registermedicalcertificateresponder.v3.RegisterMedicalCertificateResponseType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ErrorIdEnum;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ResultCodeEnum;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ResultOfCall;
 import se.skl.skltpservices.adapter.common.processor.FkAdapterUtil;
 
 public class Fk2VardTransformer extends AbstractMessageTransformer {

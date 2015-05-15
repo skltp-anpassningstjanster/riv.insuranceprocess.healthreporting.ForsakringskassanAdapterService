@@ -38,15 +38,15 @@
 										Note: be careful when changing this - must be in sync for all
 										schemas generations in this namespace!
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateAnswer:1:rivtabp20=se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificateanswer.v1.rivtabp20
+											urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateAnswer:1:rivtabp20=se.inera.ifv.insuranceprocess.healthreporting.receivemedicalcertificateanswer.v1.rivtabp20
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:2=se.skl.riv.insuranceprocess.healthreporting.v2
+											urn:riv:insuranceprocess:healthreporting:2=se.inera.ifv.insuranceprocess.healthreporting.v2
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:medcertqa:1=se.skl.riv.insuranceprocess.healthreporting.qa.v1
+											urn:riv:insuranceprocess:healthreporting:medcertqa:1=se.inera.ifv.insuranceprocess.healthreporting.qa.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
@@ -54,7 +54,7 @@
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateAnswerResponder:1=se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificateanswerresponder.v1
+											urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateAnswerResponder:1=se.inera.ifv.insuranceprocess.healthreporting.receivemedicalcertificateanswerresponder.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
@@ -70,15 +70,15 @@
 										Note: be careful when changing this - must be in sync for all
 										schemas generations in this namespace!
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateQuestion:1:rivtabp20=se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificatequestion.v1.rivtabp20
+											urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateQuestion:1:rivtabp20=se.inera.ifv.insuranceprocess.healthreporting.receivemedicalcertificatequestion.v1.rivtabp20
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:2=se.skl.riv.insuranceprocess.healthreporting.v2
+											urn:riv:insuranceprocess:healthreporting:2=se.inera.ifv.insuranceprocess.healthreporting.v2
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:medcertqa:1=se.skl.riv.insuranceprocess.healthreporting.qa.v1
+											urn:riv:insuranceprocess:healthreporting:medcertqa:1=se.inera.ifv.insuranceprocess.healthreporting.qa.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
@@ -86,7 +86,7 @@
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateQuestionResponder:1=se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificatequestionresponder.v1
+											urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateQuestionResponder:1=se.inera.ifv.insuranceprocess.healthreporting.receivemedicalcertificatequestionresponder.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
@@ -102,15 +102,15 @@
 										Note: be careful when changing this - must be in sync for all
 										schemas generations in this namespace!
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateAnswer:1:rivtabp20=se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificateanswer.v1.rivtabp20
+											urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateAnswer:1:rivtabp20=se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificateanswer.v1.rivtabp20
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:2=se.skl.riv.insuranceprocess.healthreporting.v2
+											urn:riv:insuranceprocess:healthreporting:2=se.inera.ifv.insuranceprocess.healthreporting.v2
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:medcertqa:1=se.skl.riv.insuranceprocess.healthreporting.qa.v1
+											urn:riv:insuranceprocess:healthreporting:medcertqa:1=se.inera.ifv.insuranceprocess.healthreporting.qa.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
@@ -118,7 +118,7 @@
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateAnswerResponder:1=se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificateanswerresponder.v1
+											urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateAnswerResponder:1=se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificateanswerresponder.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
@@ -134,15 +134,15 @@
 										Note: be careful when changing this - must be in sync for all
 										schemas generations in this namespace!
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateQuestion:1:rivtabp20=se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificatequestion.v1.rivtabp20
+											urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateQuestion:1:rivtabp20=se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificatequestion.v1.rivtabp20
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:2=se.skl.riv.insuranceprocess.healthreporting.v2
+											urn:riv:insuranceprocess:healthreporting:2=se.inera.ifv.insuranceprocess.healthreporting.v2
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:medcertqa:1=se.skl.riv.insuranceprocess.healthreporting.qa.v1
+											urn:riv:insuranceprocess:healthreporting:medcertqa:1=se.inera.ifv.insuranceprocess.healthreporting.qa.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
@@ -150,7 +150,7 @@
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateQuestionResponder:1=se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificatequestionresponder.v1
+											urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateQuestionResponder:1=se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificatequestionresponder.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
@@ -164,15 +164,15 @@
 									<extraargs>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificate:3:rivtabp20=se.skl.riv.insuranceprocess.healthreporting.registermedicalcertificate.v3.rivtabp20
+											urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificate:3:rivtabp20=se.inera.ifv.insuranceprocess.healthreporting.registermedicalcertificate.v3.rivtabp20
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:mu7263:3=se.skl.riv.insuranceprocess.healthreporting.mu7263.v3
+											urn:riv:insuranceprocess:healthreporting:mu7263:3=se.inera.ifv.insuranceprocess.healthreporting.mu7263.v3
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:2=se.skl.riv.insuranceprocess.healthreporting.v2
+											urn:riv:insuranceprocess:healthreporting:2=se.inera.ifv.insuranceprocess.healthreporting.v2
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
@@ -180,7 +180,7 @@
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificateResponder:3=se.skl.riv.insuranceprocess.healthreporting.registermedicalcertificateresponder.v3
+											urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificateResponder:3=se.inera.ifv.insuranceprocess.healthreporting.registermedicalcertificateresponder.v3
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
@@ -194,11 +194,11 @@
 									<extraargs>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:FindAllQuestions:1:rivtabp20=se.skl.riv.insuranceprocess.healthreporting.findallquestions.v1.rivtabp20
+											urn:riv:insuranceprocess:healthreporting:FindAllQuestions:1:rivtabp20=se.inera.ifv.insuranceprocess.healthreporting.findallquestions.v1.rivtabp20
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:2=se.skl.riv.insuranceprocess.healthreporting.v2
+											urn:riv:insuranceprocess:healthreporting:2=se.inera.ifv.insuranceprocess.healthreporting.v2
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
@@ -206,15 +206,15 @@
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:medcertqa:1=se.skl.riv.insuranceprocess.healthreporting.qa.v1
+											urn:riv:insuranceprocess:healthreporting:medcertqa:1=se.inera.ifv.insuranceprocess.healthreporting.qa.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateQuestionResponder:1=se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificatequestionresponder.v1
+											urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateQuestionResponder:1=se.inera.ifv.insuranceprocess.healthreporting.receivemedicalcertificatequestionresponder.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:FindAllQuestionsResponder:1=se.skl.riv.insuranceprocess.healthreporting.findallquestionsresponder.v1
+											urn:riv:insuranceprocess:healthreporting:FindAllQuestionsResponder:1=se.inera.ifv.insuranceprocess.healthreporting.findallquestionsresponder.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
@@ -228,11 +228,11 @@
 									<extraargs>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:FindAllAnswers:1:rivtabp20=se.skl.riv.insuranceprocess.healthreporting.findallanswers.v1.rivtabp20
+											urn:riv:insuranceprocess:healthreporting:FindAllAnswers:1:rivtabp20=se.inera.ifv.insuranceprocess.healthreporting.findallanswers.v1.rivtabp20
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:2=se.skl.riv.insuranceprocess.healthreporting.v2
+											urn:riv:insuranceprocess:healthreporting:2=se.inera.ifv.insuranceprocess.healthreporting.v2
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
@@ -240,15 +240,15 @@
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:medcertqa:1=se.skl.riv.insuranceprocess.healthreporting.qa.v1
+											urn:riv:insuranceprocess:healthreporting:medcertqa:1=se.inera.ifv.insuranceprocess.healthreporting.qa.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateAnswerResponder:1=se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificateanswerresponder.v1
+											urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateAnswerResponder:1=se.inera.ifv.insuranceprocess.healthreporting.receivemedicalcertificateanswerresponder.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:FindAllAnswersResponder:1=se.skl.riv.insuranceprocess.healthreporting.findallanswersresponder.v1
+											urn:riv:insuranceprocess:healthreporting:FindAllAnswersResponder:1=se.inera.ifv.insuranceprocess.healthreporting.findallanswersresponder.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
@@ -262,11 +262,11 @@
 									<extraargs>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:DeleteAnswers:1:rivtabp20=se.skl.riv.insuranceprocess.healthreporting.deleteanswers.v1.rivtabp20
+											urn:riv:insuranceprocess:healthreporting:DeleteAnswers:1:rivtabp20=se.inera.ifv.insuranceprocess.healthreporting.deleteanswers.v1.rivtabp20
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:2=se.skl.riv.insuranceprocess.healthreporting.v2
+											urn:riv:insuranceprocess:healthreporting:2=se.inera.ifv.insuranceprocess.healthreporting.v2
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
@@ -274,15 +274,15 @@
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:medcertqa:1=se.skl.riv.insuranceprocess.healthreporting.qa.v1
+											urn:riv:insuranceprocess:healthreporting:medcertqa:1=se.inera.ifv.insuranceprocess.healthreporting.qa.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateAnswerResponder:1=se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificateanswerresponder.v1
+											urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateAnswerResponder:1=se.inera.ifv.insuranceprocess.healthreporting.receivemedicalcertificateanswerresponder.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:DeleteAnswersResponder:1=se.skl.riv.insuranceprocess.healthreporting.deleteanswersresponder.v1
+											urn:riv:insuranceprocess:healthreporting:DeleteAnswersResponder:1=se.inera.ifv.insuranceprocess.healthreporting.deleteanswersresponder.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
@@ -296,11 +296,11 @@
 									<extraargs>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:DeleteQuestions:1:rivtabp20=se.skl.riv.insuranceprocess.healthreporting.deletequestions.v1.rivtabp20
+											urn:riv:insuranceprocess:healthreporting:DeleteQuestions:1:rivtabp20=se.inera.ifv.insuranceprocess.healthreporting.deletequestions.v1.rivtabp20
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:2=se.skl.riv.insuranceprocess.healthreporting.v2
+											urn:riv:insuranceprocess:healthreporting:2=se.inera.ifv.insuranceprocess.healthreporting.v2
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
@@ -308,15 +308,15 @@
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:medcertqa:1=se.skl.riv.insuranceprocess.healthreporting.qa.v1
+											urn:riv:insuranceprocess:healthreporting:medcertqa:1=se.inera.ifv.insuranceprocess.healthreporting.qa.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateQuestionResponder:1=se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificatequestionresponder.v1
+											urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateQuestionResponder:1=se.inera.ifv.insuranceprocess.healthreporting.receivemedicalcertificatequestionresponder.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:DeleteQuestionsResponder:1=se.skl.riv.insuranceprocess.healthreporting.deletequestionsresponder.v1
+											urn:riv:insuranceprocess:healthreporting:DeleteQuestionsResponder:1=se.inera.ifv.insuranceprocess.healthreporting.deletequestionsresponder.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
@@ -332,15 +332,15 @@
 										Note: be careful when changing this - must be in sync for all
 										schemas generations in this namespace!
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:SendMedicalCertificate:1:rivtabp20=se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificate.v1.rivtabp20
+											urn:riv:insuranceprocess:healthreporting:SendMedicalCertificate:1:rivtabp20=se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificate.v1.rivtabp20
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:2=se.skl.riv.insuranceprocess.healthreporting.v2
+											urn:riv:insuranceprocess:healthreporting:2=se.inera.ifv.insuranceprocess.healthreporting.v2
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:medcertqa:1=se.skl.riv.insuranceprocess.healthreporting.qa.v1
+											urn:riv:insuranceprocess:healthreporting:medcertqa:1=se.inera.ifv.insuranceprocess.healthreporting.qa.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
@@ -348,7 +348,7 @@
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateResponder:1=se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificateresponder.v1
+											urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateResponder:1=se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificateresponder.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
@@ -364,15 +364,15 @@
 										Note: be careful when changing this - must be in sync for all
 										schemas generations in this namespace!
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:RevokeMedicalCertificate:1:rivtabp20=se.skl.riv.insuranceprocess.healthreporting.revokemedicalcertificate.v1.rivtabp20
+											urn:riv:insuranceprocess:healthreporting:RevokeMedicalCertificate:1:rivtabp20=se.inera.ifv.insuranceprocess.healthreporting.revokemedicalcertificate.v1.rivtabp20
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:2=se.skl.riv.insuranceprocess.healthreporting.v2
+											urn:riv:insuranceprocess:healthreporting:2=se.inera.ifv.insuranceprocess.healthreporting.v2
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:medcertqa:1=se.skl.riv.insuranceprocess.healthreporting.qa.v1
+											urn:riv:insuranceprocess:healthreporting:medcertqa:1=se.inera.ifv.insuranceprocess.healthreporting.qa.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
@@ -380,7 +380,7 @@
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>
-											urn:riv:insuranceprocess:healthreporting:RevokeMedicalCertificateResponder:1=se.skl.riv.insuranceprocess.healthreporting.revokemedicalcertificateresponder.v1
+											urn:riv:insuranceprocess:healthreporting:RevokeMedicalCertificateResponder:1=se.inera.ifv.insuranceprocess.healthreporting.revokemedicalcertificateresponder.v1
 										</extraarg>
 										<extraarg>-p</extraarg>
 										<extraarg>

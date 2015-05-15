@@ -24,17 +24,17 @@ import javax.jws.WebService;
 
 import org.w3.wsaddressing10.AttributedURIType;
 
-import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificate.v1.rivtabp20.SendMedicalCertificateResponderInterface;
-import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificateresponder.v1.SendMedicalCertificateRequestType;
-import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificateresponder.v1.SendMedicalCertificateResponseType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ErrorIdEnum;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ResultCodeEnum;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ResultOfCall;
+import se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificate.v1.rivtabp20.SendMedicalCertificateResponderInterface;
+import se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificateresponder.v1.SendMedicalCertificateRequestType;
+import se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificateresponder.v1.SendMedicalCertificateResponseType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ErrorIdEnum;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ResultCodeEnum;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ResultOfCall;
 
 
 @WebService(
 		serviceName = "SendMedicalCertificateResponderService", 
-		endpointInterface="se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificate.v1.rivtabp20.SendMedicalCertificateResponderInterface", 
+		endpointInterface="se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificate.v1.rivtabp20.SendMedicalCertificateResponderInterface", 
 		portName = "SendMedicalCertificateResponderPort", 
 		targetNamespace = "urn:riv:insuranceprocess:healthreporting:SendMedicalCertificate:1:rivtabp20",
 		wsdlLocation = "schemas/vard/interactions/SendMedicalCertificateInteraction/SendMedicalCertificateInteraction_1.0_rivtabp20.wsdl")

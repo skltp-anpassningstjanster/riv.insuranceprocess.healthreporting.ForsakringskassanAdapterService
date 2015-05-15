@@ -27,18 +27,18 @@ import javax.jws.WebService;
 
 import org.w3.wsaddressing10.AttributedURIType;
 
-import se.skl.riv.insuranceprocess.healthreporting.qa.v1.LakarutlatandeEnkelType;
-import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificate.v1.rivtabp20.SendMedicalCertificateResponderInterface;
-import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificateresponder.v1.SendMedicalCertificateRequestType;
-import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificateresponder.v1.SendMedicalCertificateResponseType;
-import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificateresponder.v1.SendType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.EnhetType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ErrorIdEnum;
-import se.skl.riv.insuranceprocess.healthreporting.v2.HosPersonalType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.PatientType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ResultCodeEnum;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ResultOfCall;
-import se.skl.riv.insuranceprocess.healthreporting.v2.VardgivareType;
+import se.inera.ifv.insuranceprocess.healthreporting.qa.v1.LakarutlatandeEnkelType;
+import se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificate.v1.rivtabp20.SendMedicalCertificateResponderInterface;
+import se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificateresponder.v1.SendMedicalCertificateRequestType;
+import se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificateresponder.v1.SendMedicalCertificateResponseType;
+import se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificateresponder.v1.SendType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.EnhetType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ErrorIdEnum;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.HosPersonalType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.PatientType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ResultCodeEnum;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ResultOfCall;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.VardgivareType;
 
 /**
  * Validation class that will certify a webservice call made for call to send a medical certificate.. We will check mandatory/optional fields and all other declared rules.
@@ -48,7 +48,7 @@ import se.skl.riv.insuranceprocess.healthreporting.v2.VardgivareType;
 
 @WebService(
 		serviceName = "SendMedicalCertificateResponderService", 
-		endpointInterface="se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificate.v1.rivtabp20.SendMedicalCertificateResponderInterface", 
+		endpointInterface="se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificate.v1.rivtabp20.SendMedicalCertificateResponderInterface", 
 		portName = "SendMedicalCertificateResponderPort", 
 		targetNamespace = "urn:riv:insuranceprocess:healthreporting:SendMedicalCertificate:1:rivtabp20",
 		wsdlLocation = "schemas/vard/interactions/SendMedicalCertificateInteraction/SendMedicalCertificateInteraction_1.0_rivtabp20.wsdl")

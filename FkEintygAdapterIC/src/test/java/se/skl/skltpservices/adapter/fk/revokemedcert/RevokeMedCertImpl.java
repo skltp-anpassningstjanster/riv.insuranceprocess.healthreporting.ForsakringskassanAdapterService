@@ -25,17 +25,17 @@ import javax.jws.WebService;
 
 import org.w3.wsaddressing10.AttributedURIType;
 
-import se.skl.riv.insuranceprocess.healthreporting.revokemedicalcertificate.v1.rivtabp20.RevokeMedicalCertificateResponderInterface;
-import se.skl.riv.insuranceprocess.healthreporting.revokemedicalcertificateresponder.v1.RevokeMedicalCertificateRequestType;
-import se.skl.riv.insuranceprocess.healthreporting.revokemedicalcertificateresponder.v1.RevokeMedicalCertificateResponseType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ErrorIdEnum;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ResultCodeEnum;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ResultOfCall;
+import se.inera.ifv.insuranceprocess.healthreporting.revokemedicalcertificate.v1.rivtabp20.RevokeMedicalCertificateResponderInterface;
+import se.inera.ifv.insuranceprocess.healthreporting.revokemedicalcertificateresponder.v1.RevokeMedicalCertificateRequestType;
+import se.inera.ifv.insuranceprocess.healthreporting.revokemedicalcertificateresponder.v1.RevokeMedicalCertificateResponseType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ErrorIdEnum;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ResultCodeEnum;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ResultOfCall;
 
 
 @WebService(
 		serviceName = "RevokeMedicalCertificateResponderService", 
-		endpointInterface="se.skl.riv.insuranceprocess.healthreporting.revokemedicalcertificate.v1.rivtabp20.RevokeMedicalCertificateResponderInterface", 
+		endpointInterface="se.inera.ifv.insuranceprocess.healthreporting.revokemedicalcertificate.v1.rivtabp20.RevokeMedicalCertificateResponderInterface", 
 		portName = "RevokeMedicalCertificateResponderPort", 
 		targetNamespace = "urn:riv:insuranceprocess:healthreporting:RevokeMedicalCertificate:1:rivtabp20",
 		wsdlLocation = "schemas/vard/interactions/RevokeMedicalCertificateInteraction/RevokeMedicalCertificateInteraction_1.0_rivtabp20.wsdl")

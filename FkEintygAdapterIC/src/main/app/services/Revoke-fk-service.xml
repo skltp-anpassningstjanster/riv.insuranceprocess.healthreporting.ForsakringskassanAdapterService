@@ -26,7 +26,7 @@
         <cxf:jaxws-client
 	       port="RevokeMedicalCertificateResponderPort"
 	       operation="RevokeMedicalCertificate"
-	       clientClass="se.skl.riv.insuranceprocess.healthreporting.revokemedicalcertificate.v1.rivtabp20.RevokeMedicalCertificateResponderService"
+	       clientClass="se.inera.ifv.insuranceprocess.healthreporting.revokemedicalcertificate.v1.rivtabp20.RevokeMedicalCertificateResponderService"
 	       wsdlLocation="classpath:/schemas/vard/interactions/RevokeMedicalCertificateInteraction/RevokeMedicalCertificateInteraction_1.0_rivtabp20.wsdl"
         />
         

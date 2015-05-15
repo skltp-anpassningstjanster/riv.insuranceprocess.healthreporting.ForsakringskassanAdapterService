@@ -30,9 +30,9 @@ import org.slf4j.LoggerFactory;
 import org.soitoolkit.commons.mule.test.junit4.AbstractTestCase;
 import org.soitoolkit.commons.mule.util.RecursiveResourceBundle;
 
-import se.skl.riv.insuranceprocess.healthreporting.qa.v1.Amnetyp;
-import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificatequestionresponder.v1.SendMedicalCertificateQuestionResponseType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ResultCodeEnum;
+import se.inera.ifv.insuranceprocess.healthreporting.qa.v1.Amnetyp;
+import se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificatequestionresponder.v1.SendMedicalCertificateQuestionResponseType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ResultCodeEnum;
 import se.skl.skltpservices.adapter.fk.producer.FkAdapterTestProducerLogger;
 
 public class RevokeTransformIntegrationTest extends AbstractTestCase {

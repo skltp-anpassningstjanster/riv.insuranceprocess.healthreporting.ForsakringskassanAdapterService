@@ -32,8 +32,8 @@ import org.slf4j.LoggerFactory;
 import org.soitoolkit.commons.mule.jaxb.JaxbUtil;
 
 import se.fk.vardgivare.sjukvard.taemotsvarresponder.v1.TaEmotSvarResponseType;
-import se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificateanswerresponder.v1.ReceiveMedicalCertificateAnswerResponseType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ResultCodeEnum;
+import se.inera.ifv.insuranceprocess.healthreporting.receivemedicalcertificateanswerresponder.v1.ReceiveMedicalCertificateAnswerResponseType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ResultCodeEnum;
 import se.skl.skltpservices.adapter.common.processor.FkAdapterUtil;
 
 public class VardResponse2FkTransformer extends AbstractMessageTransformer {

@@ -27,19 +27,18 @@ import javax.jws.WebService;
 
 import org.w3.wsaddressing10.AttributedURIType;
 
-import se.skl.riv.insuranceprocess.healthreporting.qa.v1.Amnetyp;
-import se.skl.riv.insuranceprocess.healthreporting.qa.v1.LakarutlatandeEnkelType;
-import se.skl.riv.insuranceprocess.healthreporting.revokemedicalcertificate.v1.rivtabp20.RevokeMedicalCertificateResponderInterface;
-import se.skl.riv.insuranceprocess.healthreporting.revokemedicalcertificateresponder.v1.RevokeMedicalCertificateRequestType;
-import se.skl.riv.insuranceprocess.healthreporting.revokemedicalcertificateresponder.v1.RevokeMedicalCertificateResponseType;
-import se.skl.riv.insuranceprocess.healthreporting.revokemedicalcertificateresponder.v1.RevokeType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.EnhetType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ErrorIdEnum;
-import se.skl.riv.insuranceprocess.healthreporting.v2.HosPersonalType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.PatientType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ResultCodeEnum;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ResultOfCall;
-import se.skl.riv.insuranceprocess.healthreporting.v2.VardgivareType;
+import se.inera.ifv.insuranceprocess.healthreporting.qa.v1.LakarutlatandeEnkelType;
+import se.inera.ifv.insuranceprocess.healthreporting.revokemedicalcertificate.v1.rivtabp20.RevokeMedicalCertificateResponderInterface;
+import se.inera.ifv.insuranceprocess.healthreporting.revokemedicalcertificateresponder.v1.RevokeMedicalCertificateRequestType;
+import se.inera.ifv.insuranceprocess.healthreporting.revokemedicalcertificateresponder.v1.RevokeMedicalCertificateResponseType;
+import se.inera.ifv.insuranceprocess.healthreporting.revokemedicalcertificateresponder.v1.RevokeType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.EnhetType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ErrorIdEnum;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.HosPersonalType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.PatientType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ResultCodeEnum;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ResultOfCall;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.VardgivareType;
 
 /**
  * Validation class that will certify a webservice call made for an answer regarding a medical certificate.. We will check mandatory/optional fields and all other declared rules.
@@ -49,7 +48,7 @@ import se.skl.riv.insuranceprocess.healthreporting.v2.VardgivareType;
 
 @WebService(
 		serviceName = "RevokeMedicalCertificateResponderService", 
-		endpointInterface="se.skl.riv.insuranceprocess.healthreporting.revokemedicalcertificate.v1.rivtabp20.RevokeMedicalCertificateResponderInterface", 
+		endpointInterface="se.inera.ifv.insuranceprocess.healthreporting.revokemedicalcertificate.v1.rivtabp20.RevokeMedicalCertificateResponderInterface", 
 		portName = "RevokeMedicalCertificateResponderPort", 
 		targetNamespace = "urn:riv:insuranceprocess:healthreporting:RevokeMedicalCertificate:1:rivtabp20",
 		wsdlLocation = "schemas/vard/interactions/RevokeMedicalCertificateInteraction/RevokeMedicalCertificateInteraction_1.0_rivtabp20.wsdl")

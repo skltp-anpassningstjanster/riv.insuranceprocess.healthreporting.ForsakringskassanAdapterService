@@ -31,16 +31,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3.wsaddressing10.AttributedURIType;
 
-import se.skl.riv.insuranceprocess.healthreporting.qa.v1.InnehallType;
-import se.skl.riv.insuranceprocess.healthreporting.qa.v1.LakarutlatandeEnkelType;
-import se.skl.riv.insuranceprocess.healthreporting.qa.v1.VardAdresseringsType;
-import se.skl.riv.insuranceprocess.healthreporting.receivemedicalcertificatequestionresponder.v1.QuestionFromFkType;
-import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificateanswerresponder.v1.AnswerToFkType;
-import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificateanswerresponder.v1.SendMedicalCertificateAnswerType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.EnhetType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.HosPersonalType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.PatientType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.VardgivareType;
+import se.inera.ifv.insuranceprocess.healthreporting.qa.v1.InnehallType;
+import se.inera.ifv.insuranceprocess.healthreporting.qa.v1.LakarutlatandeEnkelType;
+import se.inera.ifv.insuranceprocess.healthreporting.qa.v1.VardAdresseringsType;
+import se.inera.ifv.insuranceprocess.healthreporting.receivemedicalcertificatequestionresponder.v1.QuestionFromFkType;
+import se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificateanswerresponder.v1.AnswerToFkType;
+import se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificateanswerresponder.v1.SendMedicalCertificateAnswerType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.EnhetType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.HosPersonalType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.PatientType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.VardgivareType;
 
 public class AutosvarAnswer extends Thread {
 	private final Logger logger = LoggerFactory.getLogger(getClass());

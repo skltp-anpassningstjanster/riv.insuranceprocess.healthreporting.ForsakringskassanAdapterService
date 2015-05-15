@@ -22,9 +22,14 @@
 			<groupId>se.skltp.adapterservices.insuranceprocess.healthreporting</groupId>
 			<artifactId>insuranceprocess-healthreporting-schemas</artifactId>
 		</dependency>
+        <dependency>
+            <groupId>se.skltp.adapterservices.insuranceprocess.healthreporting</groupId>
+            <artifactId>fk-vardgivare-sjukvard-schemas</artifactId>
+        </dependency>
 		<dependency>
 			<groupId>se.skltp.adapterservices.insuranceprocess.healthreporting</groupId>
-			<artifactId>fk-vardgivare-sjukvard-schemas</artifactId>
+			<artifactId>FkEintygAdapterIC-validator</artifactId>
+            <version>${project.version}</version>
 		</dependency>
 		
 		<!-- itintegration monitoring schemas för PingForConfiguration -->

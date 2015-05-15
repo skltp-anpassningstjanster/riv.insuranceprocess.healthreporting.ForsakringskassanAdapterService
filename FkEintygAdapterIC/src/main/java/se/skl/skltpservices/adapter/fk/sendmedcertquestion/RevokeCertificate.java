@@ -31,15 +31,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3.wsaddressing10.AttributedURIType;
 
-import se.skl.riv.insuranceprocess.healthreporting.qa.v1.LakarutlatandeEnkelType;
-import se.skl.riv.insuranceprocess.healthreporting.qa.v1.VardAdresseringsType;
-import se.skl.riv.insuranceprocess.healthreporting.revokemedicalcertificateresponder.v1.RevokeMedicalCertificateRequestType;
-import se.skl.riv.insuranceprocess.healthreporting.revokemedicalcertificateresponder.v1.RevokeType;
-import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificatequestionresponder.v1.QuestionToFkType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.EnhetType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.HosPersonalType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.PatientType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.VardgivareType;
+import se.inera.ifv.insuranceprocess.healthreporting.qa.v1.LakarutlatandeEnkelType;
+import se.inera.ifv.insuranceprocess.healthreporting.qa.v1.VardAdresseringsType;
+import se.inera.ifv.insuranceprocess.healthreporting.revokemedicalcertificateresponder.v1.RevokeMedicalCertificateRequestType;
+import se.inera.ifv.insuranceprocess.healthreporting.revokemedicalcertificateresponder.v1.RevokeType;
+import se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificatequestionresponder.v1.QuestionToFkType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.EnhetType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.HosPersonalType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.PatientType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.VardgivareType;
 
 public class RevokeCertificate extends Thread {
 	private final Logger logger = LoggerFactory.getLogger(getClass());

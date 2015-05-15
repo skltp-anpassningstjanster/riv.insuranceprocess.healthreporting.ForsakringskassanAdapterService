@@ -32,18 +32,18 @@ import org.apache.cxf.bus.spring.SpringBusFactory;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.w3.wsaddressing10.AttributedURIType;
 
-import se.skl.riv.insuranceprocess.healthreporting.qa.v1.Amnetyp;
-import se.skl.riv.insuranceprocess.healthreporting.qa.v1.InnehallType;
-import se.skl.riv.insuranceprocess.healthreporting.qa.v1.LakarutlatandeEnkelType;
-import se.skl.riv.insuranceprocess.healthreporting.qa.v1.VardAdresseringsType;
-import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificatequestion.v1.rivtabp20.SendMedicalCertificateQuestionResponderInterface;
-import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificatequestionresponder.v1.QuestionToFkType;
-import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificatequestionresponder.v1.SendMedicalCertificateQuestionResponseType;
-import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificatequestionresponder.v1.SendMedicalCertificateQuestionType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.EnhetType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.HosPersonalType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.PatientType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.VardgivareType;
+import se.inera.ifv.insuranceprocess.healthreporting.qa.v1.Amnetyp;
+import se.inera.ifv.insuranceprocess.healthreporting.qa.v1.InnehallType;
+import se.inera.ifv.insuranceprocess.healthreporting.qa.v1.LakarutlatandeEnkelType;
+import se.inera.ifv.insuranceprocess.healthreporting.qa.v1.VardAdresseringsType;
+import se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificatequestion.v1.rivtabp20.SendMedicalCertificateQuestionResponderInterface;
+import se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificatequestionresponder.v1.QuestionToFkType;
+import se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificatequestionresponder.v1.SendMedicalCertificateQuestionResponseType;
+import se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificatequestionresponder.v1.SendMedicalCertificateQuestionType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.EnhetType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.HosPersonalType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.PatientType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.VardgivareType;
 
 public class RevokeTransformTestConsumer {
 

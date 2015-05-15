@@ -22,19 +22,19 @@ package se.skl.skltpservices.adapter.fk.sendmedcertquestion;
 
 import javax.jws.WebService;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.w3.wsaddressing10.AttributedURIType;
 import org.mule.api.MuleContext;
 import org.mule.api.annotations.expressions.Lookup;
 import org.mule.module.client.MuleClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.w3.wsaddressing10.AttributedURIType;
 
-import se.skl.riv.insuranceprocess.healthreporting.qa.v1.Amnetyp;
-import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificatequestion.v1.rivtabp20.SendMedicalCertificateQuestionResponderInterface;
-import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificatequestionresponder.v1.SendMedicalCertificateQuestionResponseType;
-import se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificatequestionresponder.v1.SendMedicalCertificateQuestionType;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ResultCodeEnum;
-import se.skl.riv.insuranceprocess.healthreporting.v2.ResultOfCall;
+import se.inera.ifv.insuranceprocess.healthreporting.qa.v1.Amnetyp;
+import se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificatequestion.v1.rivtabp20.SendMedicalCertificateQuestionResponderInterface;
+import se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificatequestionresponder.v1.SendMedicalCertificateQuestionResponseType;
+import se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificatequestionresponder.v1.SendMedicalCertificateQuestionType;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ResultCodeEnum;
+import se.inera.ifv.insuranceprocess.healthreporting.v2.ResultOfCall;
 
 /**
  * Validation class that will certify a webservice call made for a question regarding a medical certificate.. We will check mandatory/optional fields and all other declared rules.
@@ -44,7 +44,7 @@ import se.skl.riv.insuranceprocess.healthreporting.v2.ResultOfCall;
 
 @WebService(
 		serviceName = "SendMedicalCertificateQuestionResponderService", 
-		endpointInterface="se.skl.riv.insuranceprocess.healthreporting.sendmedicalcertificatequestion.v1.rivtabp20.SendMedicalCertificateQuestionResponderInterface", 
+		endpointInterface="se.inera.ifv.insuranceprocess.healthreporting.sendmedicalcertificatequestion.v1.rivtabp20.SendMedicalCertificateQuestionResponderInterface", 
 		portName = "SendMedicalCertificateQuestionResponderPort", 
 		targetNamespace = "urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateQuestion:1:rivtabp20",
 		wsdlLocation = "schemas/vard/interactions/SendMedicalCertificateQuestionInteraction/SendMedicalCertificateQuestionInteraction_1.0_rivtabp20.wsdl")
