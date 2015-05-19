@@ -23,13 +23,12 @@ package se.skl.skltpservices.adapter.fk.revokemedcert;
 import iso.v21090.dt.v1.II;
 
 import java.net.URL;
-import java.util.GregorianCalendar;
 
 import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.DatatypeFactory;
 
 import org.apache.cxf.bus.spring.SpringBusFactory;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
+import org.joda.time.LocalDateTime;
 import org.w3.wsaddressing10.AttributedURIType;
 
 import se.inera.ifv.insuranceprocess.healthreporting.qa.v1.Amnetyp;
@@ -113,7 +112,7 @@ public class RevokeTransformTestConsumer {
 		meddelande.setAdressVard(avsandare);
 				
 		// Avsant tidpunkt - nu
-		meddelande.setAvsantTidpunkt(DatatypeFactory.newInstance().newXMLGregorianCalendar(new GregorianCalendar()));
+		meddelande.setAvsantTidpunkt(LocalDateTime.now());
 
 		// Set lakarutlatande enkel fran varden
 		meddelande.setVardReferensId("Referens till fraga fran varden");
@@ -126,7 +125,7 @@ public class RevokeTransformTestConsumer {
 		patient.setFullstandigtNamn(patientName); 
 		lakarutlatandeEnkel.setPatient(patient);
 		lakarutlatandeEnkel.setLakarutlatandeId("xxx");
-		lakarutlatandeEnkel.setSigneringsTidpunkt(DatatypeFactory.newInstance().newXMLGregorianCalendar(new GregorianCalendar()));
+		lakarutlatandeEnkel.setSigneringsTidpunkt(LocalDateTime.now());
 		meddelande.setLakarutlatande(lakarutlatandeEnkel);
 	
 		// Set amne
@@ -135,7 +134,7 @@ public class RevokeTransformTestConsumer {
 		// Set meddelande - fraga
 		InnehallType fraga = new InnehallType();
 		fraga.setMeddelandeText("Meddelandetetext");
-		fraga.setSigneringsTidpunkt(DatatypeFactory.newInstance().newXMLGregorianCalendar(new GregorianCalendar()));
+		fraga.setSigneringsTidpunkt(LocalDateTime.now());
 		meddelande.setFraga(fraga);
 		
 		return meddelande;

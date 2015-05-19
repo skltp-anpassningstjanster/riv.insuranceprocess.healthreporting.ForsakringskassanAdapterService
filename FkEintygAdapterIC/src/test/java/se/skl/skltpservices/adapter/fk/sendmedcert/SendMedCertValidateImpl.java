@@ -95,7 +95,7 @@ public class SendMedCertValidateImpl implements SendMedicalCertificateResponderI
 			
 			
 			// Avsänt tidpunkt - mandatory
-            if (inSend.getAvsantTidpunkt() == null || !inSend.getAvsantTidpunkt().isValid()) {
+            if (inSend.getAvsantTidpunkt() == null) {
 				validationErrors.add("No or wrong avsantTidpunkt found!");				
             }
 						
@@ -113,7 +113,7 @@ public class SendMedCertValidateImpl implements SendMedicalCertificateResponderI
 			}
 
 			// Läkarutlåtande referens - signeringsTidpunkt - mandatory
-            if (inLakarUtlatande.getSigneringsTidpunkt() == null || !inLakarUtlatande.getSigneringsTidpunkt().isValid()) {
+            if (inLakarUtlatande.getSigneringsTidpunkt() == null) {
 				validationErrors.add("No or wrong lakarutlatande-signeringsTidpunkt found!");				
             }
 

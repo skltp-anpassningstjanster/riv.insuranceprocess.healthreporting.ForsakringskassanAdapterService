@@ -93,7 +93,7 @@ public class RevokeMedCertValidateImpl implements RevokeMedicalCertificateRespon
 			}
 			
 			// Avsänt tidpunkt - mandatory
-            if (inRevoke.getAvsantTidpunkt() == null || !inRevoke.getAvsantTidpunkt().isValid()) {
+            if (inRevoke.getAvsantTidpunkt() == null) {
 				validationErrors.add("No or wrong avsantTidpunkt found!");				
             }
 						
@@ -111,7 +111,7 @@ public class RevokeMedCertValidateImpl implements RevokeMedicalCertificateRespon
 			}
 
 			// Läkarutlåtande referens - signeringsTidpunkt - mandatory
-            if (inLakarUtlatande.getSigneringsTidpunkt() == null || !inLakarUtlatande.getSigneringsTidpunkt().isValid()) {
+            if (inLakarUtlatande.getSigneringsTidpunkt() == null) {
 				validationErrors.add("No or wrong lakarutlatande-signeringsTidpunkt found!");				
             }
 

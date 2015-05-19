@@ -27,14 +27,13 @@ import java.util.List;
 import java.util.Map;
 
 import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.apache.cxf.bus.spring.SpringBusFactory;
 import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.frontend.ClientProxy;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.apache.cxf.message.Message;
+import org.joda.time.LocalDateTime;
 import org.w3.wsaddressing10.AttributedURIType;
 
 import se.fk.vardgivare.sjukvard.taemotsvar.v1.rivtabp20.TaEmotSvarResponderInterface;
@@ -152,9 +151,8 @@ public class TaEmotSvarTestConsumer {
 		return adressering;
 	}
 
-	private XMLGregorianCalendar createTimestamp() throws DatatypeConfigurationException {
-		XMLGregorianCalendar timestamp = DatatypeFactory.newInstance().newXMLGregorianCalendar();
-		return timestamp;
+	private LocalDateTime createTimestamp() throws DatatypeConfigurationException {
+		return LocalDateTime.now();
 	}
 
 	private Mottagare createMottagare() {

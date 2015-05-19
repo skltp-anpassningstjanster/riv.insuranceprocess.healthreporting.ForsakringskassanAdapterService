@@ -105,15 +105,8 @@ public class RecMedCertQuestionValidateImpl implements ReceiveMedicalCertificate
 			}
 			
 			// Avsänt tidpunkt - mandatory
-            if (inQuestion.getAvsantTidpunkt() == null || !inQuestion.getAvsantTidpunkt().isValid()) {
+            if (inQuestion.getAvsantTidpunkt() == null) {
 				validationErrors.add("No or wrong avsantTidpunkt found!");				
-            }
-			
-			// Sista datum för komplettering - optional
-            if (inQuestion.getFkSistaDatumForSvar() != null) {
-            	if (!inQuestion.getFkSistaDatumForSvar().isValid()) {
-    				validationErrors.add("Wrong sistaDatumForKomplettering found!");				
-            	}
             }
 			
 			// Läkarutlåtande referens - mandatory
@@ -130,7 +123,7 @@ public class RecMedCertQuestionValidateImpl implements ReceiveMedicalCertificate
 			}
 
 			// Läkarutlåtande referens - avsantTidpunkt - mandatory
-            if (inLakarUtlatande.getSigneringsTidpunkt() == null || !inLakarUtlatande.getSigneringsTidpunkt().isValid()) {
+            if (inLakarUtlatande.getSigneringsTidpunkt() == null) {
 				validationErrors.add("No or wrong lakarutlatande-avsantTidpunkt found!");				
             }
 
