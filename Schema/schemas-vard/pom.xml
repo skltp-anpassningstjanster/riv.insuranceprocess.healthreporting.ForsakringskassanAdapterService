@@ -15,21 +15,33 @@
 
 	<properties>
 		<schema.path>interactions</schema.path>
-		<project.build.sourceEncoding />
-		<project.reporting.outputEncoding />
 	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>se.skltp.adapterservices.insuranceprocess.healthreporting</groupId>
+			<artifactId>schemas-support</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>2.7.5</version>
 				<executions>
 					<execution>
 						<id>generate-sources</id>
 						<phase>generate-sources</phase>
 						<configuration>
 							<sourceRoot>${basedir}/target/generated/src/main/java</sourceRoot>
+							<defaultOptions>
+								<bindingFiles>
+									<bindingFile>classpath:/general-binding.xjb</bindingFile>
+								</bindingFiles>
+							</defaultOptions>
 							<wsdlOptions>
 
 								<wsdlOption>

@@ -5,7 +5,7 @@
 
   <groupId>se.skltp.adapterservices.insuranceprocess.healthreporting</groupId>
   <artifactId>FkEintygAdapterIC-validator</artifactId>
-  <name>${project.artifactId}-validator</name>
+  <name>${project.artifactId}</name>
   <packaging>jar</packaging>
 
   <parent>

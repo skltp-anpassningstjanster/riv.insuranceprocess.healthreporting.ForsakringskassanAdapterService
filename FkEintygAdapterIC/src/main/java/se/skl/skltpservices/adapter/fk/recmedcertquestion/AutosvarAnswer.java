@@ -22,9 +22,7 @@ package se.skl.skltpservices.adapter.fk.recmedcertquestion;
 
 import iso.v21090.dt.v1.II;
 
-import java.util.GregorianCalendar;
-
-import javax.xml.datatype.DatatypeFactory;
+import org.joda.time.LocalDateTime;
 
 import org.mule.module.client.MuleClient;
 import org.slf4j.Logger;
@@ -107,7 +105,7 @@ public class AutosvarAnswer extends Thread {
 		meddelande.setAdressVard(avsandare);
 				
 		// Avsänt tidpunkt - nu
-		meddelande.setAvsantTidpunkt(DatatypeFactory.newInstance().newXMLGregorianCalendar(new GregorianCalendar()));
+		meddelande.setAvsantTidpunkt(LocalDateTime.now());
 
 		// Set läkarutlåtande enkel från vården
 		meddelande.setVardReferensId("");
@@ -144,7 +142,7 @@ public class AutosvarAnswer extends Thread {
 		autoSvar.append(System.getProperty("line.separator"));
 		autoSvar.append("För att inte fördröja handläggningen, så ber vi er i detta fall vara vänlig att kommunicera med avsedd mottagare i vården enligt gällande manuella rutiner, dvs genom telefon eller brev.");
 		svar.setMeddelandeText(autoSvar.toString());
-		svar.setSigneringsTidpunkt(DatatypeFactory.newInstance().newXMLGregorianCalendar(new GregorianCalendar()));
+		svar.setSigneringsTidpunkt(LocalDateTime.now());
 		meddelande.setSvar(svar);
 
 		return meddelande;

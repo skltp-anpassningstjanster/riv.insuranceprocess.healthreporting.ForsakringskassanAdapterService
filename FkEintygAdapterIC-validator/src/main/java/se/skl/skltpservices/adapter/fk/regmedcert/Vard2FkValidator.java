@@ -89,7 +89,7 @@ public class Vard2FkValidator {
 			}
 
 			// Check skickat datum - mandatory
-			if (inLakarutlatande.getSkickatDatum() == null || !inLakarutlatande.getSkickatDatum().isValid()) {
+			if (inLakarutlatande.getSkickatDatum() == null) {
 				validationErrors.add("No or wrong skickatDatum found!");
 			}
 
@@ -207,25 +207,23 @@ public class Vard2FkValidator {
 				// Fält 4 - höger - 1:a kryssrutan Check that we got a date if
 				// choice is set
 				if (inUndersokning != null
-						&& (inUndersokning.getVardkontaktstid() == null || !inUndersokning.getVardkontaktstid()
-								.isValid())) {
+						&& (inUndersokning.getVardkontaktstid() == null)) {
 					validationErrors.add("No or wrong date for vardkontakt - min undersokning av patienten found!");
 				}
 				// Fält 4 - höger - 2:a kryssrutan Check that we got a date if
 				// choice is set
 				if (telefonkontakt != null
-						&& (telefonkontakt.getVardkontaktstid() == null || !telefonkontakt.getVardkontaktstid()
-								.isValid())) {
+						&& (telefonkontakt.getVardkontaktstid() == null)) {
 					validationErrors.add("No or wrong date for vardkontakt - telefonkontakt found!");
 				}
 				// Fält 4 - höger - 3:e kryssrutan Check that we got a date if
 				// choice is set
-				if (journal != null && (journal.getDatum() == null || !journal.getDatum().isValid())) {
+				if (journal != null && (journal.getDatum() == null)) {
 					validationErrors.add("No or wrong date for referens - journal found!");
 				}
 				// Fält 4 - höger - 4:e kryssrutan Check that we got a date if
 				// choice is set
-				if (inAnnat != null && (inAnnat.getDatum() == null || !inAnnat.getDatum().isValid())) {
+				if (inAnnat != null && (inAnnat.getDatum() == null)) {
 					validationErrors.add("No or wrong date for referens - annat found!");
 				}
 
@@ -297,42 +295,42 @@ public class Vard2FkValidator {
 			}
 			// Fält 8b - kryssruta 1 - varaktighet From
 			if (nedsatt14del != null
-					&& (nedsatt14del.getVaraktighetFrom() == null || !nedsatt14del.getVaraktighetFrom().isValid())) {
+					&& (nedsatt14del.getVaraktighetFrom() == null)) {
 				validationErrors.add("No or wrong date for nedsatt 1/4 from date found!");
 			}
 			// Fält 8b - kryssruta 1 - varaktighet Tom
 			if (nedsatt14del != null
-					&& (nedsatt14del.getVaraktighetTom() == null || !nedsatt14del.getVaraktighetTom().isValid())) {
+					&& (nedsatt14del.getVaraktighetTom() == null)) {
 				validationErrors.add("No or wrong date for nedsatt 1/4 tom date found!");
 			}
 			// Fält 8b - kryssruta 2 - varaktighet From
 			if (nedsatthalften != null
-					&& (nedsatthalften.getVaraktighetFrom() == null || !nedsatthalften.getVaraktighetFrom().isValid())) {
+					&& (nedsatthalften.getVaraktighetFrom() == null)) {
 				validationErrors.add("No or wrong date for nedsatt 1/2 from date found!");
 			}
 			// Fält 8b - kryssruta 2 - varaktighet Tom
 			if (nedsatthalften != null
-					&& (nedsatthalften.getVaraktighetTom() == null || !nedsatthalften.getVaraktighetTom().isValid())) {
+					&& (nedsatthalften.getVaraktighetTom() == null)) {
 				validationErrors.add("No or wrong date for nedsatt 1/2 tom date found!");
 			}
 			// Fält 8b - kryssruta 3 - varaktighet From
 			if (nedsatt34delar != null
-					&& (nedsatt34delar.getVaraktighetFrom() == null || !nedsatt34delar.getVaraktighetFrom().isValid())) {
+					&& (nedsatt34delar.getVaraktighetFrom() == null)) {
 				validationErrors.add("No or wrong date for nedsatt 3/4 from date found!");
 			}
 			// Fält 8b - kryssruta 3 - varaktighet Tom
 			if (nedsatt34delar != null
-					&& (nedsatt34delar.getVaraktighetTom() == null || !nedsatt34delar.getVaraktighetTom().isValid())) {
+					&& (nedsatt34delar.getVaraktighetTom() == null)) {
 				validationErrors.add("No or wrong date for nedsatt 3/4 tom date found!");
 			}
 			// Fält 8b - kryssruta 4 - varaktighet From
 			if (heltNedsatt != null
-					&& (heltNedsatt.getVaraktighetFrom() == null || !heltNedsatt.getVaraktighetFrom().isValid())) {
+					&& (heltNedsatt.getVaraktighetFrom() == null)) {
 				validationErrors.add("No or wrong date for helt nedsatt from date found!");
 			}
 			// Fält 8b - kryssruta 4 - varaktighet Tom
 			if (heltNedsatt != null
-					&& (heltNedsatt.getVaraktighetTom() == null || !heltNedsatt.getVaraktighetTom().isValid())) {
+					&& (heltNedsatt.getVaraktighetTom() == null)) {
 				validationErrors.add("No or wrong date for helt nedsatt tom date found!");
 			}
 
@@ -398,7 +396,7 @@ public class Vard2FkValidator {
 			}
 
 			// Fält 14 - Signeringstidpunkt
-			if (inLakarutlatande.getSigneringsdatum() == null || !inLakarutlatande.getSigneringsdatum().isValid()) {
+			if (inLakarutlatande.getSigneringsdatum() == null) {
 				validationErrors.add("Signeringsdatum must be set (14)");
 			}
 

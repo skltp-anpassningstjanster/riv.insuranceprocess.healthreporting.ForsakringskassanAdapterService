@@ -29,10 +29,10 @@ import static se.skl.skltpservices.adapter.fk.regmedcert.RegisterMedicalCertific
 
 import java.util.ResourceBundle;
 
-import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
+import org.joda.time.LocalDateTime;
 import org.mule.api.MuleMessage;
 import org.mule.api.transformer.TransformerException;
 import org.mule.config.i18n.MessageFactory;
@@ -156,8 +156,8 @@ public class Vard2FkTransformer extends AbstractMessageTransformer {
 					.getVardgivareId().getExtension();
 			String inVardgivarNamn = inRequest.getLakarutlatande().getSkapadAvHosPersonal().getEnhet().getVardgivare()
 					.getVardgivarnamn();
-			XMLGregorianCalendar inSignerades = inRequest.getLakarutlatande().getSigneringsdatum();
-			XMLGregorianCalendar inSkickadesTid = inRequest.getLakarutlatande().getSkickatDatum();
+			LocalDateTime inSignerades = inRequest.getLakarutlatande().getSigneringsdatum();
+			LocalDateTime inSkickadesTid = inRequest.getLakarutlatande().getSkickatDatum();
 			boolean inSmittskydd = findAktivitetWithCode(inRequest.getLakarutlatande().getAktivitet(),
 					Aktivitetskod.AVSTANGNING_ENLIGT_SM_L_PGA_SMITTA) != null ? true : false;
 			String inDiagnoskod = "";

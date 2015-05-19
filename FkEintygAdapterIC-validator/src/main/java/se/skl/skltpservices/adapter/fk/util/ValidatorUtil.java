@@ -151,18 +151,18 @@ public final class ValidatorUtil {
     }
 
     public static void validateLakarutlatande(ArrayList<String> validationErrors, LakarutlatandeEnkelType inLakarUtlatande) throws Exception {
-        // L�karutl�tande referens - mandatory
+        // Läkarutlåtande referens - mandatory
         if (inLakarUtlatande == null) {
             validationErrors.add("No lakarutlatande element found!");
             throw new Exception();
         }
-        // L�karutl�tande referens - id - mandatory
+        // Läkarutlåtande referens - id - mandatory
         if (inLakarUtlatande.getLakarutlatandeId() == null || inLakarUtlatande.getLakarutlatandeId().length() < 1) {
             validationErrors.add("No lakarutlatande-id found!");
         }
 
-        // L�karutl�tande referens - signeringsTidpunkt - mandatory
-        if (inLakarUtlatande.getSigneringsTidpunkt() == null || !inLakarUtlatande.getSigneringsTidpunkt().isValid()) {
+        // Läkarutlåtande referens - signeringsTidpunkt - mandatory
+        if (inLakarUtlatande.getSigneringsTidpunkt() == null) {
             validationErrors.add("No or wrong lakarutlatande-signeringsTidpunkt found!");
         }
 

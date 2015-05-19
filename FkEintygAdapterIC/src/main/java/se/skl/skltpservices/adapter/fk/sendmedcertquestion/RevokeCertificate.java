@@ -22,10 +22,7 @@ package se.skl.skltpservices.adapter.fk.sendmedcertquestion;
 
 import iso.v21090.dt.v1.II;
 
-import java.util.GregorianCalendar;
-
-import javax.xml.datatype.DatatypeFactory;
-
+import org.joda.time.LocalDateTime;
 import org.mule.module.client.MuleClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -106,7 +103,7 @@ public class RevokeCertificate extends Thread {
 		meddelande.setAdressVard(avsandare);
 				
 		// Avsant tidpunkt - nu
-		meddelande.setAvsantTidpunkt(DatatypeFactory.newInstance().newXMLGregorianCalendar(new GregorianCalendar()));
+		meddelande.setAvsantTidpunkt(LocalDateTime.now());
 
 		// Set lakarutlatande enkel fran varden
 		meddelande.setVardReferensId(question.getVardReferensId());

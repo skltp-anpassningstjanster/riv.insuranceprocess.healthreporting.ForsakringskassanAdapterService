@@ -87,8 +87,7 @@ public class VardRequest2FkValidator {
 			if (inAnswer.getFraga().getMeddelandeText() == null || inAnswer.getFraga().getMeddelandeText().length() < 1) {
 				validationErrors.add("No Answer fraga meddelandeText elements found or set!");
 			}
-			if (inAnswer.getFraga().getSigneringsTidpunkt() == null
-					|| !inAnswer.getFraga().getSigneringsTidpunkt().isValid()) {
+			if (inAnswer.getFraga().getSigneringsTidpunkt() == null) {
 				validationErrors.add("No Answer fraga signeringsTidpunkt elements found or set!");
 			}
 
@@ -102,13 +101,12 @@ public class VardRequest2FkValidator {
 			if (inAnswer.getSvar().getMeddelandeText() == null || inAnswer.getSvar().getMeddelandeText().length() < 1) {
 				validationErrors.add("No Answer svar meddelandeText elements found or set!");
 			}
-			if (inAnswer.getSvar().getSigneringsTidpunkt() == null
-					|| !inAnswer.getSvar().getSigneringsTidpunkt().isValid()) {
+			if (inAnswer.getSvar().getSigneringsTidpunkt() == null) {
 				validationErrors.add("No Answer svar signeringsTidpunkt elements found or set!");
 			}
 
 			// Avsänt tidpunkt - mandatory
-			if (inAnswer.getAvsantTidpunkt() == null || !inAnswer.getAvsantTidpunkt().isValid()) {
+			if (inAnswer.getAvsantTidpunkt() == null) {
 				validationErrors.add("No or wrong avsantTidpunkt found!");
 			}
 

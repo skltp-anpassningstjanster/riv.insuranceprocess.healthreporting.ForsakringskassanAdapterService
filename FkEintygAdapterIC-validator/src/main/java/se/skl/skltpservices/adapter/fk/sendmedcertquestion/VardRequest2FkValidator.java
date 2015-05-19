@@ -83,13 +83,12 @@ public class VardRequest2FkValidator {
 					|| inQuestion.getFraga().getMeddelandeText().length() < 1) {
 				validationErrors.add("No Question fraga meddelandeText elements found or set!");
 			}
-			if (inQuestion.getFraga().getSigneringsTidpunkt() == null
-					|| !inQuestion.getFraga().getSigneringsTidpunkt().isValid()) {
+			if (inQuestion.getFraga().getSigneringsTidpunkt() == null) {
 				validationErrors.add("No Question fraga signeringsTidpunkt elements found or set!");
 			}
 
-			// Avs�nt tidpunkt - mandatory
-			if (inQuestion.getAvsantTidpunkt() == null || !inQuestion.getAvsantTidpunkt().isValid()) {
+			// Avsänt tidpunkt - mandatory
+			if (inQuestion.getAvsantTidpunkt() == null) {
 				validationErrors.add("No or wrong avsantTidpunkt found!");
 			}
 

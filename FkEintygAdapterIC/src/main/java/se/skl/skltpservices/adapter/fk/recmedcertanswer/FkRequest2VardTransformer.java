@@ -22,10 +22,10 @@ package se.skl.skltpservices.adapter.fk.recmedcertanswer;
 
 import iso.v21090.dt.v1.II;
 
-import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
+import org.joda.time.LocalDateTime;
 import org.mule.api.MuleMessage;
 import org.mule.api.transformer.TransformerException;
 import org.mule.config.i18n.MessageFactory;
@@ -196,7 +196,7 @@ public class FkRequest2VardTransformer extends AbstractMessageTransformer {
 			outEnhetMottagare.setVardgivare(outVardgivareMottagare);
 
 			// Avsänt tidpunkt
-			XMLGregorianCalendar inSkickades = inRequest.getFKSKLTaEmotSvarAnrop().getAdressering().getSkickades();
+			LocalDateTime inSkickades = inRequest.getFKSKLTaEmotSvarAnrop().getAdressering().getSkickades();
 			outMeddelande.setAvsantTidpunkt(inSkickades);
 
 			// Set läkarutlåtande enkel från vården
