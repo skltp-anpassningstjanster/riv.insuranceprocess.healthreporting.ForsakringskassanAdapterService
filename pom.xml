@@ -13,7 +13,7 @@
 
 	<groupId>se.skltp.adapterservices.insuranceprocess.healthreporting</groupId>
 	<artifactId>ForsakringskassanEintygAdapter</artifactId>
-	<version>2.1.0</version>
+	<version>2.1.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>${project.artifactId}</name>
 
@@ -21,7 +21,7 @@
 		<url>https://github.com/skltp-anpassningstjanster/riv.insuranceprocess.healthreporting.ForsakringskassanAdapterService</url>
 		<connection>scm:git:git://github.com/skltp-anpassningstjanster/riv.insuranceprocess.healthreporting.ForsakringskassanAdapterService.git</connection>
 		<developerConnection>scm:git:git://github.com/skltp-anpassningstjanster/riv.insuranceprocess.healthreporting.ForsakringskassanAdapterService.git</developerConnection>
-		<tag>v2.1.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<properties>
