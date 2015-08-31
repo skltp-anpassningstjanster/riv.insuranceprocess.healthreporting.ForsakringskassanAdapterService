@@ -42,13 +42,13 @@
 				connector-ref="soitoolkit-https-connector" 
 				exchange-pattern="request-response"
 				responseTransformer-refs="objToStr logRespOut"
-				transformer-refs="objToStr logReqIn checkSenderHsaIdTransformer newReceiverIdQuestion changeNamespaceRecMedCertQuestion">
+				transformer-refs="objToStr create-correlation-id logReqIn checkSenderHsaIdTransformer newReceiverIdQuestion changeNamespaceRecMedCertQuestion">
 			</https:inbound-endpoint>
 			
 			<http:inbound-endpoint address="${inbound.endpoint.http.eintyg.taemotfraga}"
 				exchange-pattern="request-response"
 				responseTransformer-refs="objToStr logRespOut"
-				transformer-refs="objToStr logReqIn checkSenderHsaIdTransformer newReceiverIdQuestion changeNamespaceRecMedCertQuestion">
+				transformer-refs="objToStr create-correlation-id logReqIn checkSenderHsaIdTransformer newReceiverIdQuestion changeNamespaceRecMedCertQuestion">
 			</http:inbound-endpoint>
 		 </composite-source>
 		 

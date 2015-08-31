@@ -46,13 +46,13 @@
 				connector-ref="soitoolkit-https-connector" 
 				exchange-pattern="request-response"
 				responseTransformer-refs="objToStr logRespOut"
-				transformer-refs="objToStr logReqIn checkSenderHsaIdTransformer newReceiverIdAnswer changeNamespaceRecMedCertAnswer">
+				transformer-refs="objToStr create-correlation-id logReqIn checkSenderHsaIdTransformer newReceiverIdAnswer changeNamespaceRecMedCertAnswer">
 			</https:inbound-endpoint>
 			
 			<http:inbound-endpoint address="${inbound.endpoint.http.eintyg.receivemedicalcertificateanswer}"
 				exchange-pattern="request-response"
 				responseTransformer-refs="objToStr logRespOut"
-				transformer-refs="objToStr logReqIn checkSenderHsaIdTransformer newReceiverIdAnswer changeNamespaceRecMedCertAnswer">
+				transformer-refs="objToStr create-correlation-id logReqIn checkSenderHsaIdTransformer newReceiverIdAnswer changeNamespaceRecMedCertAnswer">
 			</http:inbound-endpoint>
 		</composite-source>
 

@@ -36,14 +36,14 @@
 				connector-ref="soitoolkit-https-connector" 
 				exchange-pattern="request-response"
 				responseTransformer-refs="objToStr logRespOut"
-				transformer-refs="objToStr logReqIn changeNamespaceSendAnswer">
+				transformer-refs="objToStr create-correlation-id logReqIn changeNamespaceSendAnswer">
 			</https:inbound-endpoint>
 			
 			<http:inbound-endpoint
         	    address="${inbound.endpoint.http.eintyg.sendmedicalcertificateanswer}"
             	exchange-pattern="request-response" 
             	responseTransformer-refs="objToStr logRespOut"
-				transformer-refs="objToStr logReqIn changeNamespaceSendAnswer">
+				transformer-refs="objToStr create-correlation-id logReqIn changeNamespaceSendAnswer">
         	</http:inbound-endpoint>
 			
 		</composite-source>

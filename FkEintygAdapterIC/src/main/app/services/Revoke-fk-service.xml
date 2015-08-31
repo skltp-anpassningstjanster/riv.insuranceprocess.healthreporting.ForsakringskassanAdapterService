@@ -47,7 +47,7 @@
         address="${inbound.endpoint.https.eintyg.sendmedicalcertificatequestion.revoke}" 
         component-class="se.skl.skltpservices.adapter.fk.sendmedcertquestion.SendMCQRevoke"
         type="jax-ws" 
-        transformer-refs="objToStr logReqIn" 
+        transformer-refs="objToStr create-correlation-id logReqIn" 
 		responseTransformer-refs="objToStr logRespOut"/>
 		
 	<!-- To support both https and http at the same time for SendMedicalCertificateQuestion-service-revoke-->
@@ -56,7 +56,7 @@
         address="${inbound.endpoint.http.eintyg.sendmedicalcertificatequestion.revoke}" 
         component-class="se.skl.skltpservices.adapter.fk.sendmedcertquestion.SendMCQRevoke"
         type="jax-ws" 
-        transformer-refs="objToStr logReqIn" 
+        transformer-refs="objToStr create-correlation-id logReqIn" 
 		responseTransformer-refs="objToStr logRespOut"/>
    	     
 </mule>

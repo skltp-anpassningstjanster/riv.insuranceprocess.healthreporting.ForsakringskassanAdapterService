@@ -17,7 +17,7 @@
         address="${inbound.endpoint.eintyg.receivemedicalcertificatequestion.autosvar}" 
         component-class="se.skl.skltpservices.adapter.fk.recmedcertquestion.AutosvarImpl"
         type="jax-ws" 
-        transformer-refs="logReqIn" 
+        transformer-refs="create-correlation-id logReqIn" 
 		responseTransformer-refs="logRespOut"/>
 
 </mule>

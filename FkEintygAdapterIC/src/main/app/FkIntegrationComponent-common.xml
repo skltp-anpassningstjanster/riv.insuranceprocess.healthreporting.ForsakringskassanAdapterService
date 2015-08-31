@@ -70,7 +70,10 @@
   		<!-- import the common logger config -->
   		<spring:import resource="classpath:tp-commons-mule-logging.xml" />
 	</spring:beans>
-
+	
+	<!-- transformers -->
+    <custom-transformer class="se.skl.skltpservices.adapter.common.processor.UseOrCreateCorrelationIdTransformer" name="create-correlation-id"/>
+	
     <message-properties-transformer name="setJsonContentType" scope="outbound">
         <add-message-property key="Content-Type" value="application/json;charset=UTF-8"/>
     </message-properties-transformer>
