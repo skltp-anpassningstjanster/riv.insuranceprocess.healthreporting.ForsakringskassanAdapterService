@@ -4,7 +4,6 @@
 	xmlns:json="http://www.mulesoft.org/schema/mule/json" 
 	xmlns:management="http://www.mulesoft.org/schema/mule/management"
 	xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" 
-	xmlns:rest="http://www.mulesoft.org/schema/mule/rest"
 	xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
 	xmlns:spring="http://www.springframework.org/schema/beans" 
 	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
@@ -14,8 +13,7 @@
 						http://www.mulesoft.org/schema/mule/jms        http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd   
 						http://www.mulesoft.org/schema/mule/management http://www.mulesoft.org/schema/mule/management/current/mule-management.xsd   
 						http://www.mulesoft.org/schema/mule/json       http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd   
-						http://www.mulesoft.org/schema/mule/scripting  http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd   
-						http://www.mulesoft.org/schema/mule/rest       http://www.mulesoft.org/schema/mule/rest/current/mule-rest.xsd   
+						http://www.mulesoft.org/schema/mule/scripting  http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd     
 						http://www.mulesoft.org/schema/mule/xml        http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd ">
 
 
@@ -62,9 +60,6 @@
     </spring:beans>
 
     <!-- Common connectors and endpoints, i.e. that not needs to be changed for different config-files (local unit-test, integration-test or production environments) -->
-  
-    <rest:config/>
-
     <spring:beans>
   
     <spring:import resource="classpath:soitoolkit-mule-http-connector.xml"/>
