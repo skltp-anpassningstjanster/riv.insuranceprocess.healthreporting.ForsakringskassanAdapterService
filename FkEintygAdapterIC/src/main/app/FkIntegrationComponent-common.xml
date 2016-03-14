@@ -113,6 +113,11 @@
     <custom-transformer class="org.soitoolkit.commons.mule.log.LogTransformer" name="logReqOut">
 		<spring:property name="logType" value="req-out"/>
         <spring:property name="jaxbContext" ref="jaxbContext"/>
+        <spring:property name="extraInfo">
+        	<spring:map>
+        		<spring:entry key="fkadapter_amne" value="#[flowVars.fkadapter_amne]" />
+        	</spring:map>
+        </spring:property>
     </custom-transformer>
 
     <custom-transformer class="org.soitoolkit.commons.mule.log.LogTransformer" name="logRespIn">

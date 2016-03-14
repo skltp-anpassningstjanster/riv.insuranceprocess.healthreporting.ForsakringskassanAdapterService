@@ -68,8 +68,7 @@
  		-->
  		<set-property propertyName="x-vp-sender-id" value="#[message.outboundProperties.get(se.skl.skltpservices.adapter.common.processor.FkAdapterUtil.FK_SENDER_ID)]" doc:name="propagate x-vp-sender-id when invoking VP" />
  		<set-property propertyName="x-vp-instance-id" value="${VP_INSTANCE_ID}" doc:name="propagate x-vp-instance-id when invoking VP" />
-
-			
+	
 		<http:outbound-endpoint connector-ref="soitoolkit-http-connector"
 			address="${outbound.endpoint.eintyg.receivemedicalcertificatequestion}"
 			exchange-pattern="request-response" 

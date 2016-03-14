@@ -255,6 +255,7 @@ public class FkRequest2VardTransformer extends AbstractMessageTransformer {
 			// Set ämne
 			Amne inAmne = inRequest.getFKSKLTaEmotFragaAnrop().getAmne();
 			outMeddelande.setAmne(transformAmneFromFK(inAmne));
+			message.setInvocationProperty("fkadapter_amne", inAmne.getBeskrivning());
 
 			// Set meddelande rubrik och text
 			if (inAmne.getFritext() != null && inAmne.getFritext().length() > 0) {
@@ -296,14 +297,15 @@ public class FkRequest2VardTransformer extends AbstractMessageTransformer {
 			// message.setProperty("receiverid", newReceiverId);
 
 			Object[] payloadOut = new Object[] { logicalAddressHeader, outRequest };
-
+			message.setPayload(payloadOut);
+			
 			if (logger.isDebugEnabled()) {
 				logger.debug("transformed payload to: " + payloadOut);
 			}
 
 			logger.info("Exiting fk2vard receive medical certificate question transform");
 
-			return payloadOut;
+			return message;
 		} catch (Exception e) {
 			logger.error("Transform exception:" + e.getMessage());
 			throw new TransformerException(MessageFactory.createStaticMessage(e.getMessage()));
