@@ -60,6 +60,7 @@ import se.inera.ifv.insuranceprocess.healthreporting.v2.EnhetType;
 import se.inera.ifv.insuranceprocess.healthreporting.v2.HosPersonalType;
 import se.inera.ifv.insuranceprocess.healthreporting.v2.PatientType;
 import se.inera.ifv.insuranceprocess.healthreporting.v2.VardgivareType;
+import se.skl.skltpservices.adapter.fk.constants.FkProperties;
 
 public class FkRequest2VardTransformer extends AbstractMessageTransformer {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
@@ -255,7 +256,7 @@ public class FkRequest2VardTransformer extends AbstractMessageTransformer {
 			// Set ämne
 			Amne inAmne = inRequest.getFKSKLTaEmotFragaAnrop().getAmne();
 			outMeddelande.setAmne(transformAmneFromFK(inAmne));
-			message.setInvocationProperty("fkadapter_amne", inAmne.getBeskrivning());
+			message.setInvocationProperty(FkProperties.FK_ADAPTER_AMNE, inAmne.getBeskrivning());
 
 			// Set meddelande rubrik och text
 			if (inAmne.getFritext() != null && inAmne.getFritext().length() > 0) {
