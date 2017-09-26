@@ -204,10 +204,8 @@ public class VardRequest2FkValidatorTest {
         sendQuestionRequest.getQuestion().getLakarutlatande().getPatient().setFullstandigtNamn(null);
         try {
             validator.validateRequest(sendQuestionRequest);
-            Assert.fail("Exception expected");
         } catch (Exception e) {
-            // Expected
-            Assert.assertTrue("", e.getMessage().contains("Validation error"));
+            Assert.fail("Missing patient name should be allowed");
         }
     }
     
@@ -216,10 +214,8 @@ public class VardRequest2FkValidatorTest {
         sendQuestionRequest.getQuestion().getLakarutlatande().getPatient().setFullstandigtNamn("");
         try {
             validator.validateRequest(sendQuestionRequest);
-            Assert.fail("Exception expected");
         } catch (Exception e) {
-            // Expected
-            Assert.assertTrue("", e.getMessage().contains("Validation error"));
+            Assert.fail("Empty patient name should be allowed");
         }
     }
     
