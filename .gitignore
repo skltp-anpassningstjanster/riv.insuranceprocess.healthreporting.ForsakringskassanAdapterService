@@ -2,7 +2,7 @@
 .project
 .settings
 .studio
-.iml
 target
 .idea
+*.iml
 

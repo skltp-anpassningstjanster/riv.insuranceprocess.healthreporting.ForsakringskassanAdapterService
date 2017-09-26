@@ -80,10 +80,6 @@ public final class ValidatorUtil {
             validationErrors.add("Wrong format for person-id! Valid format is YYYYMMDD-XXXX or YYYYMMDD+XXXX.");
         }
 
-        // Get namn for patient - mandatory
-        if (inPatient.getFullstandigtNamn() == null || inPatient.getFullstandigtNamn().length() < 1) {
-            validationErrors.add("No Patient fullstandigtNamn elements found or set!");
-        }
     }
 
     public static void validateHoSPersonal(ArrayList<String> validationErrors, HosPersonalType inHoSP) throws Exception {
