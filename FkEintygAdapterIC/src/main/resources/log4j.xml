@@ -102,7 +102,7 @@
     	ERROR will only put errorevents on log queue
     -->
   <logger name="org.soitoolkit.commons.mule.messageLogger">
-    <level value="DEBUG" />
+    <level value="INFO" />
   </logger>
   
     <!-- Monitoring logs to separate log file, additivity makes sure not logged twice -->

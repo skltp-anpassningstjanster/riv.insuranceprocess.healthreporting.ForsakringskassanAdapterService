@@ -36,7 +36,7 @@
 						<id>generate-sources</id>
 						<phase>generate-sources</phase>
 						<configuration>
-							<sourceRoot>${basedir}/target/generated/src/main/java</sourceRoot>
+							<sourceRoot>${basedir}/target/generated-sources/src/main/java</sourceRoot>
 							<defaultOptions>
 								<bindingFiles>
 									<bindingFile>classpath:/general-binding.xjb</bindingFile>
