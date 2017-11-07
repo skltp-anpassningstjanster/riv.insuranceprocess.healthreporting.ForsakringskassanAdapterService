@@ -113,9 +113,8 @@ parent-pom controls this to exclude jug-dependency, ref: SKLTP-646
 					<version>1.10.b1</version>
 					<configuration>
 						<properties>
-							<year>2013</year>
-							<copyright>Center for eHalsa i samverkan (CeHis).
-							&lt;http://cehis.se/&gt;</copyright>
+							<year>2014</year>
+							<copyright>Inera AB, &lt;http://inera.se/&gt;</copyright>                            
 							<product>SKLTP</product>
 						</properties>
 						<strictCheck>true</strictCheck>
