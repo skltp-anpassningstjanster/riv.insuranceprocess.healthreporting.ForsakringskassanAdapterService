@@ -1,6 +1,5 @@
 /**
- * Copyright (c) 2013 Center for eHalsa i samverkan (CeHis).
- * 							<http://cehis.se/>
+ * Copyright (c) 2014 Inera AB, <http://inera.se/>
  *
  * This file is part of SKLTP.
  *
@@ -18,7 +17,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
-
 package se.skl.skltpservices.adapter.fk.revokemedcert;
 
 import javax.jws.WebService;
